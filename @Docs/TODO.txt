@@ -1,0 +1,38 @@
+﻿
+AS OF MAY 29, 2023
+	implement user controls in student form [2023-05-29 -> done]
+	sort the names upon retrieving them on attendance form.
+	update the 'total absent' and 'total present' in the database [2023-05-29 -> done]
+	get the 'total_present' and 'total_absent' and set_text them on the
+		user control.
+
+
+AS OF MAY 25, 2023
+	store the result of the buttons, if red -> absent, otherwise,
+		present [done]
+
+
+AS OF MAY 23, 2023
+	get the values at a certain column in database
+		and store those data in an array list :) [done]
+	plan on how to store the count of absences from
+		in database. [done]
+
+
+AS OF MAY 17, 2023
+	make the functionalities of each form more concise
+		ex. delete class 
+
+
+AS OF MAY 16, 2023
+
+	get the total number of students in a database.
+	generate buttons programatically [dynamically], the 
+		number of buttons is based on the number of 
+		students in the database. [done]
+	set on-click listener on the buttons that are generated [done]
+	the solution I think is that, we are going the generate
+		a seat plan based on the last names of the students.
+		In the future, we are going to make it possible that
+		the  teacher is the one who are going the arrange the
+		seat plan
