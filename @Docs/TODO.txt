@@ -1,4 +1,9 @@
 ﻿
+AS OF MAY 31, 2023
+	fix the error on the data inserted in attendance form [add id in the query, 
+		I guess this will solve the problem]
+
+
 AS OF MAY 29, 2023
 	implement user controls in student form [2023-05-29 -> done]
 	sort the names upon retrieving them on attendance form.

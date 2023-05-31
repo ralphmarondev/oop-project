@@ -1,4 +1,8 @@
 ﻿
+May 31, 2023
+	can add, edit, delete user from database
+
+
 May 30, 2023
 	added 'college' and 'department' fields in class form
 

@@ -742,9 +742,9 @@ namespace StudentAttendanceManagementSystem
             #region Update present and absents in database
 
             string column_to_be_updated = "total_absents";
-            DBTools.IncrementAndInsertValue(column_name, table_name, column_to_be_updated);
+            DBTools.IncrementAndInsertValue(column_name, table_name, column_to_be_updated, myRecordIds_absent);
             column_to_be_updated = "total_presents";
-            DBTools.IncrementAndInsertValue(column_name, table_name, column_to_be_updated);
+            // DBTools.IncrementAndInsertValue(column_name, table_name, column_to_be_updated);
 
             #endregion
 
@@ -771,6 +771,7 @@ namespace StudentAttendanceManagementSystem
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@value", value);
                     command.Parameters.AddWithValue("@id", id);
+                    //DBTools.IncrementAndInsert(table_name, column_name, id);
                     command.ExecuteNonQuery();
                 }
 

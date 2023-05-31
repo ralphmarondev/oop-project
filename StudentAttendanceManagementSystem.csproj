@@ -32,6 +32,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test-1.0|AnyCPU'">
+    <OutputPath>bin\test-1.0\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test-1.0.1|AnyCPU'">
+    <OutputPath>bin\test-1.0.1\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test-1.0.2|AnyCPU'">
+    <OutputPath>bin\test-1.0.2\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -156,6 +165,19 @@
     <Compile Include="StudentModule\UserControls\StudentUserControl.Designer.cs">
       <DependentUpon>StudentUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\DisposableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\DisposableForm.Designer.cs">
+      <DependentUpon>DisposableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\IncrementingDBRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\IncrementingDBRecord.Designer.cs">
+      <DependentUpon>IncrementingDBRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\IncrementingDBRecordHelper.cs" />
     <Compile Include="Test\MyUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,7 +208,26 @@
     <Compile Include="Test\UserControlsDemo.Designer.cs">
       <DependentUpon>UserControlsDemo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\AttendanceTools.cs" />
     <Compile Include="Tools\DBTools.cs" />
+    <Compile Include="UserModule\AddNewUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserModule\AddNewUserForm.Designer.cs">
+      <DependentUpon>AddNewUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserModule\DeleteUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserModule\DeleteUserForm.Designer.cs">
+      <DependentUpon>DeleteUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserModule\EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserModule\EditUserForm.Designer.cs">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserModule\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +298,12 @@
     <EmbeddedResource Include="StudentModule\UserControls\StudentUserControl.resx">
       <DependentUpon>StudentUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Test\DisposableForm.resx">
+      <DependentUpon>DisposableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\IncrementingDBRecord.resx">
+      <DependentUpon>IncrementingDBRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test\MyUserControl.resx">
       <DependentUpon>MyUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +318,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test\UserControlsDemo.resx">
       <DependentUpon>UserControlsDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserModule\AddNewUserForm.resx">
+      <DependentUpon>AddNewUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserModule\DeleteUserForm.resx">
+      <DependentUpon>DeleteUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserModule\EditUserForm.resx">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserModule\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

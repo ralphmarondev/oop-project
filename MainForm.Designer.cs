@@ -118,12 +118,13 @@
             // 
             // btn_login_as_guest
             // 
+            this.btn_login_as_guest.BackColor = System.Drawing.Color.Chartreuse;
             this.btn_login_as_guest.Location = new System.Drawing.Point(1034, 553);
             this.btn_login_as_guest.Name = "btn_login_as_guest";
             this.btn_login_as_guest.Size = new System.Drawing.Size(75, 61);
             this.btn_login_as_guest.TabIndex = 3;
             this.btn_login_as_guest.Text = "G";
-            this.btn_login_as_guest.UseVisualStyleBackColor = true;
+            this.btn_login_as_guest.UseVisualStyleBackColor = false;
             this.btn_login_as_guest.Click += new System.EventHandler(this.btn_login_as_guest_Click);
             // 
             // MainForm

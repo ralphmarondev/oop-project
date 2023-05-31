@@ -21,6 +21,7 @@ namespace StudentAttendanceManagementSystem
         /// </summary>
         private void btn_login_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Loging in...");
             // SqlConnection conn = new SqlConnection("Data Source=LAPTOP-NG5TVS2R\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True");
             SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
             conn.Open();

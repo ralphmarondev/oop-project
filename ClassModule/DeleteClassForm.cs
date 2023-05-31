@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentAttendanceManagementSystem.Tools;
+using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -15,9 +16,9 @@ namespace StudentAttendanceManagementSystem.ClassModule
         {
             try
             {
-                string MyConnection2 = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+                // string MyConnection2 = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
                 string Query = "delete from classes_table where class_code ='" + this.tb_subject_code_delete.Text + "';";
-                SqlConnection MyConn2 = new SqlConnection(MyConnection2);
+                SqlConnection MyConn2 = new SqlConnection(DBTools.get_connection_string());
                 SqlCommand MyCommand2 = new SqlCommand(Query, MyConn2);
                 SqlDataReader MyReader2;
                 MyConn2.Open();
