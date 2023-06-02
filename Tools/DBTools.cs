@@ -8,10 +8,11 @@ namespace StudentAttendanceManagementSystem.Tools
 {
     public class DBTools
     {
+        private static string computer_name = ReadFile("my_server.txt");
         // change this depending on the name of the server installed in your computer!!
         // TODO: later, save the connection string in a file then the program will just read it
         //  this will avoid the recompilation of the program in different computer for having different names.
-        private static string connection_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+        private static string connection_string = "Data Source= " + computer_name + "\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
 
         // default type for creating column in database
         private static string default_type = "NVARCHAR(50)";
@@ -48,7 +49,7 @@ namespace StudentAttendanceManagementSystem.Tools
                 using (FileStream fs = File.Create(filePath))
                 {
                     // Optionally, you can write content to the file immediately after creating it
-                    byte[] content = System.Text.Encoding.UTF8.GetBytes("Hello, world!");
+                    byte[] content = System.Text.Encoding.UTF8.GetBytes("Hello there, Ralph Maron Eda is here!");
                     fs.Write(content, 0, content.Length);
                 }
 
@@ -61,19 +62,23 @@ namespace StudentAttendanceManagementSystem.Tools
         }
 
         // Read the contents of a file
-        public static void ReadFile(string filePath)
+        public static string ReadFile(string filePath)
         {
+            string content = "";
             try
             {
                 // Read all the text from the file
-                string content = File.ReadAllText(filePath);
+                content = File.ReadAllText(filePath);
 
                 Console.WriteLine("File content: " + content);
+                MessageBox.Show("File content:\n" + content);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error reading file: " + ex.Message);
+                MessageBox.Show("Error reading file: " + ex.Message);
             }
+            return content;
         }
 
         // Write content to a file
@@ -112,21 +117,6 @@ namespace StudentAttendanceManagementSystem.Tools
             {
                 Console.WriteLine("Error deleting file: " + ex.Message);
             }
-        }
-
-        private void generate_file()
-        {
-            // if file path is not specified, it will be saved in
-            // bin/Debug folder :)
-            string filePath = "db.txt";
-            string content = "Hello, world!";
-
-            DBTools.CreateFile(filePath);
-            DBTools.ReadFile(filePath);
-            DBTools.WriteToFile(filePath, content);
-            //DBTools.ReadFile(filePath);
-            //DBTools.DeleteFile(filePath);
-
         }
         #endregion
 
@@ -351,7 +341,6 @@ namespace StudentAttendanceManagementSystem.Tools
 
         #endregion
 
-
         #region backup
         //public static void IncrementAndInsertValue(string column_name, string table_name, string column_to_be_updated)
         //{
@@ -446,6 +435,21 @@ namespace StudentAttendanceManagementSystem.Tools
         //        }
         //    }
         //}
+
+        #endregion
+
+        #region Student Form tools
+
+        #endregion
+
+        #region Attendance Form tools
+        // selecting all students having 20% absents
+        // select * from class_test123 where total_absents = (select total_meets from classes_table where class_code like 'test123') * (20 / 100)
+
+        public static void select_all_student_with_20_percent_absents()
+        {
+
+        }
 
         #endregion
     }

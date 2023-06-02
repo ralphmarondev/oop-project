@@ -1,7 +1,14 @@
 ﻿
+AS OF JUNE 2, 2023
+	When the 'search' button beside 'id-number and class-code' in 'update class/student form'
+		fill the fields with the current values stored in the database.
+	Determine whether the student is available for drop out. 
+	Implement 'Reports Form' functionalities.
+
+
 AS OF MAY 31, 2023
 	fix the error on the data inserted in attendance form [add id in the query, 
-		I guess this will solve the problem]
+		I guess this will solve the problem] [2023-06-02 -> done]
 
 
 AS OF MAY 29, 2023

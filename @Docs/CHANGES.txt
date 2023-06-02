@@ -1,4 +1,10 @@
-﻿
+﻿June 2, 20223
+	can count and store in the database the total count of absent and present
+		of a student :)
+	can pass data between forms, student->attendance, etc. 
+		data like -> {college, department, school year, etc.}
+
+
 May 31, 2023
 	can add, edit, delete user from database
 

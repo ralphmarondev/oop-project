@@ -41,6 +41,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test-1.0.2|AnyCPU'">
     <OutputPath>bin\test-1.0.2\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-1.0.1|AnyCPU'">
+    <OutputPath>bin\Debug-1.0.1\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-1.0.2|AnyCPU'">
+    <OutputPath>bin\Debug-1.0.2\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,6 +66,18 @@
     </Compile>
     <Compile Include="AttendanceModule\AttendanceForm.Designer.cs">
       <DependentUpon>AttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceModule\UpdateAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceModule\UpdateAttendanceForm.Designer.cs">
+      <DependentUpon>UpdateAttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceModule\ViewAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceModule\ViewAttendanceForm.Designer.cs">
+      <DependentUpon>ViewAttendanceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassModule\AddClassForm.cs">
       <SubType>Form</SubType>
@@ -184,6 +202,18 @@
     <Compile Include="Test\MyUserControl.Designer.cs">
       <DependentUpon>MyUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\PassingDataBetweenForms\FirstForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\PassingDataBetweenForms\FirstForm.Designer.cs">
+      <DependentUpon>FirstForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\PassingDataBetweenForms\SecondForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\PassingDataBetweenForms\SecondForm.Designer.cs">
+      <DependentUpon>SecondForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\student_form\NewStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +337,12 @@
     <EmbeddedResource Include="Test\MyUserControl.resx">
       <DependentUpon>MyUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Test\PassingDataBetweenForms\FirstForm.resx">
+      <DependentUpon>FirstForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\PassingDataBetweenForms\SecondForm.resx">
+      <DependentUpon>SecondForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test\student_form\NewStudentForm.resx">
       <DependentUpon>NewStudentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -350,6 +386,8 @@
     <Content Include="%40Docs\TODO.txt" />
     <None Include="Resources\1669110163661.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Test\HorizontalScrollViewDemo\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿using StudentAttendanceManagementSystem.DashBoardModule;
+using StudentAttendanceManagementSystem.ReportsModule;
 using StudentAttendanceManagementSystem.StudentModule.UserControls;
 using StudentAttendanceManagementSystem.Tools;
 using System;
@@ -43,14 +44,15 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_add_class_Click(object sender, EventArgs e)
         {
-            AddStudentForm add_student_form = new AddStudentForm();
+            // string college, string department, string semester, string school_year, string class_enrolled
+            AddStudentForm add_student_form = new AddStudentForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text);
 
             add_student_form.Show();
         }
 
         private void btn_update_student_Click(object sender, EventArgs e)
         {
-            UpdateStudentForm update_student_form = new UpdateStudentForm();
+            UpdateStudentForm update_student_form = new UpdateStudentForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text);
 
             update_student_form.Show();
         }
@@ -75,18 +77,153 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         }
 
+        #region search student from database
+        private ArrayList searched_student_name_list = new ArrayList();
+        private ArrayList searched_student_total_absents = new ArrayList();
+        private ArrayList searched_student_total_presents = new ArrayList();
+        private int search_size_list = 0;
+
         private void btn_search_student_Click(object sender, EventArgs e)
         {
-            string class_code = "class_" + cb_class.Text;
-            SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
-            SqlCommand cmd = new SqlCommand("Select * from " + class_code + " where id_number = @id_number", conn);
-            conn.Open();
-            cmd.Parameters.AddWithValue("id_number", tb_student_id_search.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dgv_classes_lists.DataSource = dt;
+            #region Display searched students in a data grid view
+            //string class_code = "class_" + cb_class.Text;
+            //SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+            //SqlCommand cmd = new SqlCommand("Select * from " + class_code + " where id_number = @id_number", conn);
+            //conn.Open();
+            //cmd.Parameters.AddWithValue("id_number", tb_student_id_search.Text);
+            //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            //dgv_classes_lists.DataSource = dt;
+            #endregion
+
+            string table_name = "class_" + cb_class.Text;
+            string id_number = tb_student_id_search.Text;
+
+            generate_searched_student_dynamic_user_control(table_name, id_number);
+
         }
+
+        private void get_searched_student_from_db(string table_name, string id_number)
+        {
+            // searched_student_id_list.Clear();
+            searched_student_name_list.Clear();
+            searched_student_total_presents.Clear();
+            searched_student_total_absents.Clear(); //class_test123
+
+            // get_searched_student_from_database(table_name, "id_number", 1);
+            get_searched_student_from_database("last_name", table_name, id_number, 1);
+            // get_data_from_database(table_name, "last_name", 2);
+            //get_data_from_database(table_name, "total_presents", 3);
+            //get_data_from_database(table_name, "total_absents", 4);
+        }
+
+        private void get_searched_student_from_database(string column_name, string table_name, string id_number, int flag)
+        {
+            // Get data from database 
+            // string conn_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+            SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+            // string table_name = "classes_table"; //tb_subject_code_add.Text.Replace("-", "_") + "_" + tb_subject_name_add.Text + "_" + cb_semester_add.Text + "_" + tb_school_year_add.Text.Replace("-", "_");
+
+            #region try one
+            try
+            {
+                conn.Open();
+
+                string query = "SELECT " + column_name + " FROM " + table_name + " WHERE id_number like '" + id_number + "';";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        int column_index = reader.GetOrdinal(column_name);
+                        while (reader.Read())
+                        {
+                            switch (flag)
+                            {
+                                //case 1:
+                                //    string column_value1 = reader.GetString(column_index);
+                                //    student_id_list.Add(column_value1);
+                                //    // MessageBox.Show(column_value);
+                                //    search_size_list++;
+                                //    break;
+                                case 1:
+                                    string column_value2 = reader.GetString(column_index);
+                                    searched_student_name_list.Add(column_value2);
+                                    search_size_list++;
+                                    //MessageBox.Show(column_value);
+                                    break;
+                                    //case 3:
+                                    //    //object result = cmd.ExecuteScalar();
+                                    //    ////student_total_presents.Add(Convert.ToString(column_value.ToString()));
+                                    //    //student_total_presents.Add(result.ToString());
+                                    //    // MessageBox.Show(column_value);
+                                    //    int int_value = Convert.ToInt32(cmd.ExecuteScalar());
+                                    //    string string_value1 = int_value.ToString();
+                                    //    student_total_presents.Add(string_value1);
+                                    //    break;
+                                    //case 4:
+                                    //    //student_total_absents.Add(Convert.ToString(column_value.ToString()));
+                                    //    //object result2 = cmd.ExecuteScalar();
+                                    //    //student_total_absents.Add(result2.ToString());
+                                    //    //MessageBox.Show(column_value);
+                                    //    int int_value2 = Convert.ToInt32(cmd.ExecuteScalar());
+                                    //    string string_value2 = int_value2.ToString();
+                                    //    student_total_absents.Add(string_value2);
+                                    //    break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No data found!");
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            #endregion
+
+        }
+
+        private void generate_searched_student_dynamic_user_control(string table_name, string id_number)
+        {
+            search_size_list = 0;
+            get_searched_student_from_db(table_name, id_number);
+
+            flp_students.Controls.Clear();
+
+            StudentUserControl[] list_items = new StudentUserControl[search_size_list];
+
+            try
+            {
+                for (int i = 0; i < list_items.Length; i++)
+                {
+                    // create and story every dynamic user control object to list item array
+                    list_items[i] = new StudentUserControl();
+                    list_items[i].StudentIDNumber = id_number;
+                    list_items[i].StudentName = searched_student_name_list[i].ToString();
+                    //list_items[i].StudentTotalPresent = student_total_presents[i].ToString();
+                    //list_items[i].StudentTotalAbsent = student_total_absents[i].ToString();
+
+                    // adding newly created dynamic user control to dynamic panel
+                    flp_students.Controls.Add(list_items[i]);
+
+                    list_items[i].Click += new System.EventHandler(this.UserControl_Click);
+
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Me when I'm falling");
+            }
+        }
+
+
+        #endregion
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
@@ -256,9 +393,17 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_check_attendance_Click(object sender, EventArgs e)
         {
-            AttendanceForm attendance_form = new AttendanceForm();
+            AttendanceForm attendance_form = new AttendanceForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text);
 
             attendance_form.Show();
+            Hide();
+        }
+
+        private void btn_report_Click(object sender, EventArgs e)
+        {
+            ReportsForm rf = new ReportsForm();
+
+            rf.Show();
             Hide();
         }
     }

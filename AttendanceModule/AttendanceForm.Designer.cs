@@ -42,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_report = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_present = new System.Windows.Forms.Button();
@@ -93,12 +94,13 @@
             // cb_class
             // 
             this.cb_class.FormattingEnabled = true;
+            this.cb_class.Items.AddRange(new object[] {
+            "test123"});
             this.cb_class.Location = new System.Drawing.Point(601, 51);
             this.cb_class.Margin = new System.Windows.Forms.Padding(4);
             this.cb_class.Name = "cb_class";
             this.cb_class.Size = new System.Drawing.Size(196, 28);
             this.cb_class.TabIndex = 19;
-            this.cb_class.Text = "test123";
             // 
             // lbl_class
             // 
@@ -127,7 +129,6 @@
             this.cb_school_year.Name = "cb_school_year";
             this.cb_school_year.Size = new System.Drawing.Size(196, 28);
             this.cb_school_year.TabIndex = 17;
-            this.cb_school_year.Text = "2022-2023";
             // 
             // label12
             // 
@@ -151,7 +152,6 @@
             this.cb_semester.Name = "cb_semester";
             this.cb_semester.Size = new System.Drawing.Size(196, 28);
             this.cb_semester.TabIndex = 15;
-            this.cb_semester.Text = "FIRST SEMESTER";
             // 
             // label11
             // 
@@ -177,7 +177,6 @@
             this.cb_department.Name = "cb_department";
             this.cb_department.Size = new System.Drawing.Size(196, 28);
             this.cb_department.TabIndex = 13;
-            this.cb_department.Text = "BSCPE";
             // 
             // label1
             // 
@@ -203,7 +202,6 @@
             this.cb_college.Name = "cb_college";
             this.cb_college.Size = new System.Drawing.Size(196, 28);
             this.cb_college.TabIndex = 1;
-            this.cb_college.Text = "COEA";
             // 
             // label5
             // 
@@ -229,6 +227,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_report);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.btn_present);
@@ -240,6 +239,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1159, 75);
             this.panel3.TabIndex = 3;
+            // 
+            // btn_report
+            // 
+            this.btn_report.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_report.Location = new System.Drawing.Point(648, 15);
+            this.btn_report.Name = "btn_report";
+            this.btn_report.Size = new System.Drawing.Size(153, 48);
+            this.btn_report.TabIndex = 6;
+            this.btn_report.Text = "REPORT";
+            this.btn_report.UseVisualStyleBackColor = false;
+            this.btn_report.Click += new System.EventHandler(this.btn_report_Click);
             // 
             // button1
             // 
@@ -285,7 +295,7 @@
             // 
             // btn_insert
             // 
-            this.btn_insert.Location = new System.Drawing.Point(816, 15);
+            this.btn_insert.Location = new System.Drawing.Point(994, 15);
             this.btn_insert.Name = "btn_insert";
             this.btn_insert.Size = new System.Drawing.Size(153, 48);
             this.btn_insert.TabIndex = 1;
@@ -370,5 +380,6 @@
         private System.Windows.Forms.Button btn_present;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_report;
     }
 }

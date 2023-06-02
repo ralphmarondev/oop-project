@@ -1,4 +1,5 @@
 ﻿using StudentAttendanceManagementSystem.DashBoardModule;
+using StudentAttendanceManagementSystem.ReportsModule;
 using StudentAttendanceManagementSystem.Tools;
 using System;
 using System.Collections;
@@ -27,6 +28,18 @@ namespace StudentAttendanceManagementSystem
         public AttendanceForm()
         {
             InitializeComponent();
+        }
+
+        // constructor for passing data
+        public AttendanceForm(string college, string department, string semester, string school_year, string class_enrolled)
+        {
+            InitializeComponent();
+
+            cb_class.Text = class_enrolled;
+            cb_college.Text = college;
+            cb_department.Text = department;
+            cb_semester.Text = semester;
+            cb_school_year.Text = school_year;
         }
 
         #region Generating buttons programatically
@@ -588,6 +601,7 @@ namespace StudentAttendanceManagementSystem
             string table_name = "class_" + cb_class.Text; ;
             string column_name = current_date;
 
+
             #region comments
             #region Tryone
             //try
@@ -741,10 +755,15 @@ namespace StudentAttendanceManagementSystem
 
             #region Update present and absents in database
 
-            string column_to_be_updated = "total_absents";
-            DBTools.IncrementAndInsertValue(column_name, table_name, column_to_be_updated, myRecordIds_absent);
-            column_to_be_updated = "total_presents";
-            // DBTools.IncrementAndInsertValue(column_name, table_name, column_to_be_updated);
+            //string column_to_be_updated = "total_absents";
+            //DBTools.IncrementAndInsertValue(column_name, table_name, column_to_be_updated, myRecordIds_absent);
+            //column_to_be_updated = "total_presents";
+            //// DBTools.IncrementAndInsertValue(column_name, table_name, column_to_be_updated);
+
+            AttendanceTools.update_present(table_name, column_name);
+            AttendanceTools.update_absent(table_name, column_name);
+            string class_code = cb_class.Text;
+            AttendanceTools.update_total_meet_count("classes_table", class_code);
 
             #endregion
 
@@ -797,6 +816,14 @@ namespace StudentAttendanceManagementSystem
         private void AttendanceForm_Load(object sender, EventArgs e)
         {
             btn_refresh_Click(sender, e);
+        }
+
+        private void btn_report_Click(object sender, EventArgs e)
+        {
+            ReportsForm rf = new ReportsForm();
+
+            rf.Show();
+            Hide();
         }
     }
 }

@@ -6,6 +6,7 @@ namespace StudentAttendanceManagementSystem.Tools
 {
     public class AttendanceTools
     {
+        #region old
         private static void UpdateAttendance(string column_name, string table_name)
         {
             SqlConnection connection = new SqlConnection(DBTools.get_connection_string());
@@ -48,6 +49,90 @@ namespace StudentAttendanceManagementSystem.Tools
             {
                 connection.Close();
             }
+        }
+        #endregion
+
+        public static void update_present(string table_name, string column_name)
+        {
+            try
+            {
+                string querry = "UPDATE " + table_name + " SET  total_presents =  total_presents + 1 WHERE " + column_name + " like 'Present'";
+
+                SqlConnection connection = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand cmd = new SqlCommand(querry, connection);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Present count Updated Successfully!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                MessageBox.Show("Done");
+            }
+
+        }
+
+        public static void update_absent(string table_name, string column_name)
+        {
+            try
+            {
+                string querry = "UPDATE " + table_name + " SET  total_absents =  total_absents + 1 WHERE " + column_name + " like 'Absent'";
+
+                SqlConnection connection = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand cmd = new SqlCommand(querry, connection);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Absent count Updated Successfully!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                MessageBox.Show("Done");
+            }
+
+        }
+
+        public static void update_total_meet_count(string table_name, string class_code)
+        {
+            try
+            {
+                string querry = "UPDATE " + table_name + " SET  total_meets =  total_meets + 1 WHERE class_code like '" + class_code + "';";
+
+                SqlConnection connection = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand cmd = new SqlCommand(querry, connection);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show(class_code + " total meets count Updated Successfully!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                MessageBox.Show("Done");
+            }
+
+        }
+
+        public static bool is_eligible_for_drop_out()
+        {
+            return false;
         }
 
     }

@@ -12,6 +12,19 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
             InitializeComponent();
         }
 
+        // constructor for passing data
+        public AddStudentForm(string college, string department, string semester, string school_year, string class_enrolled)
+        {
+            InitializeComponent();
+
+            cb_class.Text = class_enrolled;
+            cb_college.Text = college;
+            cb_department.Text = department;
+            cb_semester.Text = semester;
+            cb_school_year.Text = school_year;
+        }
+
+
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
 

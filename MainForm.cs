@@ -69,17 +69,15 @@ namespace StudentAttendanceManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //NewStudentForm n = new NewStudentForm();
 
-            //n.Show();
-            //Hide();
         }
 
         private void btn_login_as_guest_Click(object sender, EventArgs e)
         {
             GuestMainForm gm = new GuestMainForm();
 
-            gm.ShowDialog();
+            gm.Show();
+            Hide();
         }
     }
 }

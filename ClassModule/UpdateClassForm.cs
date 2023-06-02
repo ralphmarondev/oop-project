@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentAttendanceManagementSystem.Tools;
+using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -17,12 +18,14 @@ namespace StudentAttendanceManagementSystem.ClassModule
             {
                 string connection_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
                 SqlConnection conn = new SqlConnection(connection_string);
-                SqlCommand cmd = new SqlCommand("UPDATE classes_table SET class_name = @class_name, class_semester = @class_semester, class_school_year = @class_school_year WHERE class_code = @class_code", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE classes_table SET class_name = @class_name, class_semester = @class_semester, class_school_year = @class_school_year, class_department = @class_department, class_college = @class_college WHERE class_code = @class_code", conn);
 
                 cmd.Parameters.AddWithValue("@class_code", tb_subject_code_add.Text);
                 cmd.Parameters.AddWithValue("@class_name", tb_subject_name_add.Text);
                 cmd.Parameters.AddWithValue("@class_semester", cb_semester_add.Text);
                 cmd.Parameters.AddWithValue("@class_school_year", tb_school_year_add.Text);
+                cmd.Parameters.AddWithValue("@class_department", tb_department.Text);
+                cmd.Parameters.AddWithValue("@class_college", tb_college.Text);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -64,6 +67,25 @@ namespace StudentAttendanceManagementSystem.ClassModule
             //{
             //    MessageBox.Show(ex.Message);
             //}
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string querry = "";
+
+                SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand cmd = new SqlCommand(querry, conn);
+
+
+
+
+            }
+            catch
+            {
+
+            }
         }
     }
 }

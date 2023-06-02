@@ -145,7 +145,6 @@
             this.cb_college.Name = "cb_college";
             this.cb_college.Size = new System.Drawing.Size(158, 28);
             this.cb_college.TabIndex = 1;
-            this.cb_college.Text = "COEA";
             // 
             // panel2
             // 
@@ -175,7 +174,6 @@
             this.cb_class.Name = "cb_class";
             this.cb_class.Size = new System.Drawing.Size(158, 28);
             this.cb_class.TabIndex = 19;
-            this.cb_class.Text = "test123";
             this.cb_class.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label8
@@ -203,7 +201,6 @@
             this.cb_school_year.Name = "cb_school_year";
             this.cb_school_year.Size = new System.Drawing.Size(158, 28);
             this.cb_school_year.TabIndex = 17;
-            this.cb_school_year.Text = "2022-2023";
             // 
             // label12
             // 
@@ -225,7 +222,6 @@
             this.cb_semester.Name = "cb_semester";
             this.cb_semester.Size = new System.Drawing.Size(158, 28);
             this.cb_semester.TabIndex = 15;
-            this.cb_semester.Text = "FIRST SEMESTER";
             // 
             // label11
             // 
@@ -249,7 +245,6 @@
             this.cb_department.Name = "cb_department";
             this.cb_department.Size = new System.Drawing.Size(158, 28);
             this.cb_department.TabIndex = 13;
-            this.cb_department.Text = "BSCPE";
             // 
             // label1
             // 

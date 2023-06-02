@@ -32,3 +32,8 @@ D:\Documents\student-attendance-management-system\source\version-1.0\StudentAtte
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.GuestUserModules.GuestMainForm.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.ReportsModule.ReportsForm.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.UserModule.UserForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.Test.DisposableForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.Test.IncrementingDBRecord.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.UserModule.AddNewUserForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.UserModule.DeleteUserForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.UserModule.EditUserForm.resources

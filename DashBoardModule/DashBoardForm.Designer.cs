@@ -281,6 +281,7 @@
             // 
             // panel_for_notifications
             // 
+            this.panel_for_notifications.AutoScroll = true;
             this.panel_for_notifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel_for_notifications.Controls.Add(this.label4);
             this.panel_for_notifications.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -293,7 +294,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(243, 128);
+            this.label4.Location = new System.Drawing.Point(8, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(432, 27);
             this.label4.TabIndex = 0;

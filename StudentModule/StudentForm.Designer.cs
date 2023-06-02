@@ -48,15 +48,14 @@
             this.btn_add_student = new System.Windows.Forms.Button();
             this.btn_update_student = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_better_view = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.btn_check_attendance = new System.Windows.Forms.Button();
+            this.btn_better_view = new System.Windows.Forms.Button();
             this.dgv_classes_lists = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flp_students = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_report = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_classes_lists)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -302,6 +301,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_report);
+            this.panel3.Controls.Add(this.btn_check_attendance);
             this.panel3.Controls.Add(this.btn_better_view);
             this.panel3.Controls.Add(this.btn_back);
             this.panel3.Controls.Add(this.btn_refresh);
@@ -314,6 +315,19 @@
             this.panel3.Size = new System.Drawing.Size(265, 626);
             this.panel3.TabIndex = 24;
             // 
+            // btn_check_attendance
+            // 
+            this.btn_check_attendance.BackColor = System.Drawing.Color.Lime;
+            this.btn_check_attendance.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_check_attendance.Location = new System.Drawing.Point(22, 285);
+            this.btn_check_attendance.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_check_attendance.Name = "btn_check_attendance";
+            this.btn_check_attendance.Size = new System.Drawing.Size(226, 45);
+            this.btn_check_attendance.TabIndex = 10;
+            this.btn_check_attendance.Text = "CHECK ATTENDANCE";
+            this.btn_check_attendance.UseVisualStyleBackColor = false;
+            this.btn_check_attendance.Click += new System.EventHandler(this.btn_check_attendance_Click);
+            // 
             // btn_better_view
             // 
             this.btn_better_view.BackColor = System.Drawing.Color.Aquamarine;
@@ -325,28 +339,6 @@
             this.btn_better_view.Text = "BETTER";
             this.btn_better_view.UseVisualStyleBackColor = false;
             this.btn_better_view.Click += new System.EventHandler(this.btn_better_view_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btn_check_attendance);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(265, 556);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(856, 70);
-            this.panel4.TabIndex = 2;
-            // 
-            // btn_check_attendance
-            // 
-            this.btn_check_attendance.BackColor = System.Drawing.Color.Lime;
-            this.btn_check_attendance.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_check_attendance.Location = new System.Drawing.Point(617, 12);
-            this.btn_check_attendance.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_check_attendance.Name = "btn_check_attendance";
-            this.btn_check_attendance.Size = new System.Drawing.Size(226, 45);
-            this.btn_check_attendance.TabIndex = 10;
-            this.btn_check_attendance.Text = "CHECK ATTENDANCE";
-            this.btn_check_attendance.UseVisualStyleBackColor = false;
-            this.btn_check_attendance.Click += new System.EventHandler(this.btn_check_attendance_Click);
             // 
             // dgv_classes_lists
             // 
@@ -372,19 +364,34 @@
             // 
             // flp_students
             // 
+            this.flp_students.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flp_students.AutoScroll = true;
             this.flp_students.BackColor = System.Drawing.Color.White;
-            this.flp_students.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flp_students.Location = new System.Drawing.Point(265, 135);
+            this.flp_students.Margin = new System.Windows.Forms.Padding(3, 3, 3, 100);
             this.flp_students.Name = "flp_students";
             this.flp_students.Size = new System.Drawing.Size(856, 491);
             this.flp_students.TabIndex = 11;
+            // 
+            // btn_report
+            // 
+            this.btn_report.BackColor = System.Drawing.Color.Aquamarine;
+            this.btn_report.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_report.Location = new System.Drawing.Point(22, 337);
+            this.btn_report.Name = "btn_report";
+            this.btn_report.Size = new System.Drawing.Size(226, 45);
+            this.btn_report.TabIndex = 12;
+            this.btn_report.Text = "REPORT";
+            this.btn_report.UseVisualStyleBackColor = false;
+            this.btn_report.Click += new System.EventHandler(this.btn_report_Click);
             // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 626);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.flp_students);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -398,7 +405,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_classes_lists)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -419,7 +425,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_class;
         private System.Windows.Forms.Button btn_better_view;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btn_check_attendance;
         private System.Windows.Forms.DataGridView dgv_classes_lists;
         private System.Windows.Forms.Panel panel2;
@@ -432,5 +437,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cb_college;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_report;
     }
 }

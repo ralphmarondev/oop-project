@@ -95,7 +95,7 @@
             this.btn_add_class.Location = new System.Drawing.Point(22, 22);
             this.btn_add_class.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add_class.Name = "btn_add_class";
-            this.btn_add_class.Size = new System.Drawing.Size(198, 45);
+            this.btn_add_class.Size = new System.Drawing.Size(226, 45);
             this.btn_add_class.TabIndex = 0;
             this.btn_add_class.Text = "Add Class";
             this.btn_add_class.UseVisualStyleBackColor = false;
@@ -108,7 +108,7 @@
             this.btn_update_class.Location = new System.Drawing.Point(22, 77);
             this.btn_update_class.Margin = new System.Windows.Forms.Padding(4);
             this.btn_update_class.Name = "btn_update_class";
-            this.btn_update_class.Size = new System.Drawing.Size(198, 45);
+            this.btn_update_class.Size = new System.Drawing.Size(226, 45);
             this.btn_update_class.TabIndex = 7;
             this.btn_update_class.Text = "Update Class";
             this.btn_update_class.UseVisualStyleBackColor = false;
@@ -121,7 +121,7 @@
             this.btn_delete_class.Location = new System.Drawing.Point(22, 181);
             this.btn_delete_class.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete_class.Name = "btn_delete_class";
-            this.btn_delete_class.Size = new System.Drawing.Size(198, 45);
+            this.btn_delete_class.Size = new System.Drawing.Size(226, 45);
             this.btn_delete_class.TabIndex = 8;
             this.btn_delete_class.Text = "Delete Class";
             this.btn_delete_class.UseVisualStyleBackColor = false;
@@ -133,7 +133,7 @@
             this.btn_refresh.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_refresh.Location = new System.Drawing.Point(22, 129);
             this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(198, 45);
+            this.btn_refresh.Size = new System.Drawing.Size(226, 45);
             this.btn_refresh.TabIndex = 6;
             this.btn_refresh.Text = "Refresh";
             this.btn_refresh.UseVisualStyleBackColor = false;
@@ -145,7 +145,7 @@
             this.btn_back.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.Location = new System.Drawing.Point(22, 569);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(198, 45);
+            this.btn_back.Size = new System.Drawing.Size(226, 45);
             this.btn_back.TabIndex = 9;
             this.btn_back.Text = "BACK";
             this.btn_back.UseVisualStyleBackColor = false;
@@ -162,7 +162,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(268, 626);
+            this.panel3.Size = new System.Drawing.Size(265, 626);
             this.panel3.TabIndex = 0;
             // 
             // btn_show_classes
@@ -171,7 +171,7 @@
             this.btn_show_classes.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_show_classes.Location = new System.Drawing.Point(22, 233);
             this.btn_show_classes.Name = "btn_show_classes";
-            this.btn_show_classes.Size = new System.Drawing.Size(198, 45);
+            this.btn_show_classes.Size = new System.Drawing.Size(226, 45);
             this.btn_show_classes.TabIndex = 10;
             this.btn_show_classes.Text = "BETTER";
             this.btn_show_classes.UseVisualStyleBackColor = false;
@@ -182,17 +182,18 @@
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Controls.Add(this.dgv_classes_lists);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(268, 77);
+            this.panel2.Location = new System.Drawing.Point(265, 77);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(853, 549);
+            this.panel2.Size = new System.Drawing.Size(856, 549);
             this.panel2.TabIndex = 23;
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(853, 549);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(856, 549);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // dgv_classes_lists
@@ -207,7 +208,7 @@
             this.dgv_classes_lists.ReadOnly = true;
             this.dgv_classes_lists.RowHeadersWidth = 51;
             this.dgv_classes_lists.RowTemplate.Height = 24;
-            this.dgv_classes_lists.Size = new System.Drawing.Size(853, 549);
+            this.dgv_classes_lists.Size = new System.Drawing.Size(856, 549);
             this.dgv_classes_lists.TabIndex = 0;
             this.dgv_classes_lists.Visible = false;
             // 
