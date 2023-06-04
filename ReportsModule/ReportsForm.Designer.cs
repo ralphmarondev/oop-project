@@ -40,8 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cb_college = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -75,10 +76,13 @@
             this.btn_refresh.TabIndex = 21;
             this.btn_refresh.Text = "Refresh";
             this.btn_refresh.UseVisualStyleBackColor = false;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // cb_class
             // 
             this.cb_class.FormattingEnabled = true;
+            this.cb_class.Items.AddRange(new object[] {
+            "test123"});
             this.cb_class.Location = new System.Drawing.Point(601, 51);
             this.cb_class.Margin = new System.Windows.Forms.Padding(4);
             this.cb_class.Name = "cb_class";
@@ -202,21 +206,23 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "College:";
             // 
-            // flowLayoutPanel1
+            // dataGridView1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 171);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1161, 498);
-            this.flowLayoutPanel1.TabIndex = 6;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 171);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1161, 498);
+            this.dataGridView1.TabIndex = 0;
             // 
             // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1161, 669);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -225,6 +231,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReportsForm_FormClosed);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,6 +250,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_college;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

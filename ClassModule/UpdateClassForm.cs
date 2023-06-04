@@ -16,8 +16,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
         {
             try
             {
-                string connection_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
-                SqlConnection conn = new SqlConnection(connection_string);
+                SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
                 SqlCommand cmd = new SqlCommand("UPDATE classes_table SET class_name = @class_name, class_semester = @class_semester, class_school_year = @class_school_year, class_department = @class_department, class_college = @class_college WHERE class_code = @class_code", conn);
 
                 cmd.Parameters.AddWithValue("@class_code", tb_subject_code_add.Text);

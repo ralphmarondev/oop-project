@@ -47,6 +47,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-1.0.2|AnyCPU'">
     <OutputPath>bin\Debug-1.0.2\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_2023_06_04|AnyCPU'">
+    <OutputPath>bin\Debug_2023_06_04\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -66,6 +69,12 @@
     </Compile>
     <Compile Include="AttendanceModule\AttendanceForm.Designer.cs">
       <DependentUpon>AttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceModule\DeleteAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceModule\DeleteAttendanceForm.Designer.cs">
+      <DependentUpon>DeleteAttendanceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AttendanceModule\UpdateAttendanceForm.cs">
       <SubType>Form</SubType>
@@ -183,59 +192,59 @@
     <Compile Include="StudentModule\UserControls\StudentUserControl.Designer.cs">
       <DependentUpon>StudentUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\DisposableForm.cs">
+    <Compile Include="Debug\DisposableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\DisposableForm.Designer.cs">
+    <Compile Include="Debug\DisposableForm.Designer.cs">
       <DependentUpon>DisposableForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\IncrementingDBRecord.cs">
+    <Compile Include="Debug\IncrementingDBRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\IncrementingDBRecord.Designer.cs">
+    <Compile Include="Debug\IncrementingDBRecord.Designer.cs">
       <DependentUpon>IncrementingDBRecord.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\IncrementingDBRecordHelper.cs" />
-    <Compile Include="Test\MyUserControl.cs">
+    <Compile Include="Debug\IncrementingDBRecordHelper.cs" />
+    <Compile Include="Debug\MyUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Test\MyUserControl.Designer.cs">
+    <Compile Include="Debug\MyUserControl.Designer.cs">
       <DependentUpon>MyUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\PassingDataBetweenForms\FirstForm.cs">
+    <Compile Include="Debug\PassingDataBetweenForms\FirstForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\PassingDataBetweenForms\FirstForm.Designer.cs">
+    <Compile Include="Debug\PassingDataBetweenForms\FirstForm.Designer.cs">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\PassingDataBetweenForms\SecondForm.cs">
+    <Compile Include="Debug\PassingDataBetweenForms\SecondForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\PassingDataBetweenForms\SecondForm.Designer.cs">
+    <Compile Include="Debug\PassingDataBetweenForms\SecondForm.Designer.cs">
       <DependentUpon>SecondForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\student_form\NewStudentForm.cs">
+    <Compile Include="Debug\student_form\NewStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\student_form\NewStudentForm.Designer.cs">
+    <Compile Include="Debug\student_form\NewStudentForm.Designer.cs">
       <DependentUpon>NewStudentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\student_form\NewStudentuserControl.cs">
+    <Compile Include="Debug\student_form\NewStudentuserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Test\student_form\NewStudentuserControl.Designer.cs">
+    <Compile Include="Debug\student_form\NewStudentuserControl.Designer.cs">
       <DependentUpon>NewStudentuserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\TestForm.cs">
+    <Compile Include="Debug\TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\TestForm.Designer.cs">
+    <Compile Include="Debug\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\UserControlsDemo.cs">
+    <Compile Include="Debug\UserControlsDemo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\UserControlsDemo.Designer.cs">
+    <Compile Include="Debug\UserControlsDemo.Designer.cs">
       <DependentUpon>UserControlsDemo.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\AttendanceTools.cs" />
@@ -266,6 +275,12 @@
     </Compile>
     <EmbeddedResource Include="AttendanceModule\AttendanceForm.resx">
       <DependentUpon>AttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendanceModule\DeleteAttendanceForm.resx">
+      <DependentUpon>DeleteAttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendanceModule\UpdateAttendanceForm.resx">
+      <DependentUpon>UpdateAttendanceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClassModule\AddClassForm.resx">
       <DependentUpon>AddClassForm.cs</DependentUpon>
@@ -328,31 +343,31 @@
     <EmbeddedResource Include="StudentModule\UserControls\StudentUserControl.resx">
       <DependentUpon>StudentUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\DisposableForm.resx">
+    <EmbeddedResource Include="Debug\DisposableForm.resx">
       <DependentUpon>DisposableForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\IncrementingDBRecord.resx">
+    <EmbeddedResource Include="Debug\IncrementingDBRecord.resx">
       <DependentUpon>IncrementingDBRecord.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\MyUserControl.resx">
+    <EmbeddedResource Include="Debug\MyUserControl.resx">
       <DependentUpon>MyUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\PassingDataBetweenForms\FirstForm.resx">
+    <EmbeddedResource Include="Debug\PassingDataBetweenForms\FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\PassingDataBetweenForms\SecondForm.resx">
+    <EmbeddedResource Include="Debug\PassingDataBetweenForms\SecondForm.resx">
       <DependentUpon>SecondForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\student_form\NewStudentForm.resx">
+    <EmbeddedResource Include="Debug\student_form\NewStudentForm.resx">
       <DependentUpon>NewStudentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\student_form\NewStudentuserControl.resx">
+    <EmbeddedResource Include="Debug\student_form\NewStudentuserControl.resx">
       <DependentUpon>NewStudentuserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\TestForm.resx">
+    <EmbeddedResource Include="Debug\TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\UserControlsDemo.resx">
+    <EmbeddedResource Include="Debug\UserControlsDemo.resx">
       <DependentUpon>UserControlsDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserModule\AddNewUserForm.resx">
@@ -384,10 +399,11 @@
     <Content Include="%40Docs\CHANGES.txt" />
     <Content Include="%40Docs\README.txt" />
     <Content Include="%40Docs\TODO.txt" />
+    <Content Include="RUN_ME\Instruction.txt" />
     <None Include="Resources\1669110163661.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Test\HorizontalScrollViewDemo\" />
+    <Folder Include="Debug\HorizontalScrollViewDemo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

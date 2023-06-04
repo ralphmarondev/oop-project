@@ -1,4 +1,10 @@
 ﻿
+AS OF JUNE 3, 2023
+	sort the last names upon retrieving for attendance, student and classes forms
+	update attendance
+	delete attendance
+
+
 AS OF JUNE 2, 2023
 	When the 'search' button beside 'id-number and class-code' in 'update class/student form'
 		fill the fields with the current values stored in the database.

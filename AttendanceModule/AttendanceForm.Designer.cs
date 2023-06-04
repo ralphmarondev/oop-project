@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cb_date = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.cb_class = new System.Windows.Forms.ComboBox();
             this.lbl_class = new System.Windows.Forms.Label();
@@ -42,13 +44,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_report = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_present = new System.Windows.Forms.Button();
             this.btn_view = new System.Windows.Forms.Button();
-            this.btn_insert = new System.Windows.Forms.Button();
-            this.btn_finish = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgv_classes_lists = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
@@ -60,6 +59,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Aquamarine;
+            this.panel2.Controls.Add(this.cb_date);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btn_refresh);
             this.panel2.Controls.Add(this.cb_class);
             this.panel2.Controls.Add(this.lbl_class);
@@ -79,11 +80,33 @@
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // cb_date
+            // 
+            this.cb_date.FormattingEnabled = true;
+            this.cb_date.Items.AddRange(new object[] {
+            "test123"});
+            this.cb_date.Location = new System.Drawing.Point(601, 121);
+            this.cb_date.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_date.Name = "cb_date";
+            this.cb_date.Size = new System.Drawing.Size(196, 28);
+            this.cb_date.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(596, 92);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Date:";
+            // 
             // btn_refresh
             // 
             this.btn_refresh.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_refresh.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(974, 12);
+            this.btn_refresh.Location = new System.Drawing.Point(974, 34);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(173, 45);
             this.btn_refresh.TabIndex = 21;
@@ -227,29 +250,15 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btn_report);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.btn_present);
             this.panel3.Controls.Add(this.btn_view);
-            this.panel3.Controls.Add(this.btn_insert);
-            this.panel3.Controls.Add(this.btn_finish);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 427);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1159, 75);
             this.panel3.TabIndex = 3;
-            // 
-            // btn_report
-            // 
-            this.btn_report.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btn_report.Location = new System.Drawing.Point(648, 15);
-            this.btn_report.Name = "btn_report";
-            this.btn_report.Size = new System.Drawing.Size(153, 48);
-            this.btn_report.TabIndex = 6;
-            this.btn_report.Text = "REPORT";
-            this.btn_report.UseVisualStyleBackColor = false;
-            this.btn_report.Click += new System.EventHandler(this.btn_report_Click);
             // 
             // button1
             // 
@@ -260,6 +269,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "UPDATE";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -270,6 +280,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "DELETE";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_present
             // 
@@ -292,26 +303,6 @@
             this.btn_view.Text = "VIEW";
             this.btn_view.UseVisualStyleBackColor = false;
             this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
-            // 
-            // btn_insert
-            // 
-            this.btn_insert.Location = new System.Drawing.Point(994, 15);
-            this.btn_insert.Name = "btn_insert";
-            this.btn_insert.Size = new System.Drawing.Size(153, 48);
-            this.btn_insert.TabIndex = 1;
-            this.btn_insert.Text = "INSERT";
-            this.btn_insert.UseVisualStyleBackColor = true;
-            this.btn_insert.Click += new System.EventHandler(this.btn_insert_Click);
-            // 
-            // btn_finish
-            // 
-            this.btn_finish.Location = new System.Drawing.Point(994, 15);
-            this.btn_finish.Name = "btn_finish";
-            this.btn_finish.Size = new System.Drawing.Size(153, 48);
-            this.btn_finish.TabIndex = 0;
-            this.btn_finish.Text = "FINISH";
-            this.btn_finish.UseVisualStyleBackColor = true;
-            this.btn_finish.Click += new System.EventHandler(this.btn_finish_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -374,12 +365,11 @@
         private System.Windows.Forms.DataGridView dgv_classes_lists;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btn_finish;
-        private System.Windows.Forms.Button btn_insert;
         private System.Windows.Forms.Button btn_view;
         private System.Windows.Forms.Button btn_present;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btn_report;
+        private System.Windows.Forms.ComboBox cb_date;
+        private System.Windows.Forms.Label label2;
     }
 }

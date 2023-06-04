@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.gb_add_class = new System.Windows.Forms.GroupBox();
+            this.tb_department = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_college = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cb_semester_add = new System.Windows.Forms.ComboBox();
             this.btn_finish_add = new System.Windows.Forms.Button();
             this.tb_school_year_add = new System.Windows.Forms.TextBox();
@@ -38,10 +42,6 @@
             this.lbl_subject_name_add = new System.Windows.Forms.Label();
             this.tb_subject_code_add = new System.Windows.Forms.TextBox();
             this.lbl_subject_code_add = new System.Windows.Forms.Label();
-            this.tb_department = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_college = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.gb_add_class.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,42 @@
             this.gb_add_class.Size = new System.Drawing.Size(832, 412);
             this.gb_add_class.TabIndex = 1;
             this.gb_add_class.TabStop = false;
+            // 
+            // tb_department
+            // 
+            this.tb_department.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tb_department.Location = new System.Drawing.Point(430, 157);
+            this.tb_department.Name = "tb_department";
+            this.tb_department.Size = new System.Drawing.Size(357, 30);
+            this.tb_department.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 9F);
+            this.label1.Location = new System.Drawing.Point(426, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 17);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Department:";
+            // 
+            // tb_college
+            // 
+            this.tb_college.Font = new System.Drawing.Font("Courier New", 12F);
+            this.tb_college.Location = new System.Drawing.Point(430, 71);
+            this.tb_college.Name = "tb_college";
+            this.tb_college.Size = new System.Drawing.Size(357, 30);
+            this.tb_college.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Courier New", 9F);
+            this.label2.Location = new System.Drawing.Point(426, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "College:";
             // 
             // cb_semester_add
             // 
@@ -154,42 +190,6 @@
             this.lbl_subject_code_add.Size = new System.Drawing.Size(125, 17);
             this.lbl_subject_code_add.TabIndex = 0;
             this.lbl_subject_code_add.Text = "Subject Code:";
-            // 
-            // tb_department
-            // 
-            this.tb_department.Font = new System.Drawing.Font("Courier New", 12F);
-            this.tb_department.Location = new System.Drawing.Point(430, 157);
-            this.tb_department.Name = "tb_department";
-            this.tb_department.Size = new System.Drawing.Size(357, 30);
-            this.tb_department.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 9F);
-            this.label1.Location = new System.Drawing.Point(426, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 17);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Department:";
-            // 
-            // tb_college
-            // 
-            this.tb_college.Font = new System.Drawing.Font("Courier New", 12F);
-            this.tb_college.Location = new System.Drawing.Point(430, 71);
-            this.tb_college.Name = "tb_college";
-            this.tb_college.Size = new System.Drawing.Size(357, 30);
-            this.tb_college.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courier New", 9F);
-            this.label2.Location = new System.Drawing.Point(426, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "College:";
             // 
             // AddClassForm
             // 

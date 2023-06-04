@@ -48,12 +48,14 @@
             this.btn_add_student = new System.Windows.Forms.Button();
             this.btn_update_student = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_report = new System.Windows.Forms.Button();
             this.btn_check_attendance = new System.Windows.Forms.Button();
             this.btn_better_view = new System.Windows.Forms.Button();
             this.dgv_classes_lists = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flp_students = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_report = new System.Windows.Forms.Button();
+            this.cb_date = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_classes_lists)).BeginInit();
@@ -75,6 +77,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Aquamarine;
+            this.panel1.Controls.Add(this.cb_date);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cb_school_year);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.cb_semester);
@@ -91,7 +95,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(265, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(856, 135);
+            this.panel1.Size = new System.Drawing.Size(885, 135);
             this.panel1.TabIndex = 25;
             // 
             // cb_school_year
@@ -315,6 +319,18 @@
             this.panel3.Size = new System.Drawing.Size(265, 626);
             this.panel3.TabIndex = 24;
             // 
+            // btn_report
+            // 
+            this.btn_report.BackColor = System.Drawing.Color.Aquamarine;
+            this.btn_report.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_report.Location = new System.Drawing.Point(22, 337);
+            this.btn_report.Name = "btn_report";
+            this.btn_report.Size = new System.Drawing.Size(226, 45);
+            this.btn_report.TabIndex = 12;
+            this.btn_report.Text = "REPORT";
+            this.btn_report.UseVisualStyleBackColor = false;
+            this.btn_report.Click += new System.EventHandler(this.btn_report_Click);
+            // 
             // btn_check_attendance
             // 
             this.btn_check_attendance.BackColor = System.Drawing.Color.Lime;
@@ -372,26 +388,33 @@
             this.flp_students.Location = new System.Drawing.Point(265, 135);
             this.flp_students.Margin = new System.Windows.Forms.Padding(3, 3, 3, 100);
             this.flp_students.Name = "flp_students";
-            this.flp_students.Size = new System.Drawing.Size(856, 491);
+            this.flp_students.Size = new System.Drawing.Size(885, 491);
             this.flp_students.TabIndex = 11;
             // 
-            // btn_report
+            // cb_date
             // 
-            this.btn_report.BackColor = System.Drawing.Color.Aquamarine;
-            this.btn_report.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_report.Location = new System.Drawing.Point(22, 337);
-            this.btn_report.Name = "btn_report";
-            this.btn_report.Size = new System.Drawing.Size(226, 45);
-            this.btn_report.TabIndex = 12;
-            this.btn_report.Text = "REPORT";
-            this.btn_report.UseVisualStyleBackColor = false;
-            this.btn_report.Click += new System.EventHandler(this.btn_report_Click);
+            this.cb_date.FormattingEnabled = true;
+            this.cb_date.Location = new System.Drawing.Point(670, 32);
+            this.cb_date.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_date.Name = "cb_date";
+            this.cb_date.Size = new System.Drawing.Size(196, 28);
+            this.cb_date.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(667, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 17);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Date:";
             // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 626);
+            this.ClientSize = new System.Drawing.Size(1150, 626);
             this.Controls.Add(this.flp_students);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -438,5 +461,7 @@
         private System.Windows.Forms.ComboBox cb_college;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_report;
+        private System.Windows.Forms.ComboBox cb_date;
+        private System.Windows.Forms.Label label3;
     }
 }

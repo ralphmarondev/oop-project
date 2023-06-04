@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentAttendanceManagementSystem.Tools;
+using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -16,13 +17,11 @@ namespace StudentAttendanceManagementSystem.ClassModule
             try
             {
                 #region Inserting the data in class_table
-                //This is my connection string i have assigned the database file address path
-                string MyConnection2 = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
                 //This is my insert query in which i am taking input from the user through windows forms
                 string Query = "insert into classes_table(class_code, class_name, class_semester, class_school_year, class_department, class_college, total_meets) values" +
                     "('" + tb_subject_code_add.Text + "','" + tb_subject_name_add.Text + "','" + cb_semester_add.Text + "','" + tb_school_year_add.Text + "','" + tb_department.Text + "','" + tb_college.Text + "', 0);";
                 //This is  MySqlConnection here i have created the object and pass my connection string.
-                SqlConnection MyConn2 = new SqlConnection(MyConnection2);
+                SqlConnection MyConn2 = new SqlConnection(DBTools.get_connection_string());
                 //This is command class which will handle the query and connection object.
                 SqlCommand MyCommand2 = new SqlCommand(Query, MyConn2);
                 SqlDataReader MyReader2;
@@ -38,7 +37,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
 
 
                 #region Creating a new table using the name of the class created
-                SqlConnection new_connection = new SqlConnection(MyConnection2);
+                SqlConnection new_connection = new SqlConnection(DBTools.get_connection_string());
                 new_connection.Open();
 
                 string table_name = "class_" + tb_subject_code_add.Text;//tb_subject_code_add.Text.Replace("-", "_") + "_" + tb_subject_name_add.Text + "_" + cb_semester_add.Text + "_" + tb_school_year_add.Text.Replace("-", "_");

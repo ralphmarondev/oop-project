@@ -49,10 +49,9 @@ namespace StudentAttendanceManagementSystem.ClassModule
         {
             try
             {
-                string MyConnection2 = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
                 //Display query
                 string Query = "select * from classes_table;";
-                SqlConnection MyConn2 = new SqlConnection(MyConnection2);
+                SqlConnection MyConn2 = new SqlConnection(DBTools.get_connection_string());
                 SqlCommand MyCommand2 = new SqlCommand(Query, MyConn2);
                 //  MyConn2.Open();
                 //For offline connection we weill use  MySqlDataAdapter class.
@@ -319,8 +318,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
         private void get_data_from_database(string column_name, int flag)
         {
             // Get data from database 
-            string conn_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
-            SqlConnection conn = new SqlConnection(conn_string);
+            SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
             string table_name = "classes_table"; //tb_subject_code_add.Text.Replace("-", "_") + "_" + tb_subject_name_add.Text + "_" + cb_semester_add.Text + "_" + tb_school_year_add.Text.Replace("-", "_");
 
             #region try on

@@ -2,16 +2,11 @@
 
 Student attendance management system project
 
-2023-05-30
-4:26 pm
+2023-06-04
+9:35 pm
 
-Import the file 'StudentAttendanceManagementSystemDB' in your mysql server
+Read Instructions.txt inside the 'RUN_ME' folder, instructions are there on how
+to configure your system for this application.
+More updates to come.
 
-Change the value of 'connection_string' inside Tools->DBTools.cs file
-
-put the name of the server installed in your system!
-
-example ->
-{
-Data Source=DESKTOP-J5HTLS1Y\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True
-}
+- Maron :)

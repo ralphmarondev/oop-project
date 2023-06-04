@@ -1,0 +1,8 @@
+2023-06-04
+9:34 pm
+
+PAKI-DEBUG PO YUNG 'UPDATE FORM' suko na ako wahahah, iba iba naman naiinsert na value sa database, I will work sa report form from this day onwards. 
+I will try to learn how to print the content of 'data grid view', save it to pdf, etc.
+
+More updates to come.
+- Maron :)

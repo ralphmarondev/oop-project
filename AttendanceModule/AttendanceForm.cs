@@ -1,4 +1,5 @@
-﻿using StudentAttendanceManagementSystem.DashBoardModule;
+﻿using StudentAttendanceManagementSystem.AttendanceModule;
+using StudentAttendanceManagementSystem.DashBoardModule;
 using StudentAttendanceManagementSystem.ReportsModule;
 using StudentAttendanceManagementSystem.Tools;
 using System;
@@ -18,8 +19,8 @@ namespace StudentAttendanceManagementSystem
         private ArrayList absents = new ArrayList();
 
         // final variable to store presents and absents
-        ArrayList final_present = new ArrayList();
-        ArrayList final_absent = new ArrayList();
+        private ArrayList final_present = new ArrayList();
+        private ArrayList final_absent = new ArrayList();
 
         // store all the last names from database
         private ArrayList last_names = new ArrayList();
@@ -31,7 +32,7 @@ namespace StudentAttendanceManagementSystem
         }
 
         // constructor for passing data
-        public AttendanceForm(string college, string department, string semester, string school_year, string class_enrolled)
+        public AttendanceForm(string college, string department, string semester, string school_year, string class_enrolled, string date)
         {
             InitializeComponent();
 
@@ -40,12 +41,16 @@ namespace StudentAttendanceManagementSystem
             cb_department.Text = department;
             cb_semester.Text = semester;
             cb_school_year.Text = school_year;
+            cb_date.Text = date;
         }
 
         #region Generating buttons programatically
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
+            string current_date = DBTools.get_current_date();
+            //cb_date.Text = "attendance_" + current_date;
+
             #region Remove all of the items in the arraylists if there is any
             absents.Clear();
             presents.Clear();
@@ -825,5 +830,101 @@ namespace StudentAttendanceManagementSystem
             rf.Show();
             Hide();
         }
+
+        #region Old codes
+        //private void btn_finish_Click(object sender, EventArgs e)
+        //{
+        //    //string conn_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+        //    SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+
+        //    DateTime currentDate = DateTime.Now;
+        //    string current_date = "attendance_" + currentDate.ToString("yyyy_MM_dd");
+
+        //    string table_name = "class_" + cb_class.Text; ;
+        //    string column_name = current_date;
+        //    string data_type = "nvarchar(50)";
+
+        //    #region generating the current date
+        //    //DateTime currentDate = DateTime.Now;
+        //    //Console.WriteLine("Current Date: " + currentDate.ToString("yyyy-MM-dd"));
+        //    //string new_date = "Current Date: " + currentDate.ToString("yyyy-MM-dd");
+        //    #endregion
+
+        //    #region Delete column
+        //    // Execute your SQL query to delete the column
+        //    // string query = "ALTER TABLE your_table_name DROP COLUMN column_name;";
+        //    #endregion
+
+        //    #region Rename column
+        //    // Execute your SQL query to rename the column
+        //    // string query = "ALTER TABLE your_table_name CHANGE current_column_name new_column_name data_type;";
+        //    #endregion
+
+        //    #region Add column
+        //    //string querry = "ALTER TABLE " + table_name + "  ADD " + column_name + " " + data_type;
+        //    //SqlCommand cmd = new SqlCommand(querry, conn);
+        //    //cmd.ExecuteNonQuery();
+        //    #endregion
+
+        //    // add column
+        //    try
+        //    {
+        //        conn.Open();
+
+        //        string querry = "ALTER TABLE " + table_name + "  ADD " + column_name + " " + data_type;
+        //        SqlCommand cmd = new SqlCommand(querry, conn);
+        //        cmd.ExecuteNonQuery();
+
+        //        MessageBox.Show("New column '" + current_date + "' created successfully!");
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+
+
+        //}
+
+        //private void btn_insert_Click(object sender, EventArgs e)
+        //{
+        //    string conn_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+        //    string column_name = "new_column";
+        //    string table_name = "attendance_math1_secondsemester_2022_2023";
+        //    ArrayList list = new ArrayList();
+        //    list.Add("Maron 1");
+        //    list.Add("Maron 2");
+        //    list.Add("Maron 3");
+
+        //    insert_array_list_values(list, conn_string, column_name, table_name);
+        //}
+
+        #endregion
+
+        #region delete attendance
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DeleteAttendanceForm delete = new DeleteAttendanceForm(cb_class.Text, cb_date.Text);
+
+            delete.Show();
+            Hide();
+        }
+        #endregion
+
+        #region  update attendance
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UpdateAttendanceForm update = new UpdateAttendanceForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text, cb_date.Text);
+
+            update.Show();
+            Hide();
+        }
+        #endregion
+
     }
 }

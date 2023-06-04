@@ -37,3 +37,7 @@ D:\Documents\student-attendance-management-system\source\version-1.0\StudentAtte
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.UserModule.AddNewUserForm.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.UserModule.DeleteUserForm.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.UserModule.EditUserForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.AttendanceModule.DeleteAttendanceForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.AttendanceModule.UpdateAttendanceForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.Test.PassingDataBetweenForms.FirstForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug\StudentAttendanceManagementSystem.Test.PassingDataBetweenForms.SecondForm.resources

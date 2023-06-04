@@ -17,5 +17,5 @@ and we will store the students on that table.
 
 
 
-You can test you code inside the test folder
+You can test you code inside the 'Debug' folder
 before adding it to other modules. :)

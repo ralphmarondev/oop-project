@@ -15,6 +15,7 @@ namespace StudentAttendanceManagementSystem.StudentModule
         public StudentForm()
         {
             InitializeComponent();
+            cb_date.Text = DBTools.get_current_date();//.Replace("_", "-");
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -393,7 +394,7 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_check_attendance_Click(object sender, EventArgs e)
         {
-            AttendanceForm attendance_form = new AttendanceForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text);
+            AttendanceForm attendance_form = new AttendanceForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text, cb_date.Text);
 
             attendance_form.Show();
             Hide();

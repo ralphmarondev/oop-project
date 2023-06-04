@@ -442,6 +442,7 @@ namespace StudentAttendanceManagementSystem.Tools
 
         #endregion
 
+
         #region Attendance Form tools
         // selecting all students having 20% absents
         // select * from class_test123 where total_absents = (select total_meets from classes_table where class_code like 'test123') * (20 / 100)
@@ -449,6 +450,14 @@ namespace StudentAttendanceManagementSystem.Tools
         public static void select_all_student_with_20_percent_absents()
         {
 
+        }
+
+        public static string get_current_date()
+        {
+            DateTime currentDate = DateTime.Now;
+            string current_date = currentDate.ToString("yyyy_MM_dd");
+
+            return current_date;
         }
 
         #endregion
