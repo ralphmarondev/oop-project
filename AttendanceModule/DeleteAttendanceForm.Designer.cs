@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_view = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cb_date = new System.Windows.Forms.ComboBox();
@@ -38,22 +37,12 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_view
-            // 
-            this.btn_view.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_view.Location = new System.Drawing.Point(175, 225);
-            this.btn_view.Name = "btn_view";
-            this.btn_view.Size = new System.Drawing.Size(153, 48);
-            this.btn_view.TabIndex = 2;
-            this.btn_view.Text = "VIEW";
-            this.btn_view.UseVisualStyleBackColor = false;
-            // 
             // btn_delete
             // 
             this.btn_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_delete.Location = new System.Drawing.Point(16, 225);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(153, 48);
+            this.btn_delete.Size = new System.Drawing.Size(312, 48);
             this.btn_delete.TabIndex = 3;
             this.btn_delete.Text = "DELETE";
             this.btn_delete.UseVisualStyleBackColor = false;
@@ -66,7 +55,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cb_class);
             this.groupBox1.Controls.Add(this.lbl_class);
-            this.groupBox1.Controls.Add(this.btn_view);
             this.groupBox1.Controls.Add(this.btn_delete);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -93,9 +81,9 @@
             this.label2.Location = new System.Drawing.Point(13, 115);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.Size = new System.Drawing.Size(179, 17);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Date:";
+            this.label2.Text = "Date of attendance:";
             // 
             // cb_class
             // 
@@ -115,9 +103,9 @@
             this.lbl_class.Location = new System.Drawing.Point(13, 45);
             this.lbl_class.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_class.Name = "lbl_class";
-            this.lbl_class.Size = new System.Drawing.Size(62, 17);
+            this.lbl_class.Size = new System.Drawing.Size(107, 17);
             this.lbl_class.TabIndex = 27;
-            this.lbl_class.Text = "Class:";
+            this.lbl_class.Text = "Class Code:";
             // 
             // DeleteAttendanceForm
             // 
@@ -137,8 +125,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_view;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cb_date;

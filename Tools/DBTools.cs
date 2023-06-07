@@ -461,5 +461,59 @@ namespace StudentAttendanceManagementSystem.Tools
         }
 
         #endregion
+
+
+        #region Class Tools
+        /// <summary>
+        /// Date: 2023-06-06 
+        /// Author: Maron
+        /// 
+        /// Select the given column from the given table.
+        /// this is used as auto fill [in update class and update student]
+        /// </summary>
+        public static string get_data_from_database(string table_name, string column_name, string id_number)
+        {
+            string data = "Cazmir";
+            SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+
+            try
+            {
+                conn.Open();
+                // tb_name.Text = DBTools.get_data_from_database(table_name, column_name, id_number);
+                //string table_name = "class_" + cb_class.Text;
+                //string column_name = "first_name";
+                //string id_number = tb_id_number.Text;
+                string query = "SELECT " + column_name + " FROM " + table_name + " WHERE id_number = " + id_number;
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        int column_index = reader.GetOrdinal(column_name);
+                        while (reader.Read())
+                        {
+                            string column_value = reader.GetString(column_index);
+                            data = column_value;
+                            MessageBox.Show(column_value);
+                            return data;
+                            //break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No data found!");
+                    }
+                }
+                MessageBox.Show("Done");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Message: " + ex.Message);
+            }
+            return data;
+        }
+
+        #endregion
     }
 }

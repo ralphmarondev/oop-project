@@ -1,8 +1,8 @@
 ﻿
 AS OF JUNE 3, 2023
 	sort the last names upon retrieving for attendance, student and classes forms
-	update attendance
-	delete attendance
+	update attendance [done -> 2023-06-06]
+	delete attendance [done -> 2023-06-05]
 
 
 AS OF JUNE 2, 2023

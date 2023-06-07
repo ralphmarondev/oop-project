@@ -89,29 +89,43 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
             // 2. set the absents to 'absents'
             // 3. edit the count of absents and present
             // 4. done
-
-            validate_student(table_name, column_name);
-
-            #region Subtracting 1 from absent and present whatever is the status
-            subract_one_from_total_presents(table_name, column_name);
-            subtract_one_from_total_absents(table_name, column_name);
-            #endregion
-
-            #region Inserting absents
-            List<string> myRecordIds_absent = new List<string>();
-            foreach (var items in final_absent)
+            try
             {
-                myRecordIds_absent.Add(items.ToString());
+                validate_student(table_name, column_name);
+
+                #region Subtracting 1 from absent and present whatever is the status
+                subract_one_from_total_presents(table_name, column_name);
+                subtract_one_from_total_absents(table_name, column_name);
+                #endregion
+
+                #region Inserting absents
+                List<string> myRecordIds_absent = new List<string>();
+                foreach (var items in final_absent)
+                {
+                    myRecordIds_absent.Add(items.ToString());
+                }
+                // setting all the fields to present initially
+                InsertSameValueInAllRecords("Present", table_name, column_name);
+
+                // updating absent in the database
+                string myValue_absent = "Absent";
+
+                InsertSameValueInRecords(myRecordIds_absent, myValue_absent, table_name, column_name, "last_name");
+
+                #endregion
+
+                #region Adding 1 from absent and present whatever the status is
+                AttendanceTools.update_absent(table_name, column_name);
+                AttendanceTools.update_present(table_name, column_name);
+                //add_one_from_total_absents(table_name, column_name);
+                //add_one_from_total_presents(table_name, column_name);
+
+                #endregion
             }
-            // setting all the fields to present initially
-            InsertSameValueInAllRecords("Present", table_name, column_name);
+            catch
+            {
 
-            // updating absent in the database
-            string myValue_absent = "Absent";
-
-            InsertSameValueInRecords(myRecordIds_absent, myValue_absent, table_name, column_name, "last_name");
-
-            #endregion
+            }
 
         }
         #endregion
@@ -289,6 +303,36 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
 
         #endregion
 
+        #region add 1 from total absents
+        private void add_one_from_total_absents(string table_name, string column_name)
+        {
+            /// TODO: implement this!
+            string date_of_attendance = column_name;
+            try
+            {
+                string querry = "UPDATE " + table_name + " SET total_absents =  total_absents + 1 WHERE " + date_of_attendance + " like 'Absent'";
+
+                SqlConnection connection = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand cmd = new SqlCommand(querry, connection);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Absent count Updated Successfully!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                MessageBox.Show("Done");
+            }
+        }
+
+        #endregion
+
 
         #region Subtract 1 from total presents
         private void subract_one_from_total_presents(string table_name, string column_name)
@@ -319,6 +363,39 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
 
         }
         #endregion
+
+
+        #region add 1 from total presents
+        private void add_one_from_total_presents(string table_name, string column_name)
+        {
+            string date_of_attendance = column_name;
+            /// TODO: implement this!
+            try
+            {
+                string querry = "UPDATE " + table_name + " SET total_presents =  total_presents + 1 WHERE " + date_of_attendance + " like 'Present'";
+
+                SqlConnection connection = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand cmd = new SqlCommand(querry, connection);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Present count Updated Successfully!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                MessageBox.Show("Done");
+            }
+
+        }
+        #endregion
+
+
 
         #region Get all last names in the class
         private void get_all_last_names_in_database(string table_name)
@@ -454,7 +531,7 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
 
         private void UpdateAttendanceForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            AttendanceForm af = new AttendanceForm();
+            AttendanceForm af = new AttendanceForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text, cb_date.Text);
 
             af.Show();
             Hide();
@@ -473,6 +550,106 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
         private void UpdateAttendanceForm_Load(object sender, EventArgs e)
         {
             btn_refresh_Click(sender, e);
+        }
+
+        private void btn_view_Click(object sender, EventArgs e)
+        {
+            #region try two
+            // loop in present array list
+            foreach (var items in presents)
+            {
+                //MessageBox.Show(items.ToString(), "Presents");
+
+                // if the text in present is also in the last_names array-list
+                // then we are going to append it to final_presents array-list
+                foreach (var ls in last_names)
+                {
+                    if (ls.ToString() == items.ToString())
+                    {
+                        final_present.Add(items);
+                    }
+                }
+            }
+
+            //foreach (var items in final_present)
+            //{
+            //    MessageBox.Show(items.ToString(), "Presents");
+            //}
+
+            // loop in absents array list
+            foreach (var items in absents)
+            {
+                //MessageBox.Show(items.ToString(), "Absents");
+
+                // if the text in present is also in the last_names array-list
+                // then we are going to append it to final_absents array-list
+                foreach (var ls in last_names)
+                {
+                    if (ls.ToString() == items.ToString())
+                    {
+                        foreach (var ls2 in final_present)
+                        {
+                            if (ls2.ToString() != items.ToString())
+                            {
+                                final_absent.Add(items);
+                            }
+                            else
+                            {
+                                final_absent.Remove(items);
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (var items in presents)
+            {
+                //MessageBox.Show(items.ToString(), "Absents");
+
+                // if the text in present is also in the last_names array-list
+                // then we are going to append it to final_absents array-list
+                foreach (var ls in last_names)
+                {
+                    if (ls.ToString() == items.ToString())
+                    {
+                        try
+                        {
+                            foreach (var ls2 in final_present)
+                            {
+                                if (ls2.ToString() != items.ToString())
+                                {
+                                    final_present.Add(items);
+                                }
+                                else
+                                {
+                                    final_present.Remove(items);
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            // me when i'm falling lol :)
+                        }
+                    }
+                }
+            }
+
+            foreach (var items in final_present)
+            {
+                MessageBox.Show(items.ToString(), "Presents");
+            }
+
+            foreach (var items in final_absent)
+            {
+                MessageBox.Show(items.ToString(), "Absents");
+            }
+            #endregion
+
+            foreach (var items in absents)
+            {
+                MessageBox.Show(items.ToString(), "Absents");
+            }
+
         }
     }
 }

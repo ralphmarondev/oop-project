@@ -35,17 +35,14 @@
             this.btn_add_class = new System.Windows.Forms.Button();
             this.btn_update_class = new System.Windows.Forms.Button();
             this.btn_delete_class = new System.Windows.Forms.Button();
-            this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_show_classes = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dgv_classes_lists = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_classes_lists)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_search_class
@@ -127,18 +124,6 @@
             this.btn_delete_class.UseVisualStyleBackColor = false;
             this.btn_delete_class.Click += new System.EventHandler(this.btn_delete_class_Click);
             // 
-            // btn_refresh
-            // 
-            this.btn_refresh.BackColor = System.Drawing.Color.Aquamarine;
-            this.btn_refresh.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(22, 129);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(226, 45);
-            this.btn_refresh.TabIndex = 6;
-            this.btn_refresh.Text = "Refresh";
-            this.btn_refresh.UseVisualStyleBackColor = false;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
             // btn_back
             // 
             this.btn_back.BackColor = System.Drawing.Color.MediumSpringGreen;
@@ -155,7 +140,6 @@
             // 
             this.panel3.Controls.Add(this.btn_show_classes);
             this.panel3.Controls.Add(this.btn_back);
-            this.panel3.Controls.Add(this.btn_refresh);
             this.panel3.Controls.Add(this.btn_delete_class);
             this.panel3.Controls.Add(this.btn_add_class);
             this.panel3.Controls.Add(this.btn_update_class);
@@ -169,23 +153,13 @@
             // 
             this.btn_show_classes.BackColor = System.Drawing.Color.Aquamarine;
             this.btn_show_classes.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_classes.Location = new System.Drawing.Point(22, 233);
+            this.btn_show_classes.Location = new System.Drawing.Point(22, 129);
             this.btn_show_classes.Name = "btn_show_classes";
             this.btn_show_classes.Size = new System.Drawing.Size(226, 45);
             this.btn_show_classes.TabIndex = 10;
-            this.btn_show_classes.Text = "BETTER";
+            this.btn_show_classes.Text = "REFRESH";
             this.btn_show_classes.UseVisualStyleBackColor = false;
             this.btn_show_classes.Click += new System.EventHandler(this.btn_show_classes_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Controls.Add(this.dgv_classes_lists);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(265, 77);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(856, 549);
-            this.panel2.TabIndex = 23;
             // 
             // flowLayoutPanel1
             // 
@@ -196,21 +170,14 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(856, 549);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // dgv_classes_lists
+            // panel2
             // 
-            this.dgv_classes_lists.AllowUserToAddRows = false;
-            this.dgv_classes_lists.AllowUserToDeleteRows = false;
-            this.dgv_classes_lists.AllowUserToOrderColumns = true;
-            this.dgv_classes_lists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_classes_lists.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_classes_lists.Location = new System.Drawing.Point(0, 0);
-            this.dgv_classes_lists.Name = "dgv_classes_lists";
-            this.dgv_classes_lists.ReadOnly = true;
-            this.dgv_classes_lists.RowHeadersWidth = 51;
-            this.dgv_classes_lists.RowTemplate.Height = 24;
-            this.dgv_classes_lists.Size = new System.Drawing.Size(856, 549);
-            this.dgv_classes_lists.TabIndex = 0;
-            this.dgv_classes_lists.Visible = false;
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(265, 77);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(856, 549);
+            this.panel2.TabIndex = 23;
             // 
             // ClassForm
             // 
@@ -230,7 +197,6 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_classes_lists)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,12 +209,10 @@
         private System.Windows.Forms.Button btn_add_class;
         private System.Windows.Forms.Button btn_update_class;
         private System.Windows.Forms.Button btn_delete_class;
-        private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgv_classes_lists;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btn_show_classes;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

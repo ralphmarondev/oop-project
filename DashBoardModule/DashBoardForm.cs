@@ -1,5 +1,6 @@
 ﻿using StudentAttendanceManagementSystem.ClassModule;
 using StudentAttendanceManagementSystem.StudentModule;
+using StudentAttendanceManagementSystem.Tools;
 using System;
 using System.Windows.Forms;
 
@@ -89,6 +90,17 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             MessageBox.Show("Name of the current user will appear here!");
+        }
+
+        private void DashBoardForm_Load(object sender, EventArgs e)
+        {
+            //AttendanceTools.select_all_that_have_20_percent_absent_from_database("test123");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("selecting all that have 20 percent absent from database");
+            AttendanceTools.select_all_that_have_20_percent_absent_from_database("test123");
         }
     }
 }

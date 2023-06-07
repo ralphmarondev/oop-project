@@ -3,7 +3,6 @@ using StudentAttendanceManagementSystem.StudentModule;
 using StudentAttendanceManagementSystem.Tools;
 using System;
 using System.Collections;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -47,25 +46,25 @@ namespace StudentAttendanceManagementSystem.ClassModule
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Display query
-                string Query = "select * from classes_table;";
-                SqlConnection MyConn2 = new SqlConnection(DBTools.get_connection_string());
-                SqlCommand MyCommand2 = new SqlCommand(Query, MyConn2);
-                //  MyConn2.Open();
-                //For offline connection we weill use  MySqlDataAdapter class.
-                SqlDataAdapter MyAdapter = new SqlDataAdapter();
-                MyAdapter.SelectCommand = MyCommand2;
-                DataTable dTable = new DataTable();
-                MyAdapter.Fill(dTable);
-                dgv_classes_lists.DataSource = dTable; // here i have assign dTable object to the dataGridView1 object to display data.
-                                                       // MyConn2.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //try
+            //{
+            //    //Display query
+            //    string Query = "select * from classes_table;";
+            //    SqlConnection MyConn2 = new SqlConnection(DBTools.get_connection_string());
+            //    SqlCommand MyCommand2 = new SqlCommand(Query, MyConn2);
+            //    //  MyConn2.Open();
+            //    //For offline connection we weill use  MySqlDataAdapter class.
+            //    SqlDataAdapter MyAdapter = new SqlDataAdapter();
+            //    MyAdapter.SelectCommand = MyCommand2;
+            //    DataTable dTable = new DataTable();
+            //    MyAdapter.Fill(dTable);
+            //    dgv_classes_lists.DataSource = dTable; // here i have assign dTable object to the dataGridView1 object to display data.
+            //                                           // MyConn2.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -104,7 +103,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
 
             string class_code = tb_class_code_search.Text;
             generate_searched_class_user_control(class_code);
-
+            class_code = "";
         }
 
         private void get_data_from_database(string class_code)

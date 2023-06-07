@@ -104,6 +104,14 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            // autofill all of the fields
+            string table_name = "class_" + cb_class.Text;
+            string column_name = "first_name";
+            string id_number = tb_id_number.Text;
+            table_name = "class_test123";
+            column_name = "first_name";
+            tb_name.Text = DBTools.get_data_from_database(table_name, column_name, id_number);
+
 
         }
     }

@@ -45,5 +45,10 @@ namespace StudentAttendanceManagementSystem.ReportsModule
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ReportsForm_Load(object sender, EventArgs e)
+        {
+            btn_refresh_Click(sender, e);
+        }
     }
 }

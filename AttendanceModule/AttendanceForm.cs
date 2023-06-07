@@ -115,7 +115,7 @@ namespace StudentAttendanceManagementSystem
                         {
                             string column_value = reader.GetString(column_index);
                             last_names.Add(column_value);
-                            MessageBox.Show(column_value);
+                            //MessageBox.Show(column_value);
                             Button btn = new Button();
 
                             btn.Name = last_names[i].ToString();
@@ -768,11 +768,12 @@ namespace StudentAttendanceManagementSystem
             AttendanceTools.update_present(table_name, column_name);
             AttendanceTools.update_absent(table_name, column_name);
             string class_code = cb_class.Text;
+
             AttendanceTools.update_total_meet_count("classes_table", class_code);
 
             #endregion
 
-            btn_refresh_Click(sender, e);
+            //btn_refresh_Click(sender, e);
 
         }
 

@@ -1,4 +1,8 @@
-﻿June 2, 20223
+﻿June 7, 2023
+	can get students with 'n' value of absents
+
+
+June 2, 20223
 	can count and store in the database the total count of absent and present
 		of a student :)
 	can pass data between forms, student->attendance, etc. 

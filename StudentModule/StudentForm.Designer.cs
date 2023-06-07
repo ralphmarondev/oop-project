@@ -30,6 +30,8 @@
         {
             this.btn_search_student = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_date = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cb_school_year = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cb_semester = new System.Windows.Forms.ComboBox();
@@ -43,7 +45,6 @@
             this.lbl_student_id_search = new System.Windows.Forms.Label();
             this.tb_student_id_search = new System.Windows.Forms.TextBox();
             this.btn_back = new System.Windows.Forms.Button();
-            this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_delete_student = new System.Windows.Forms.Button();
             this.btn_add_student = new System.Windows.Forms.Button();
             this.btn_update_student = new System.Windows.Forms.Button();
@@ -54,8 +55,6 @@
             this.dgv_classes_lists = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flp_students = new System.Windows.Forms.FlowLayoutPanel();
-            this.cb_date = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_classes_lists)).BeginInit();
@@ -97,6 +96,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(885, 135);
             this.panel1.TabIndex = 25;
+            // 
+            // cb_date
+            // 
+            this.cb_date.FormattingEnabled = true;
+            this.cb_date.Location = new System.Drawing.Point(670, 32);
+            this.cb_date.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_date.Name = "cb_date";
+            this.cb_date.Size = new System.Drawing.Size(196, 28);
+            this.cb_date.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(667, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 17);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Date:";
             // 
             // cb_school_year
             // 
@@ -252,18 +270,6 @@
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
-            // btn_refresh
-            // 
-            this.btn_refresh.BackColor = System.Drawing.Color.Aquamarine;
-            this.btn_refresh.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(22, 129);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(226, 45);
-            this.btn_refresh.TabIndex = 6;
-            this.btn_refresh.Text = "REFRESH";
-            this.btn_refresh.UseVisualStyleBackColor = false;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
             // btn_delete_student
             // 
             this.btn_delete_student.BackColor = System.Drawing.Color.DeepPink;
@@ -309,7 +315,6 @@
             this.panel3.Controls.Add(this.btn_check_attendance);
             this.panel3.Controls.Add(this.btn_better_view);
             this.panel3.Controls.Add(this.btn_back);
-            this.panel3.Controls.Add(this.btn_refresh);
             this.panel3.Controls.Add(this.btn_delete_student);
             this.panel3.Controls.Add(this.btn_add_student);
             this.panel3.Controls.Add(this.btn_update_student);
@@ -323,7 +328,7 @@
             // 
             this.btn_report.BackColor = System.Drawing.Color.Aquamarine;
             this.btn_report.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_report.Location = new System.Drawing.Point(22, 337);
+            this.btn_report.Location = new System.Drawing.Point(22, 286);
             this.btn_report.Name = "btn_report";
             this.btn_report.Size = new System.Drawing.Size(226, 45);
             this.btn_report.TabIndex = 12;
@@ -335,7 +340,7 @@
             // 
             this.btn_check_attendance.BackColor = System.Drawing.Color.Lime;
             this.btn_check_attendance.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_check_attendance.Location = new System.Drawing.Point(22, 285);
+            this.btn_check_attendance.Location = new System.Drawing.Point(22, 234);
             this.btn_check_attendance.Margin = new System.Windows.Forms.Padding(4);
             this.btn_check_attendance.Name = "btn_check_attendance";
             this.btn_check_attendance.Size = new System.Drawing.Size(226, 45);
@@ -348,11 +353,11 @@
             // 
             this.btn_better_view.BackColor = System.Drawing.Color.Aquamarine;
             this.btn_better_view.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_better_view.Location = new System.Drawing.Point(22, 233);
+            this.btn_better_view.Location = new System.Drawing.Point(22, 129);
             this.btn_better_view.Name = "btn_better_view";
             this.btn_better_view.Size = new System.Drawing.Size(226, 45);
             this.btn_better_view.TabIndex = 11;
-            this.btn_better_view.Text = "BETTER";
+            this.btn_better_view.Text = "REFRESH";
             this.btn_better_view.UseVisualStyleBackColor = false;
             this.btn_better_view.Click += new System.EventHandler(this.btn_better_view_Click);
             // 
@@ -391,25 +396,6 @@
             this.flp_students.Size = new System.Drawing.Size(885, 491);
             this.flp_students.TabIndex = 11;
             // 
-            // cb_date
-            // 
-            this.cb_date.FormattingEnabled = true;
-            this.cb_date.Location = new System.Drawing.Point(670, 32);
-            this.cb_date.Margin = new System.Windows.Forms.Padding(4);
-            this.cb_date.Name = "cb_date";
-            this.cb_date.Size = new System.Drawing.Size(196, 28);
-            this.cb_date.TabIndex = 30;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(667, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 17);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Date:";
-            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -440,7 +426,6 @@
         private System.Windows.Forms.Label lbl_student_id_search;
         private System.Windows.Forms.TextBox tb_student_id_search;
         private System.Windows.Forms.Button btn_back;
-        private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.Button btn_delete_student;
         private System.Windows.Forms.Button btn_add_student;
         private System.Windows.Forms.Button btn_update_student;

@@ -49,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel_for_notifications = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -283,6 +284,7 @@
             // 
             this.panel_for_notifications.AutoScroll = true;
             this.panel_for_notifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel_for_notifications.Controls.Add(this.button2);
             this.panel_for_notifications.Controls.Add(this.label4);
             this.panel_for_notifications.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_for_notifications.Location = new System.Drawing.Point(234, 185);
@@ -294,11 +296,21 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 11);
+            this.label4.Location = new System.Drawing.Point(8, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(432, 27);
             this.label4.TabIndex = 0;
             this.label4.Text = "NOTIFICATION WILL APPEAR HERE!";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(41, 74);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // DashBoardForm
             // 
@@ -316,6 +328,7 @@
             this.Name = "DashBoardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoardForm";
+            this.Load += new System.EventHandler(this.DashBoardForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -352,5 +365,6 @@
         private System.Windows.Forms.Panel panel_for_notifications;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button2;
     }
 }
