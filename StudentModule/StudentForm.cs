@@ -15,7 +15,28 @@ namespace StudentAttendanceManagementSystem.StudentModule
         public StudentForm()
         {
             InitializeComponent();
-            cb_date.Text = DBTools.get_current_date();//.Replace("_", "-");
+            //cb_date.Text = DBTools.get_current_date();//.Replace("_", "-");
+        }
+
+        // constructor for passing data
+        //
+        // [class_code]
+        //,[class_name]
+        //,[class_semester]
+        //,[class_school_year]
+        //,[class_department]
+        //,[class_college]
+        public StudentForm(string class_code, string class_semester, string school_year, string department, string college)
+        {
+            InitializeComponent();
+
+            cb_class.Text = class_code;
+            cb_semester.Text = class_semester;
+            cb_school_year.Text = school_year;
+            cb_department.Text = department;
+            cb_college.Text = college;
+
+            cb_date.Text = DBTools.get_current_date();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -45,7 +66,6 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_add_class_Click(object sender, EventArgs e)
         {
-            // string college, string department, string semester, string school_year, string class_enrolled
             AddStudentForm add_student_form = new AddStudentForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text);
 
             add_student_form.Show();
@@ -182,9 +202,9 @@ namespace StudentAttendanceManagementSystem.StudentModule
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex.Message);
             }
             #endregion
 
@@ -217,9 +237,9 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("Me when I'm falling");
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 

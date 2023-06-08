@@ -50,5 +50,10 @@ namespace StudentAttendanceManagementSystem.ReportsModule
         {
             btn_refresh_Click(sender, e);
         }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!");
+        }
     }
 }

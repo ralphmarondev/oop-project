@@ -102,6 +102,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
             #endregion
 
             string class_code = tb_class_code_search.Text;
+            // class_code = "test123";
             generate_searched_class_user_control(class_code);
             class_code = "";
         }
@@ -113,8 +114,8 @@ namespace StudentAttendanceManagementSystem.ClassModule
             searched_class_school_year_list.Clear();
 
             get_searched_data_from_database("class_name", class_code, 1);
-            get_searched_data_from_database("class_semester", class_code, 2);
-            get_searched_data_from_database("class_school_year", class_code, 3);
+            //get_searched_data_from_database("class_semester", class_code, 2);
+            //get_searched_data_from_database("class_school_year", class_code, 3);
         }
 
         private void get_searched_data_from_database(string column_name, string class_code, int flag)
@@ -130,7 +131,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
             {
                 conn.Open();
 
-                string query = "SELECT " + column_name + " FROM " + table_name.ToString() + " WHERE class_code like '" + class_code + "';";
+                string query = "SELECT " + column_name + " FROM " + table_name.ToString() + " WHERE class_code = '" + class_code + "';";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -148,14 +149,14 @@ namespace StudentAttendanceManagementSystem.ClassModule
                                     // MessageBox.Show(column_value);
                                     size_searched_list++;
                                     break;
-                                case 2:
-                                    searched_class_semester_list.Add(column_value);
-                                    //MessageBox.Show(column_value);
-                                    break;
-                                case 3:
-                                    searched_class_school_year_list.Add(column_value);
-                                    // MessageBox.Show(column_value);
-                                    break;
+                                    //case 2:
+                                    //    searched_class_semester_list.Add(column_value);
+                                    //    //MessageBox.Show(column_value);
+                                    //    break;
+                                    //case 3:
+                                    //    searched_class_school_year_list.Add(column_value);
+                                    //    // MessageBox.Show(column_value);
+                                    //    break;
                             }
                         }
                     }
@@ -165,9 +166,9 @@ namespace StudentAttendanceManagementSystem.ClassModule
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex.Message);
             }
             #endregion
         }
@@ -217,8 +218,8 @@ namespace StudentAttendanceManagementSystem.ClassModule
                     list_items[i] = new MyClassUserControl();
                     list_items[i].ClassCode = class_code;
                     list_items[i].ClassName = searched_class_name_list[i].ToString();
-                    list_items[i].ClassSemester = searched_class_semester_list[i].ToString();
-                    list_items[i].ClassSchoolYear = searched_class_school_year_list[i].ToString();
+                    //list_items[i].ClassSemester = searched_class_semester_list[i].ToString();
+                    //list_items[i].ClassSchoolYear = searched_class_school_year_list[i].ToString();
 
                     // adding newly created dynamic user control to dynamic panel
                     flowLayoutPanel1.Controls.Add(list_items[i]);
@@ -226,9 +227,9 @@ namespace StudentAttendanceManagementSystem.ClassModule
                     list_items[i].Click += new System.EventHandler(this.UserControl_Click);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("Me when I'm falling...");
+                MessageBox.Show("Error: " + ex.Message);
             }
 
         }
@@ -244,16 +245,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
 
             MyClassUserControl[] list_items = new MyClassUserControl[size_list];
 
-            #region static list
-            // sample titles
-            string[] class_code = { "Title 1", "Title 2", "Title 3", "Title 4", "Title 5" };
-            // sample sub titles
-            string[] class_name = { "Sub title 1", "Sub title 2", "Sub title 3", "Sub title 4", "Sub title 5" };
-            // sample titles
-            string[] class_semester = { "Class Semester 1", "Class Semester 2", "Class Semester 3", "Class Semester 4", "Class Semester 5" };
-            // sample sub titles
-            string[] class_school_year = { "School Year 1", "School Year 2", "School Year 3", "School Year 4", "School Year 5" };
-            #endregion
+            //class_code_list.Sort();
 
             try
             {
@@ -272,9 +264,9 @@ namespace StudentAttendanceManagementSystem.ClassModule
                     list_items[i].Click += new System.EventHandler(this.UserControl_Click);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // me when i'm falling lol :)
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -286,14 +278,64 @@ namespace StudentAttendanceManagementSystem.ClassModule
         {
             MyClassUserControl obj = (MyClassUserControl)sender;
 
-            MessageBox.Show(obj.ClassName);
+            MessageBox.Show(obj.ClassName + " " + obj.ClassCode);
             // go to students form
-            StudentForm student_form = new StudentForm();
+            // get all the needed data and pass to student form
+            string class_department = get_class_data_from_database(obj.ClassCode, "class_department");
+            //MessageBox.Show("From usercontrol_click method: " + class_department);
+            string class_college = get_class_data_from_database(obj.ClassCode, "class_college");
+            //MessageBox.Show("From usercontrol_click method: " + class_college);
+
+            StudentForm student_form = new StudentForm(obj.ClassCode, obj.ClassSemester, obj.ClassSchoolYear, class_department, class_college);
 
             student_form.Show();
             Hide();
         }
         #endregion
+
+
+        #region Get data of the class [class code, name, etc.] and pass to student form
+        private ArrayList value_to_return = new ArrayList();
+        private string get_class_data_from_database(string class_code, string column_name)
+        {
+            value_to_return.Clear();
+
+            SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+            string table_name = "classes_table";
+
+            try
+            {
+                conn.Open();
+
+                string query = "SELECT " + column_name + " FROM " + table_name.ToString() + " WHERE class_code = '" + class_code + "';";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        int column_index = reader.GetOrdinal(column_name);
+                        while (reader.Read())
+                        {
+                            string column_value = reader.GetString(column_index);
+                            value_to_return.Add(column_value);
+                            MessageBox.Show(column_value);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No data found!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            return value_to_return[0].ToString();
+        }
+        #endregion
+
 
         private void btn_show_classes_Click(object sender, EventArgs e)
         {
@@ -320,7 +362,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
             SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
             string table_name = "classes_table"; //tb_subject_code_add.Text.Replace("-", "_") + "_" + tb_subject_name_add.Text + "_" + cb_semester_add.Text + "_" + tb_school_year_add.Text.Replace("-", "_");
 
-            #region try on
+            #region try one
             try
             {
                 conn.Open();
@@ -364,9 +406,9 @@ namespace StudentAttendanceManagementSystem.ClassModule
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex.Message);
             }
             #endregion
 
@@ -374,5 +416,12 @@ namespace StudentAttendanceManagementSystem.ClassModule
 
         #endregion
 
+        private void ClassForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DashBoardForm df = new DashBoardForm();
+
+            df.Show();
+            Hide();
+        }
     }
 }

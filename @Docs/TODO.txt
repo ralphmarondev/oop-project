@@ -1,4 +1,9 @@
 ﻿
+AS OF JUNE 8, 2023
+	Add default class to the forms from database
+
+
+
 AS OF JUNE 3, 2023
 	sort the last names upon retrieving for attendance, student and classes forms
 	update attendance [done -> 2023-06-06]

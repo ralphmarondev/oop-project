@@ -1,5 +1,10 @@
 ﻿# JUST README LOL :)
 
+2023-06-08
+->	Test the current version of the software.
+
+
+
 2023-06-07
 ->	Change the text inside 'bin/Debug/my_server.txt' with the name 
 	of your computer

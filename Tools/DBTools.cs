@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
@@ -459,7 +460,26 @@ namespace StudentAttendanceManagementSystem.Tools
 
             return current_date;
         }
+        #endregion
 
+
+        #region Selecting top 3 classes, will be placed on dashboard form
+        public static ArrayList select_top_three_classes_in_database_to_be_putted_on_dashboard_form()
+        {
+            // this will be the default classes to be placed on dashboard form
+
+            ArrayList nums = new ArrayList();
+
+            return nums;
+        }
+        #endregion
+
+
+        #region Setting the top 3 classes to be putted on dashboard form
+        public static void set_top_three_classes_to_be_putted_on_dashboard_form()
+        {
+
+        }
         #endregion
 
 

@@ -110,35 +110,12 @@ namespace StudentAttendanceManagementSystem
                     if (reader.HasRows)
                     {
                         int column_index = reader.GetOrdinal("last_name");
-                        int i = 0;
+                        // int i = 0;
                         while (reader.Read())
                         {
                             string column_value = reader.GetString(column_index);
                             last_names.Add(column_value);
                             //MessageBox.Show(column_value);
-                            Button btn = new Button();
-
-                            btn.Name = last_names[i].ToString();
-                            btn.Text = last_names[i].ToString();
-                            btn.Size = new Size(145, 52);
-                            btn.BackColor = Color.White;
-
-                            flowLayoutPanel1.Controls.Add(btn);
-
-                            // adding all the student on the present array-list
-                            // meaning by default, all are present
-                            // presents.Add(btn);
-
-                            // 2023-05-27 changes
-                            // just incase the user did not press any button
-                            // and just press the finish button, meaning all
-                            // are present
-                            // final_present.Add(btn);
-                            // end of changes
-
-                            // adding click listener on buttons
-                            btn.Click += new EventHandler(this.on_btn_click);
-                            i++;
                         }
                     }
                     else
@@ -146,10 +123,29 @@ namespace StudentAttendanceManagementSystem
                         MessageBox.Show("No data found!");
                     }
                 }
-            }
-            catch
-            {
+                // sorting last names
+                last_names.Sort();
+                // generating buttons
+                int i = 0;
+                foreach (var items in last_names)
+                {
+                    Button btn = new Button();
 
+                    btn.Name = last_names[i].ToString();
+                    btn.Text = last_names[i].ToString();
+                    btn.Size = new Size(145, 52);
+                    btn.BackColor = Color.White;
+
+                    flowLayoutPanel1.Controls.Add(btn);
+
+                    // adding click listener on buttons
+                    btn.Click += new EventHandler(this.on_btn_click);
+                    i++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
 
             #region Declaring last name implicitly
@@ -544,9 +540,9 @@ namespace StudentAttendanceManagementSystem
                                 }
                             }
                         }
-                        catch
+                        catch (Exception ex)
                         {
-                            // me when i'm falling lol :)
+                            MessageBox.Show("Error: " + ex.Message);
                         }
                     }
                 }
@@ -563,6 +559,8 @@ namespace StudentAttendanceManagementSystem
             }
             #endregion
 
+            // sorting absents
+            absents.Sort();
             foreach (var items in absents)
             {
                 MessageBox.Show(items.ToString(), "Absents");

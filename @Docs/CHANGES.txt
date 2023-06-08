@@ -1,4 +1,10 @@
-﻿June 7, 2023
+﻿
+June 8, 2023
+	can sort the names in alphabetical order using last names in checking
+		of attendance, in attendance form.
+
+
+June 7, 2023
 	can get students with 'n' value of absents
 
 
