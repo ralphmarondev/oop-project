@@ -2,6 +2,8 @@
 using StudentAttendanceManagementSystem.StudentModule;
 using StudentAttendanceManagementSystem.Tools;
 using System;
+using System.Collections;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace StudentAttendanceManagementSystem.DashBoardModule
@@ -102,5 +104,49 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
             MessageBox.Show("selecting all that have 20 percent absent from database");
             AttendanceTools.select_all_that_have_20_percent_absent_from_database("test123");
         }
+
+        // 2023-06-09
+        #region Selecting top 3 classes, will be placed on dashboard form
+        private ArrayList top_three_class_code = new ArrayList();
+        // private ArrayList top_three_class_names = new ArrayList();
+
+        private void select_top_three_classes_in_database_to_be_putted_on_dashboard_form(string column_name)
+        {
+            SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+            string table_name = "classes_table"; //tb_subject_code_add.Text.Replace("-", "_") + "_" + tb_subject_name_add.Text + "_" + cb_semester_add.Text + "_" + tb_school_year_add.Text.Replace("-", "_");
+
+            try
+            {
+                conn.Open();
+
+                string query = "SELECT " + column_name + " FROM " + table_name.ToString();
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        int column_index = reader.GetOrdinal(column_name);
+                        while (reader.Read())
+                        {
+                            string column_value = reader.GetString(column_index);
+                            top_three_class_code.Add(column_value);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No data found!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+        }
+        #endregion
+
+
     }
 }
