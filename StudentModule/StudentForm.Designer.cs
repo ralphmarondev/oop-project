@@ -126,7 +126,8 @@
             "2025-2026",
             "2026-2027",
             "2027-2028",
-            "2028-2029"});
+            "2028-2029",
+            "2029-2030"});
             this.cb_school_year.Location = new System.Drawing.Point(234, 91);
             this.cb_school_year.Margin = new System.Windows.Forms.Padding(4);
             this.cb_school_year.Name = "cb_school_year";

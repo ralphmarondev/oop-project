@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_print = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.cb_class = new System.Windows.Forms.ComboBox();
             this.lbl_class = new System.Windows.Forms.Label();
@@ -42,7 +43,7 @@
             this.cb_college = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_print = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Aquamarine;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btn_print);
             this.panel2.Controls.Add(this.btn_refresh);
             this.panel2.Controls.Add(this.cb_class);
@@ -68,6 +70,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1161, 171);
             this.panel2.TabIndex = 4;
+            // 
+            // btn_print
+            // 
+            this.btn_print.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_print.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_print.Location = new System.Drawing.Point(974, 76);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(173, 45);
+            this.btn_print.TabIndex = 22;
+            this.btn_print.Text = "PRINT";
+            this.btn_print.UseVisualStyleBackColor = false;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // btn_refresh
             // 
@@ -234,17 +248,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(1161, 498);
             this.dataGridView1.TabIndex = 0;
             // 
-            // btn_print
+            // button1
             // 
-            this.btn_print.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_print.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print.Location = new System.Drawing.Point(974, 76);
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(173, 45);
-            this.btn_print.TabIndex = 22;
-            this.btn_print.Text = "PRINT";
-            this.btn_print.UseVisualStyleBackColor = false;
-            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            this.button1.Location = new System.Drawing.Point(1000, 127);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ReportsForm
             // 
@@ -282,5 +293,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.Button button1;
     }
 }

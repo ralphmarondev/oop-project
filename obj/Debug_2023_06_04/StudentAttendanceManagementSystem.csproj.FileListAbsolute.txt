@@ -39,3 +39,4 @@ D:\Documents\student-attendance-management-system\source\version-1.0\StudentAtte
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.csproj.GenerateResource.cache
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.csproj.CoreCompileInputs.cache
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.exe
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.Debug.AddingItemsInComboBox.resources

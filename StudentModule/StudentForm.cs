@@ -248,6 +248,10 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
+            // 2023-06-09 [add date on form load]
+            cb_date.Text = DBTools.get_current_date();
+            // done
+
             // btn_refresh_Click(sender, e);
             btn_better_view_Click(sender, e);
         }
@@ -427,5 +431,71 @@ namespace StudentAttendanceManagementSystem.StudentModule
             rf.Show();
             Hide();
         }
+
+        // 2023-06-09       11:07 pm
+        #region Adding items in combo boxes
+        /// <Algorithm>
+        /// 1. Get the data in a certain column in db [ex. class_semester]
+        /// 2. Store it in an array-list [if same, only accept the first one]
+        /// 3. Convert the array-list to a list
+        /// 4. Add it to combo-box
+        /// </Algorithm>
+
+        #region variables
+        private ArrayList cb_colleges_items = new ArrayList();
+
+
+        #endregion
+
+        private void adding_items_in_combo_boxes()
+        {
+
+        }
+
+        private void get_data_in_certain_column_from_database()
+        {
+            string table_name = cb_class.Text;
+
+
+        }
+
+        private void get_data_in_certain_column_from_database_helper(string table_name, string column_name)
+        {
+            SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+
+            try
+            {
+                conn.Open();
+
+                string query = "SELECT " + column_name + " FROM " + table_name;
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        int column_index = reader.GetOrdinal(column_name);
+                        while (reader.Read())
+                        {
+                            string column_value1 = reader.GetString(column_index);
+                            student_id_list.Add(column_value1);
+                            // MessageBox.Show(column_value);
+                            size_list++;
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No data found!");
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        #endregion
     }
 }

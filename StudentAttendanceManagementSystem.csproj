@@ -124,6 +124,12 @@
     <Compile Include="ClassModule\UpdateClassForm.Designer.cs">
       <DependentUpon>UpdateClassForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Debug\AddingItemsInComboBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debug\AddingItemsInComboBox.Designer.cs">
+      <DependentUpon>AddingItemsInComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoardModule\DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Debug\AddingItemsInComboBox.resx">
+      <DependentUpon>AddingItemsInComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.resx">
       <DependentUpon>GuessDashBoardForm.cs</DependentUpon>

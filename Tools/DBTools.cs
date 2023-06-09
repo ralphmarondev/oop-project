@@ -480,7 +480,7 @@ namespace StudentAttendanceManagementSystem.Tools
         /// </summary>
         public static string get_data_from_database(string table_name, string column_name, string id_number)
         {
-            string data = "Cazmir";
+            string data = "Maron";
             SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
 
             try

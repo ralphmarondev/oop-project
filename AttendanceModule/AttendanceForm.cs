@@ -58,6 +58,9 @@ namespace StudentAttendanceManagementSystem
             #endregion
 
             flowLayoutPanel1.Controls.Clear();
+            // edit: 2023-06-09 [clear last name array list]
+            last_names.Clear();
+            // done
 
             #region comment
             //try
@@ -819,6 +822,10 @@ namespace StudentAttendanceManagementSystem
 
         private void AttendanceForm_Load(object sender, EventArgs e)
         {
+            // 2023-06-09 [add date on form load]
+            cb_date.Text = DBTools.get_current_date();
+            // done
+
             btn_refresh_Click(sender, e);
         }
 
