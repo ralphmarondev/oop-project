@@ -142,11 +142,29 @@
     <Compile Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.Designer.cs">
       <DependentUpon>GuessDashBoardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GuestUserModules\GuestClassModule\GuestClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestClassModule\GuestClassForm.Designer.cs">
+      <DependentUpon>GuestClassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuestUserModules\GuestMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GuestUserModules\GuestMainForm.Designer.cs">
       <DependentUpon>GuestMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestReportsModule\GuestReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestReportsModule\GuestReportsForm.Designer.cs">
+      <DependentUpon>GuestReportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestStudentModule\GuestStudentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestStudentModule\GuestStudentsForm.Designer.cs">
+      <DependentUpon>GuestStudentsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginModule\ExitApplication.cs">
       <SubType>Form</SubType>
@@ -336,8 +354,17 @@
     <EmbeddedResource Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.resx">
       <DependentUpon>GuessDashBoardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GuestUserModules\GuestClassModule\GuestClassForm.resx">
+      <DependentUpon>GuestClassForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GuestUserModules\GuestMainForm.resx">
       <DependentUpon>GuestMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuestUserModules\GuestReportsModule\GuestReportsForm.resx">
+      <DependentUpon>GuestReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuestUserModules\GuestStudentModule\GuestStudentsForm.resx">
+      <DependentUpon>GuestStudentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginModule\ExitApplication.resx">
       <DependentUpon>ExitApplication.cs</DependentUpon>

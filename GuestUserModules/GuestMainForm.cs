@@ -21,6 +21,9 @@ namespace StudentAttendanceManagementSystem.GuestUserModules
 
         private void btn_no_Click(object sender, EventArgs e)
         {
+            MainForm main_form = new MainForm();
+
+            main_form.Show();
             Hide();
         }
     }

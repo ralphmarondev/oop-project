@@ -1,6 +1,7 @@
 ﻿
 June 10, 2023
 	implemented on text changed functionality on search boxes.
+	started implementing guest module.
 
 
 

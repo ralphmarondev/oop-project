@@ -43,3 +43,6 @@ D:\Documents\student-attendance-management-system\source\version-1.0\StudentAtte
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.Debug.OnTextchangeDemo.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.ReportsModule.StudentEligibleForDropOutForm.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.ReportsModule.ViewAbsentOrPresentForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.GuestUserModules.GuestClassModule.GuestClassForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.GuestUserModules.GuestReportsModule.GuestReportsForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.GuestUserModules.GuestStudentModule.GuestStudentsForm.resources

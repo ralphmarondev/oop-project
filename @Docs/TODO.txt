@@ -1,6 +1,7 @@
 ﻿
 AS OF JUNE 10, 2023
 	Save the content of the grid-view in reports form on excel sheet.
+	Get the first 3 classes and make a short cut of them on dashboard form.
 
 
 

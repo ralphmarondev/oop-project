@@ -36,28 +36,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_attendance_form = new System.Windows.Forms.Button();
             this.btn_student_form = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.gb_check_attendance = new System.Windows.Forms.GroupBox();
-            this.lbl_chck_attndce = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_username = new System.Windows.Forms.Label();
             this.panel_for_notifications = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel_top_three_classes = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.gb_check_attendance.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.panel_for_notifications.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_class_form
@@ -160,21 +152,12 @@
             this.btn_student_form.UseVisualStyleBackColor = false;
             this.btn_student_form.Click += new System.EventHandler(this.btn_student_form_Click);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(234, 144);
-            this.panel3.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(-3, -3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(210, 125);
+            this.pictureBox1.Size = new System.Drawing.Size(234, 144);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -183,10 +166,10 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lbl_username);
             this.panel2.Location = new System.Drawing.Point(234, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(890, 57);
+            this.panel2.Size = new System.Drawing.Size(887, 51);
             this.panel2.TabIndex = 4;
             // 
             // dateTimePicker1
@@ -198,87 +181,17 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(261, 27);
             this.dateTimePicker1.TabIndex = 2;
             // 
-            // label1
+            // lbl_username
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(8, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "USER: root";
-            this.label1.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
-            // 
-            // gb_check_attendance
-            // 
-            this.gb_check_attendance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gb_check_attendance.Controls.Add(this.lbl_chck_attndce);
-            this.gb_check_attendance.Location = new System.Drawing.Point(240, 63);
-            this.gb_check_attendance.Name = "gb_check_attendance";
-            this.gb_check_attendance.Size = new System.Drawing.Size(200, 116);
-            this.gb_check_attendance.TabIndex = 5;
-            this.gb_check_attendance.TabStop = false;
-            this.gb_check_attendance.Text = "CHECK ATTENDANCE";
-            this.gb_check_attendance.Enter += new System.EventHandler(this.gb_check_attendance_Enter);
-            // 
-            // lbl_chck_attndce
-            // 
-            this.lbl_chck_attndce.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_chck_attndce.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_chck_attndce.Location = new System.Drawing.Point(3, 23);
-            this.lbl_chck_attndce.Name = "lbl_chck_attndce";
-            this.lbl_chck_attndce.Size = new System.Drawing.Size(194, 90);
-            this.lbl_chck_attndce.TabIndex = 0;
-            this.lbl_chck_attndce.Text = "CHECK\r\nATTENDANCE";
-            this.lbl_chck_attndce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_chck_attndce.Click += new System.EventHandler(this.lbl_chck_attndce_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(458, 63);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 116);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "VIEW STUDENTS";
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 90);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "VIEW\r\nSTUDENTS";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(673, 63);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 116);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "GENERATE REPORTS";
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(194, 90);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "GENERATE\r\nREPORTS\r\n";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lbl_username.AutoSize = true;
+            this.lbl_username.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_username.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbl_username.Location = new System.Drawing.Point(8, 12);
+            this.lbl_username.Name = "lbl_username";
+            this.lbl_username.Size = new System.Drawing.Size(96, 27);
+            this.lbl_username.TabIndex = 0;
+            this.lbl_username.Text = "USER: ";
+            this.lbl_username.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
             // 
             // panel_for_notifications
             // 
@@ -287,9 +200,9 @@
             this.panel_for_notifications.Controls.Add(this.button2);
             this.panel_for_notifications.Controls.Add(this.label4);
             this.panel_for_notifications.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_for_notifications.Location = new System.Drawing.Point(234, 185);
+            this.panel_for_notifications.Location = new System.Drawing.Point(234, 329);
             this.panel_for_notifications.Name = "panel_for_notifications";
-            this.panel_for_notifications.Size = new System.Drawing.Size(887, 441);
+            this.panel_for_notifications.Size = new System.Drawing.Size(887, 297);
             this.panel_for_notifications.TabIndex = 8;
             // 
             // button2
@@ -312,15 +225,30 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "NOTIFICATION WILL APPEAR HERE!";
             // 
+            // panel_top_three_classes
+            // 
+            this.panel_top_three_classes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_top_three_classes.Location = new System.Drawing.Point(234, 51);
+            this.panel_top_three_classes.Name = "panel_top_three_classes";
+            this.panel_top_three_classes.Size = new System.Drawing.Size(887, 278);
+            this.panel_top_three_classes.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(234, 144);
+            this.panel3.TabIndex = 0;
+            // 
             // DashBoardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 626);
+            this.Controls.Add(this.panel_top_three_classes);
             this.Controls.Add(this.panel_for_notifications);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.gb_check_attendance);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -330,15 +258,12 @@
             this.Text = "DashBoardForm";
             this.Load += new System.EventHandler(this.DashBoardForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.gb_check_attendance.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.panel_for_notifications.ResumeLayout(false);
             this.panel_for_notifications.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -349,22 +274,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_attendance_form;
         private System.Windows.Forms.Button btn_student_form;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox gb_check_attendance;
-        private System.Windows.Forms.Label lbl_chck_attndce;
+        private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.Button btn_reports;
         private System.Windows.Forms.Button btn_users;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel_for_notifications;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel_top_three_classes;
     }
 }

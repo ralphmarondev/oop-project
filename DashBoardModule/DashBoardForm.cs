@@ -15,6 +15,13 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
             InitializeComponent();
         }
 
+        // 2023-06-10
+        public DashBoardForm(string user_name)
+        {
+            InitializeComponent();
+            lbl_username.Text += user_name;
+        }
+
         private void btn_class_form_Click(object sender, EventArgs e)
         {
             ClassForm class_form = new ClassForm();
@@ -263,6 +270,13 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
         #endregion
         /// END -> 2023-06-10
 
+
+        #region Get first 3 classes and generate a dynamic user control for them 
+        private void get_first_three_classes_and_generate_dynamic_user_control()
+        {
+
+        }
+        #endregion
 
     }
 }
