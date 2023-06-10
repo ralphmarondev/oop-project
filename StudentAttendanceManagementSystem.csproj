@@ -160,6 +160,18 @@
     <Compile Include="ReportsModule\ReportsForm.Designer.cs">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportsModule\StudentEligibleForDropOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportsModule\StudentEligibleForDropOutForm.Designer.cs">
+      <DependentUpon>StudentEligibleForDropOutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsModule\ViewAbsentOrPresentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportsModule\ViewAbsentOrPresentForm.Designer.cs">
+      <DependentUpon>ViewAbsentOrPresentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentModule\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,6 +357,12 @@
     </Compile>
     <EmbeddedResource Include="ReportsModule\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportsModule\StudentEligibleForDropOutForm.resx">
+      <DependentUpon>StudentEligibleForDropOutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportsModule\ViewAbsentOrPresentForm.resx">
+      <DependentUpon>ViewAbsentOrPresentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentModule\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>

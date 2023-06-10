@@ -1,5 +1,10 @@
 ﻿# JUST README LOL :)
 
+2023-06-10
+->	The first class to add in the database is the default class
+	to be passed in all forms if no input is inputted.
+
+
 2023-06-08
 ->	Test the current version of the software.
 

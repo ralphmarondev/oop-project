@@ -1,4 +1,9 @@
 ﻿
+June 10, 2023
+	implemented on text changed functionality on search boxes.
+
+
+
 June 8, 2023
 	can sort the names in alphabetical order using last names in checking
 		of attendance, in attendance form.

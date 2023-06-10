@@ -253,6 +253,7 @@
             this.tb_student_id_search.Name = "tb_student_id_search";
             this.tb_student_id_search.Size = new System.Drawing.Size(196, 27);
             this.tb_student_id_search.TabIndex = 10;
+            this.tb_student_id_search.TextChanged += new System.EventHandler(this.tb_student_id_search_TextChanged);
             // 
             // btn_back
             // 

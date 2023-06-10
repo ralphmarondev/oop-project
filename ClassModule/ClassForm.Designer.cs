@@ -84,6 +84,7 @@
             this.tb_class_code_search.Name = "tb_class_code_search";
             this.tb_class_code_search.Size = new System.Drawing.Size(180, 27);
             this.tb_class_code_search.TabIndex = 10;
+            this.tb_class_code_search.TextChanged += new System.EventHandler(this.tb_class_code_search_TextChanged);
             // 
             // btn_add_class
             // 

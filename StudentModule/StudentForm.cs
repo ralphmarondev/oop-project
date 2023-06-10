@@ -263,12 +263,19 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_better_view_Click(object sender, EventArgs e)
         {
+            //generated_from_database();
+            //cb_college.Text = class_college[0].ToString();
+            //cb_department.Text = class_department[0].ToString();
+            //cb_school_year.Text = class_school_year_list[0].ToString();
+            //cb_semester.Text = class_semester_list[0].ToString();
+
             if (cb_class.Text != null)
             {
                 string table_name = "class_" + cb_class.Text.ToString();
                 //generate_dynamic_user_control(table_name);
                 generate_dynamic_user_control(table_name);
             }
+
         }
 
 
@@ -515,5 +522,122 @@ namespace StudentAttendanceManagementSystem.StudentModule
         }
 
         #endregion
+
+
+        #region On text change listener on search 2023-06-10
+        private void tb_student_id_search_TextChanged(object sender, EventArgs e)
+        {
+            // 2023-06-10
+
+            string table_name = "class_" + cb_class.Text;
+            string id_number = tb_student_id_search.Text;
+            //if (id_number.Length == 8)
+            generate_searched_student_dynamic_user_control_otc(table_name, id_number);
+            if (id_number == "")
+                btn_better_view_Click(sender, e);
+        }
+
+        #region search student from database
+        private ArrayList searched_student_name_list_otc = new ArrayList();
+        private ArrayList searched_student_total_absents_otc = new ArrayList();
+        private ArrayList searched_student_total_presents_otc = new ArrayList();
+        private int search_size_list_otc = 0;
+
+        private void get_searched_student_from_db_otc(string table_name, string id_number)
+        {
+            // searched_student_id_list.Clear();
+            searched_student_name_list_otc.Clear();
+            searched_student_total_presents_otc.Clear();
+            searched_student_total_absents_otc.Clear(); //class_test123
+
+            // get_searched_student_from_database(table_name, "id_number", 1);
+            get_searched_student_from_database_otc("last_name", table_name, id_number, 1);
+            // get_data_from_database(table_name, "last_name", 2);
+            //get_data_from_database(table_name, "total_presents", 3);
+            //get_data_from_database(table_name, "total_absents", 4);
+        }
+
+        private void get_searched_student_from_database_otc(string column_name, string table_name, string id_number, int flag)
+        {
+            // Get data from database 
+            // string conn_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+            SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+            // string table_name = "classes_table"; //tb_subject_code_add.Text.Replace("-", "_") + "_" + tb_subject_name_add.Text + "_" + cb_semester_add.Text + "_" + tb_school_year_add.Text.Replace("-", "_");
+
+            #region try one
+            try
+            {
+                conn.Open();
+
+                string query = "SELECT " + column_name + " FROM " + table_name + " WHERE id_number like '" + id_number + "';";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        int column_index = reader.GetOrdinal(column_name);
+                        while (reader.Read())
+                        {
+                            switch (flag)
+                            {
+                                case 1:
+                                    string column_value2 = reader.GetString(column_index);
+                                    searched_student_name_list_otc.Add(column_value2);
+                                    // search_size_list++;
+                                    //MessageBox.Show(column_value);
+                                    break;
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //MessageBox.Show("No data found!");
+                    }
+                }
+            }
+            catch //(Exception ex)
+            {
+                //MessageBox.Show("Error: " + ex.Message);
+            }
+            #endregion
+
+        }
+
+        private void generate_searched_student_dynamic_user_control_otc(string table_name, string id_number)
+        {
+            // search_size_list = 0;
+            try
+            {
+                get_searched_student_from_db_otc(table_name, id_number);
+
+                flp_students.Controls.Clear();
+
+                //StudentUserControl[] list_items = new StudentUserControl[search_size_list];
+                StudentUserControl student = new StudentUserControl();
+
+                student.StudentIDNumber = id_number;
+                student.StudentName = searched_student_name_list_otc[0].ToString();
+                //list_items[i].StudentTotalPresent = student_total_presents[i].ToString();
+                //list_items[i].StudentTotalAbsent = student_total_absents[i].ToString();
+
+                // adding newly created dynamic user control to dynamic panel
+                flp_students.Controls.Add(student);
+
+                student.Click += new System.EventHandler(this.UserControl_Click);
+                searched_student_name_list_otc.Clear();
+
+            }
+            catch
+            {
+                // no exception is written so that it will not become and
+                // interruption while typing the student id
+            }
+        }
+
+        #endregion
+        #endregion
+
     }
 }

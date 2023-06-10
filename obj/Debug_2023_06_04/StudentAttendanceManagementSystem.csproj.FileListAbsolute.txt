@@ -41,3 +41,5 @@ D:\Documents\student-attendance-management-system\source\version-1.0\StudentAtte
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.exe
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.Debug.AddingItemsInComboBox.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.Debug.OnTextchangeDemo.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.ReportsModule.StudentEligibleForDropOutForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.ReportsModule.ViewAbsentOrPresentForm.resources
