@@ -1,5 +1,4 @@
 ﻿using StudentAttendanceManagementSystem.DashBoardModule;
-using StudentAttendanceManagementSystem.Debug;
 using StudentAttendanceManagementSystem.GuestUserModules;
 using StudentAttendanceManagementSystem.Tools;
 using System;
@@ -70,8 +69,7 @@ namespace StudentAttendanceManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            AddingItemsInComboBox add = new AddingItemsInComboBox();
-            add.Show();
+
         }
 
         private void btn_login_as_guest_Click(object sender, EventArgs e)

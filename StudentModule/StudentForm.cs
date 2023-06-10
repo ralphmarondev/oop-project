@@ -4,6 +4,7 @@ using StudentAttendanceManagementSystem.StudentModule.UserControls;
 using StudentAttendanceManagementSystem.Tools;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -252,15 +253,22 @@ namespace StudentAttendanceManagementSystem.StudentModule
             cb_date.Text = DBTools.get_current_date();
             // done
 
+            // 2023-06-10 [add items in cb_class combo-box
+            adding_items_in_combo_boxes();
+            // done
+
             // btn_refresh_Click(sender, e);
             btn_better_view_Click(sender, e);
         }
 
         private void btn_better_view_Click(object sender, EventArgs e)
         {
-            string table_name = "class_" + cb_class.Text.ToString();
-            //generate_dynamic_user_control(table_name);
-            generate_dynamic_user_control(table_name);
+            if (cb_class.Text != null)
+            {
+                string table_name = "class_" + cb_class.Text.ToString();
+                //generate_dynamic_user_control(table_name);
+                generate_dynamic_user_control(table_name);
+            }
         }
 
 
@@ -298,9 +306,9 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("Me when I'm falling");
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
         #endregion
@@ -442,25 +450,36 @@ namespace StudentAttendanceManagementSystem.StudentModule
         /// </Algorithm>
 
         #region variables
-        private ArrayList cb_colleges_items = new ArrayList();
-
+        private ArrayList class_code_items = new ArrayList();
+        private int class_code_items_count;
 
         #endregion
 
         private void adding_items_in_combo_boxes()
         {
+            string table_name = "classes_table";
+            string column_name = "class_code";
+            get_data_in_certain_column_from_database_helper(table_name, column_name);
 
+            List<string> class_code_list = new List<string>();
+
+            foreach (var items in class_code_items)
+            {
+                class_code_list.Add(items.ToString());
+                MessageBox.Show(items.ToString());
+            }
+            cb_class.Items.Add(class_code_list.ToArray());
         }
 
-        private void get_data_in_certain_column_from_database()
+        private void get_data_in_certain_column_from_database(string table_name)
         {
-            string table_name = cb_class.Text;
 
 
         }
 
         private void get_data_in_certain_column_from_database_helper(string table_name, string column_name)
         {
+            class_code_items_count = 0;
             SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
 
             try
@@ -477,11 +496,10 @@ namespace StudentAttendanceManagementSystem.StudentModule
                         int column_index = reader.GetOrdinal(column_name);
                         while (reader.Read())
                         {
-                            string column_value1 = reader.GetString(column_index);
-                            student_id_list.Add(column_value1);
-                            // MessageBox.Show(column_value);
-                            size_list++;
-
+                            string column_value = reader.GetString(column_index);
+                            class_code_items.Add(column_value);
+                            class_code_items_count++;
+                            MessageBox.Show(column_value);
                         }
                     }
                     else
@@ -490,9 +508,9 @@ namespace StudentAttendanceManagementSystem.StudentModule
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 

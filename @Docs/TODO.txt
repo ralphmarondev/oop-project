@@ -1,4 +1,9 @@
 ﻿
+AS OF JUNE 10, 2023
+	Save the content of the grid-view in reports form on excel sheet.
+
+
+
 AS OF JUNE 8, 2023
 	Add default class to the forms from database
 

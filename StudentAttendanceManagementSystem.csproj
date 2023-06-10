@@ -130,6 +130,12 @@
     <Compile Include="Debug\AddingItemsInComboBox.Designer.cs">
       <DependentUpon>AddingItemsInComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Debug\OnTextchangeDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debug\OnTextchangeDemo.Designer.cs">
+      <DependentUpon>OnTextchangeDemo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Debug\AddingItemsInComboBox.resx">
       <DependentUpon>AddingItemsInComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Debug\OnTextchangeDemo.resx">
+      <DependentUpon>OnTextchangeDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.resx">
       <DependentUpon>GuessDashBoardForm.cs</DependentUpon>
