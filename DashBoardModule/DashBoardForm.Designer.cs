@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_attendance_form = new System.Windows.Forms.Button();
             this.btn_student_form = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -44,12 +45,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel_top_three_classes = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel_for_notifications.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_class_form
@@ -152,6 +152,15 @@
             this.btn_student_form.UseVisualStyleBackColor = false;
             this.btn_student_form.Click += new System.EventHandler(this.btn_student_form_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(234, 144);
+            this.panel3.TabIndex = 0;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -200,9 +209,9 @@
             this.panel_for_notifications.Controls.Add(this.button2);
             this.panel_for_notifications.Controls.Add(this.label4);
             this.panel_for_notifications.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_for_notifications.Location = new System.Drawing.Point(234, 329);
+            this.panel_for_notifications.Location = new System.Drawing.Point(234, 221);
             this.panel_for_notifications.Name = "panel_for_notifications";
-            this.panel_for_notifications.Size = new System.Drawing.Size(887, 297);
+            this.panel_for_notifications.Size = new System.Drawing.Size(887, 405);
             this.panel_for_notifications.TabIndex = 8;
             // 
             // button2
@@ -227,20 +236,14 @@
             // 
             // panel_top_three_classes
             // 
+            this.panel_top_three_classes.AutoScroll = true;
             this.panel_top_three_classes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_top_three_classes.Location = new System.Drawing.Point(234, 51);
+            this.panel_top_three_classes.Location = new System.Drawing.Point(234, 64);
+            this.panel_top_three_classes.Margin = new System.Windows.Forms.Padding(10);
             this.panel_top_three_classes.Name = "panel_top_three_classes";
-            this.panel_top_three_classes.Size = new System.Drawing.Size(887, 278);
+            this.panel_top_three_classes.Size = new System.Drawing.Size(887, 157);
             this.panel_top_three_classes.TabIndex = 9;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(234, 144);
-            this.panel3.TabIndex = 0;
+            this.panel_top_three_classes.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_top_three_classes_Paint);
             // 
             // DashBoardForm
             // 
@@ -258,12 +261,12 @@
             this.Text = "DashBoardForm";
             this.Load += new System.EventHandler(this.DashBoardForm_Load);
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel_for_notifications.ResumeLayout(false);
             this.panel_for_notifications.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

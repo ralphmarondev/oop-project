@@ -1,8 +1,11 @@
 ﻿
+June 11, 2023
+	can view attendance [absent or present only or both in a certain date]
+
+
 June 10, 2023
 	implemented on text changed functionality on search boxes.
 	started implementing guest module.
-
 
 
 June 8, 2023

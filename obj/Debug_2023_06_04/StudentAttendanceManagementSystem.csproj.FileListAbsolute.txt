@@ -46,3 +46,7 @@ D:\Documents\student-attendance-management-system\source\version-1.0\StudentAtte
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.GuestUserModules.GuestClassModule.GuestClassForm.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.GuestUserModules.GuestReportsModule.GuestReportsForm.resources
 D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.GuestUserModules.GuestStudentModule.GuestStudentsForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.UserModule.FinalUserForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.ReportsModule.ViewAttendanceForm.resources
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.csproj.ResolveComReference.cache
+D:\Documents\student-attendance-management-system\source\version-1.0\StudentAttendanceManagementSystem\obj\Debug_2023_06_04\StudentAttendanceManagementSystem.Debug.ExportingDataGridDataToExcel.ExportDataToExcel.resources

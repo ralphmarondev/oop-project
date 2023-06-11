@@ -539,5 +539,9 @@ namespace StudentAttendanceManagementSystem.ClassModule
         #endregion
         #endregion
 
+        public void generate_classes()
+        {
+            generate_dynamic_user_control();
+        }
     }
 }

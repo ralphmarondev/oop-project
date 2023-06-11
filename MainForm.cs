@@ -1,4 +1,5 @@
 ﻿using StudentAttendanceManagementSystem.DashBoardModule;
+using StudentAttendanceManagementSystem.Debug.ExportingDataGridDataToExcel;
 using StudentAttendanceManagementSystem.GuestUserModules;
 using StudentAttendanceManagementSystem.Tools;
 using System;
@@ -68,6 +69,9 @@ namespace StudentAttendanceManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ExportDataToExcel export = new ExportDataToExcel();
+
+            export.Show();
 
         }
 

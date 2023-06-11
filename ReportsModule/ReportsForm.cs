@@ -56,5 +56,14 @@ namespace StudentAttendanceManagementSystem.ReportsModule
             // TODO: Implement this!!
             MessageBox.Show("Coming soon!");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string table_name = "class_" + cb_class.Text;
+
+            ViewAttendanceForm v = new ViewAttendanceForm(table_name);
+
+            v.Show();
+        }
     }
 }

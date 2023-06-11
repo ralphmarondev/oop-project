@@ -66,33 +66,77 @@ namespace StudentAttendanceManagementSystem.UserModule
 
         }
 
+        // add
         private void button1_Click(object sender, EventArgs e)
         {
-            AddNewUserForm af = new AddNewUserForm();
 
-            af.Show();
+            try
+            {
+                //This is my connection string i have assigned the database file address path
+                string MyConnection2 = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+                //This is my insert query in which i am taking input from the user through windows forms
+                //string Query = "insert into classes_table(class_code, class_name, class_semester, class_school_year) values" +
+                //    "('" + tb_subject_code_add.Text + "','" + tb_subject_name_add.Text + "','" + cb_semester_add.Text + "','" + tb_school_year_add.Text + "');";
+                string Query = "insert into Users (username, password) values ('" + tb_username.Text + "','" + tb_password.Text + "');";
+                //This is  MySqlConnection here i have created the object and pass my connection string.
+                SqlConnection MyConn2 = new SqlConnection(MyConnection2);
+                //This is command class which will handle the query and connection object.
+                SqlCommand MyCommand2 = new SqlCommand(Query, MyConn2);
+                SqlDataReader MyReader2;
+                MyConn2.Open();
+                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.
+                MessageBox.Show("Saved Successfully!");
+                while (MyReader2.Read())
+                {
+                }
+
+                MyConn2.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in saving new user: " + ex.Message);
+            }
+            btn_refresh_Click(sender, e);
         }
 
+        // edit
         private void button2_Click(object sender, EventArgs e)
         {
-            EditUserForm ef = new EditUserForm();
+            MessageBox.Show("Edit: " + tb_username.Text);
 
-            ef.Show();
+            btn_refresh_Click(sender, e);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DeleteUserForm df = new DeleteUserForm();
-
-            df.Show();
+            try
+            {
+                //string MyConnection2 = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+                string Query = "delete from Users where username ='" + this.tb_username.Text + "' AND password='" + this.tb_password.Text + "';";
+                SqlConnection MyConn2 = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand MyCommand2 = new SqlCommand(Query, MyConn2);
+                SqlDataReader MyReader2;
+                MyConn2.Open();
+                MyReader2 = MyCommand2.ExecuteReader();
+                MessageBox.Show(this.tb_username.Text + " from users was deleted successfully!");
+                while (MyReader2.Read())
+                {
+                }
+                MyConn2.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            btn_refresh_Click(sender, e);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Hide();
             DashBoardForm df = new DashBoardForm();
 
             df.Show();
+            Hide();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -117,6 +161,11 @@ namespace StudentAttendanceManagementSystem.UserModule
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            btn_refresh_Click(sender, e);
         }
     }
 }

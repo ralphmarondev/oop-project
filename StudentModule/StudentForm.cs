@@ -257,6 +257,10 @@ namespace StudentAttendanceManagementSystem.StudentModule
             adding_items_in_combo_boxes();
             // done
 
+            // 2023-06-11 show students with 20 % absents
+            show_students_with_20_percent_absents();
+            // done
+
             // btn_refresh_Click(sender, e);
             btn_better_view_Click(sender, e);
         }
@@ -639,5 +643,12 @@ namespace StudentAttendanceManagementSystem.StudentModule
         #endregion
         #endregion
 
+
+        #region Show students with 20% absents already!
+        private void show_students_with_20_percent_absents()
+        {
+            AttendanceTools.select_all_that_have_20_percent_absent_from_database(cb_class.Text);
+        }
+        #endregion
     }
 }

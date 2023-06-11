@@ -62,6 +62,7 @@
             this.btn_edit.TabIndex = 4;
             this.btn_edit.Text = "EDIT USER";
             this.btn_edit.UseVisualStyleBackColor = false;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // tb_password
             // 
@@ -106,7 +107,7 @@
             this.ClientSize = new System.Drawing.Size(682, 299);
             this.Controls.Add(this.gb_edit_user);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditUserForm";
             this.Text = "EditUserForm";
             this.gb_edit_user.ResumeLayout(false);
