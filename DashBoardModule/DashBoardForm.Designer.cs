@@ -238,10 +238,16 @@
             // 
             this.panel_top_three_classes.AutoScroll = true;
             this.panel_top_three_classes.Dock = System.Windows.Forms.DockStyle.Bottom;
+<<<<<<< HEAD
             this.panel_top_three_classes.Location = new System.Drawing.Point(234, 64);
             this.panel_top_three_classes.Margin = new System.Windows.Forms.Padding(10);
             this.panel_top_three_classes.Name = "panel_top_three_classes";
             this.panel_top_three_classes.Size = new System.Drawing.Size(887, 157);
+=======
+            this.panel_top_three_classes.Location = new System.Drawing.Point(234, 45);
+            this.panel_top_three_classes.Name = "panel_top_three_classes";
+            this.panel_top_three_classes.Size = new System.Drawing.Size(887, 176);
+>>>>>>> 72200f507246afb853a4d1051c39706b2e0a5356
             this.panel_top_three_classes.TabIndex = 9;
             this.panel_top_three_classes.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_top_three_classes_Paint);
             // 
