@@ -73,11 +73,11 @@ namespace StudentAttendanceManagementSystem.UserModule
             try
             {
                 //This is my connection string i have assigned the database file address path
-                string MyConnection2 = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+                string MyConnection2 = DBTools.get_connection_string();// "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
                 //This is my insert query in which i am taking input from the user through windows forms
                 //string Query = "insert into classes_table(class_code, class_name, class_semester, class_school_year) values" +
                 //    "('" + tb_subject_code_add.Text + "','" + tb_subject_name_add.Text + "','" + cb_semester_add.Text + "','" + tb_school_year_add.Text + "');";
-                string Query = "insert into Users (username, password) values ('" + tb_username.Text + "','" + tb_password.Text + "');";
+                string Query = "insert into Users (username, password, hint) values ('" + tb_username.Text + "','" + tb_password.Text + "','" + tb_hint.Text + "');";
                 //This is  MySqlConnection here i have created the object and pass my connection string.
                 SqlConnection MyConn2 = new SqlConnection(MyConnection2);
                 //This is command class which will handle the query and connection object.
@@ -102,10 +102,82 @@ namespace StudentAttendanceManagementSystem.UserModule
         // edit
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Edit: " + tb_username.Text);
 
+            Console.WriteLine("Editing users...");
+            try
+            {
+                if (tb_password.Text != "" && tb_username.Text != "" && tb_hint.Text != "")
+                {
+                    update_password();
+                    update_hint();
+                }
+                else
+                {
+                    MessageBox.Show("Fill up all fields.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            Console.WriteLine("Done");
             btn_refresh_Click(sender, e);
         }
+
+
+        private void update_password()
+        {
+            try
+            {
+                string query = "update Users set password = '" + tb_password.Text + "' where username = '" + tb_username.Text + "';";
+                SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                Console.WriteLine("Opening connection...");
+                conn.Open();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Executing non query...");
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Closing connection...");
+                conn.Close();
+                Console.WriteLine("Done...");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+
+        private void update_hint()
+        {
+            try
+            {
+                string query = "update Users set hint = '" + tb_hint.Text + "' where username = '" + tb_username.Text + "';";
+                SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                Console.WriteLine("Opening connection...");
+                conn.Open();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Executing non query...");
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Closing connection...");
+                conn.Close();
+                Console.WriteLine("Done...");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+
+        // end edit
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -154,7 +226,7 @@ namespace StudentAttendanceManagementSystem.UserModule
                 MyAdapter.SelectCommand = MyCommand2;
                 DataTable dTable = new DataTable();
                 MyAdapter.Fill(dTable);
-                dataGridView1.DataSource = dTable; // here i have assign dTable object to the dataGridView1 object to display data.
+                dataGridView2.DataSource = dTable; // here i have assign dTable object to the dataGridView1 object to display data.
                                                    // MyConn2.Close();
             }
             catch (Exception ex)

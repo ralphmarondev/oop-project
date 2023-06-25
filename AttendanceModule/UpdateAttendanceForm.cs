@@ -1,4 +1,5 @@
-﻿using StudentAttendanceManagementSystem.Tools;
+﻿using StudentAttendanceManagementSystem.DashBoardModule;
+using StudentAttendanceManagementSystem.Tools;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -44,40 +45,12 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
         #region Update attendance on the date given
         private void btn_update_Click(object sender, System.EventArgs e)
         {
-            #region Old
-            //SqlConnection connection = new SqlConnection(DBTools.get_connection_string());
+            // update_attendace_form();
+            old_btn_update_click();
+        }
 
-            //DateTime currentDate = DateTime.Now;
-            //string current_date = "attendance_" + currentDate.ToString("yyyy_MM_dd");
-
-            //string table_name = "class_" + cb_class.Text; ;
-            //string column_name = current_date;
-
-            //// all students, initially has a present value
-            //// creating_new_column();
-            //validate_student(table_name, column_name);
-
-            //#region Inserting )absents
-            //List<string> myRecordIds_absent = new List<string>();
-            //foreach (var items in final_absent)
-            //{
-            //    myRecordIds_absent.Add(items.ToString());
-            //}
-
-            //string myValue_absent = "Absent";
-
-            //InsertSameValueInRecords(myRecordIds_absent, myValue_absent, table_name, column_name, "last_name");
-
-            //#endregion
-
-            //#region Update present and absents in database
-            //AttendanceTools.update_present(table_name, column_name);
-            //AttendanceTools.update_absent(table_name, column_name);
-            //string class_code = cb_class.Text;
-            //AttendanceTools.update_total_meet_count("classes_table", class_code);
-
-            //btn_refresh_Click(sender, e);
-            #endregion
+        private void old_btn_update_click()
+        {
 
             string table_name = "class_" + cb_class.Text;
             string column_name = "attendance_" + cb_date.Text;
@@ -91,53 +64,76 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
             // 4. done
             try
             {
+                Console.WriteLine("Validating students...");
                 validate_student(table_name, column_name);
+                Console.WriteLine("Done...");
 
                 #region Subtracting 1 from absent and present whatever is the status
+                Console.WriteLine("Subtracting 1 from total_presents...");
                 subract_one_from_total_presents(table_name, column_name);
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Subtracting 1 from total_absents...");
                 subtract_one_from_total_absents(table_name, column_name);
+                Console.WriteLine("Done...");
                 #endregion
 
+                Console.WriteLine("Inserting absents in array list...");
                 #region Inserting absents
                 List<string> myRecordIds_absent = new List<string>();
                 foreach (var items in final_absent)
                 {
                     myRecordIds_absent.Add(items.ToString());
                 }
+                Console.WriteLine("Done...");
+
                 // setting all the fields to present initially
+                Console.WriteLine("Inserting present in all fields...");
                 InsertSameValueInAllRecords("Present", table_name, column_name);
+                Console.WriteLine("Done...");
 
                 // updating absent in the database
+                Console.WriteLine("Updating absents...");
                 string myValue_absent = "Absent";
 
                 InsertSameValueInRecords(myRecordIds_absent, myValue_absent, table_name, column_name, "last_name");
 
                 #endregion
+                Console.WriteLine("Done...");
 
+                Console.WriteLine("Updating total absent and present...");
                 #region Adding 1 from absent and present whatever the status is
                 AttendanceTools.update_absent(table_name, column_name);
                 AttendanceTools.update_present(table_name, column_name);
                 //add_one_from_total_absents(table_name, column_name);
                 //add_one_from_total_presents(table_name, column_name);
+                Console.WriteLine("Done...");
 
+                Console.WriteLine("Updating status in database...");
+                update_status_in_database();
+                Console.WriteLine("Done...");
                 #endregion
             }
-            catch
+            catch (Exception ex)
             {
-
+                Console.WriteLine("Error: " + ex.Message);
+                // MessageBox.Show("Error: " + ex.Message);
             }
-
         }
         #endregion
 
         private void validate_student(string table_name, string column_name)
         {
+            Console.WriteLine("Clearing final absents...");
             final_absent.Clear();
+            Console.WriteLine("Done...");
+
             //get_all_absents_in_database(table_name, column_name);
-            string myValue = "Present";
+            //string myValue = "Present";
 
-            InsertSameValueInAllRecords(myValue, table_name, column_name);
+            //InsertSameValueInAllRecords(myValue, table_name, column_name);
 
+            Console.WriteLine("Iterating on absents...");
             foreach (var items in absents)
             {
                 foreach (var items2 in last_names)
@@ -149,7 +145,9 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                     }
                 }
             }
+            Console.WriteLine("Done...");
 
+            Console.WriteLine("Adding new absents in final absents...");
             foreach (var items in final_absent)
             {
                 foreach (var items2 in inital_absents)
@@ -161,9 +159,11 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                     }
                 }
             }
+            Console.WriteLine("Done...");
 
-
+            Console.WriteLine("Clearing absents...");
             absents.Clear();
+            Console.WriteLine("Done...");
         }
 
 
@@ -181,11 +181,11 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                 command.Parameters.AddWithValue("@value", value);
                 command.ExecuteNonQuery();
 
-                MessageBox.Show("Value inserted in all records successfully!");
+                Console.WriteLine("Value inserted in all records successfully!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error inserting value in records: " + ex.Message);
+                Console.WriteLine("Error inserting value in records: " + ex.Message);
             }
             finally
             {
@@ -216,11 +216,11 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                     command.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Value inserted in records successfully!");
+                Console.WriteLine("Value inserted in records successfully!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error inserting value in records: " + ex.Message);
+                Console.WriteLine("Error inserting value in records: " + ex.Message);
             }
             finally
             {
@@ -239,7 +239,7 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
 
             try
             {
-                MessageBox.Show("Getting all absents in database");
+                Console.WriteLine("Getting all absents in database");
                 conn.Open();
 
                 string query = "SELECT last_name FROM " + table_name.ToString() + " WHERE " + date_of_attendance + " like 'Absent';";
@@ -255,7 +255,7 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                             string column_value = reader.GetString(column_index);
                             inital_absents.Add(column_value);
                             absents.Add(column_value);
-                            MessageBox.Show(column_value);
+                            Console.WriteLine(column_value);
                         }
                     }
                     else
@@ -263,11 +263,11 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                         MessageBox.Show("No data found!");
                     }
                 }
-                MessageBox.Show("Done");
+                Console.WriteLine("Done...");
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("Me when I'm falling...");
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
         #endregion
@@ -441,7 +441,7 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
             //string current_date = DBTools.get_current_date();
             //cb_date.Text = "attendance_" + current_date;
             string table_name = "class_" + cb_class.Text;
-            string column_name = "attendance_" + cb_date.Text.Replace("-", "_");
+            string column_name = "attendance_" + cb_date.Text; //.Replace("-", "_");
 
             get_all_absents_in_database(table_name, column_name);
             #region Remove all of the items in the array-lists if there is any
@@ -450,7 +450,8 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
             final_absent.Clear();
             #endregion
 
-            flowLayoutPanel1.Controls.Clear();
+            buttons_panel.Controls.Clear();
+            last_names.Clear();
 
             SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
             // string table_name = "class_" + cb_class.Text;
@@ -472,29 +473,29 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                         {
                             string column_value = reader.GetString(column_index);
                             last_names.Add(column_value);
-                            MessageBox.Show(column_value);
-                            Button btn = new Button();
+                            //MessageBox.Show(column_value);
+                            //Button btn = new Button();
 
-                            btn.Name = last_names[i].ToString();
-                            btn.Text = last_names[i].ToString();
-                            btn.Size = new Size(145, 52);
-                            btn.BackColor = Color.White;
+                            //btn.Name = last_names[i].ToString();
+                            //btn.Text = last_names[i].ToString();
+                            //btn.Size = new Size(145, 52);
+                            //btn.BackColor = Color.White;
 
-                            foreach (var items in inital_absents)
-                            {
-                                if (btn.Name == items.ToString())
-                                {
-                                    btn.BackColor = Color.Red;
-                                    absents.Add(btn.Name);
-                                    break;
-                                }
-                            }
+                            //foreach (var items in inital_absents)
+                            //{
+                            //    if (btn.Name == items.ToString())
+                            //    {
+                            //        btn.BackColor = Color.Red;
+                            //        absents.Add(btn.Name);
+                            //        break;
+                            //    }
+                            //}
 
 
-                            flowLayoutPanel1.Controls.Add(btn);
+                            //flowLayoutPanel1.Controls.Add(btn);
 
-                            btn.Click += new EventHandler(this.on_btn_click);
-                            i++;
+                            //btn.Click += new EventHandler(this.on_btn_click);
+                            //i++;
                         }
                     }
                     else
@@ -502,10 +503,56 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                         MessageBox.Show("No data found!");
                     }
                 }
-            }
-            catch
-            {
 
+                last_names.Sort();
+
+                #region generating button programatically with row and column
+                int row = int.Parse(cb_default_row.Text);
+                int col = int.Parse(cb_default_column.Text);// 8;
+                int c = 0;
+
+                int buttonWidth = 145;// 80;
+                int buttonHeight = 52; // 30;
+                int spacing = 5; // 10;
+
+                int startX = 30; // (ClientSize.Width - (col * buttonWidth + (col - 1) * spacing)) / 2;
+                int startY = 30; // (ClientSize.Height - (row * buttonHeight + (row - 1) * spacing)) / 2;
+
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < col; j++)
+                    {
+                        Button button = new Button();
+                        button.Size = new Size(buttonWidth, buttonHeight);
+                        button.Location = new Point(startX + j * (buttonWidth + spacing),
+                                                    startY + i * (buttonHeight + spacing));
+                        button.Text += last_names[c].ToString();
+                        button.Name += last_names[c].ToString();
+                        button.BackColor = Color.White;
+
+                        foreach (var items in inital_absents)
+                        {
+                            if (button.Name == items.ToString())
+                            {
+                                button.BackColor = Color.Red;
+                                absents.Add(button.Name);
+                                break;
+                            }
+                        }
+
+                        //button.Text = $"Button {i}-{j}";
+                        button.Click += on_btn_click;
+
+                        buttons_panel.Controls.Add(button);
+                        c++;
+                    }
+                }
+                #endregion
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
         #endregion
@@ -650,6 +697,166 @@ namespace StudentAttendanceManagementSystem.AttendanceModule
                 MessageBox.Show(items.ToString(), "Absents");
             }
 
+        }
+
+        #region Update attendance form
+        private void update_attendace_form()
+        {
+
+        }
+
+        #endregion
+
+
+
+        #region update status
+        private void update_status_in_database()
+        {
+            Console.WriteLine("Updating status in database...");
+            try
+            {
+                update_good();
+                update_drop();
+                update_warning();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            Console.WriteLine("Done...");
+        }
+
+
+        private void update_drop()
+        {
+            Console.WriteLine("Updating drop status in database...");
+            try
+            {
+                //update class_maron123 set status = 'DROP2' 
+                // where total_absents =
+                // ((select total_meets from
+                //classes_table where class_code = 'maron123')
+                //*0.2)
+                SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+
+                string table_name = "class_" + cb_class.Text;
+                string class_code = cb_class.Text;
+                //MessageBox.Show("Table Name: " + table_name + "\n\n" + "Class code: " + class_code);
+
+                string query = "update " + table_name + " set status = 'DROP' WHERE total_absents >= " +
+                    "((select total_meets from classes_table where class_code = '" + class_code + "') * 0.2);";
+
+                Console.WriteLine("Connection string: " + DBTools.get_connection_string());
+                Console.WriteLine("query: " + query);
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                Console.WriteLine("Opening database...");
+                conn.Open();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Executing non query...");
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Closing database...");
+                conn.Close();
+                Console.WriteLine("Done...");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            Console.WriteLine("Done...");
+        }
+
+        private void update_warning()
+        {
+            Console.WriteLine("Updating status in database...");
+            try
+            {
+                SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+
+                string table_name = "class_" + cb_class.Text;
+                string class_code = cb_class.Text;
+
+                string query = "update " + table_name + " set status = 'WARNING' WHERE total_absents >= " +
+                    "((select total_meets from classes_table where class_code = '" + class_code + "') * 0.1) and " +
+                    "total_absents >= ((select total_meets from classes_table where class_code = '" + class_code + "') * 0.19);";
+
+                Console.WriteLine("Connection string: " + DBTools.get_connection_string());
+                Console.WriteLine("query: " + query);
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                Console.WriteLine("Opening database...");
+                conn.Open();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Executing non query...");
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Closing database...");
+                conn.Close();
+                Console.WriteLine("Done...");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            Console.WriteLine("Done...");
+        }
+
+        private void update_good()
+        {
+
+            Console.WriteLine("Updating status in database...");
+            try
+            {
+                SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+
+                string table_name = "class_" + cb_class.Text;
+                string class_code = cb_class.Text;
+
+                string query = "update " + table_name + " set status = 'GOOD' WHERE total_absents < " +
+                    "((select total_meets from classes_table where class_code = '" + class_code + "') * 0.1);";
+
+                Console.WriteLine("Connection string: " + DBTools.get_connection_string());
+                Console.WriteLine("query: " + query);
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                Console.WriteLine("Opening database...");
+                conn.Open();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Executing non query...");
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Done...");
+
+                Console.WriteLine("Closing database...");
+                conn.Close();
+                Console.WriteLine("Done...");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            Console.WriteLine("Done...");
+        }
+
+        #endregion
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            DashBoardForm df = new DashBoardForm();
+
+            df.Show();
+            Hide();
         }
     }
 }

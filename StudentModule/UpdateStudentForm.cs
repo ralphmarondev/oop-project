@@ -55,48 +55,165 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_finish_Click(object sender, EventArgs e)
         {
-            try
+            Console.WriteLine("Updating student...");
+            if (tb_id_number.Text != "" && tb_first_name.Text != "" && tb_last_name.Text != "" && tb_address.Text != "" &&
+                tb_contact_number.Text != "" && tb_email.Text != "" && tb_name_of_guardian.Text != "")
             {
-                //string connection_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
-                SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
-                // id_number, last_name, first_name, address, contact_number, email, name_of_guardian,
-                // college, department, semester, school_year, class_enrolled, total_presents, total_absents
-                SqlCommand cmd = new SqlCommand("UPDATE " + cb_class.Text + " SET " +
-                    "last_name = @last_name, " +
-                    "first_name = @first_name, " +
-                    "address = @address, " +
-                    "contact_number = @contact_number, " +
-                    "email = @email, " +
-                    "name_of_guardian, " +
-                    "college = @college, " +
-                    "department = @department, " +
-                    "semester = @semester, " +
-                    "class_enrolled = @class_enrolled " +
-                    "WHERE  id_number = @id_number", conn);
+                if (is_student_exist_in_class_database())
+                {
+                    try
+                    {
+                        Console.WriteLine("Opening connection...");
+                        //string connection_string = "Data Source=LAPTOP-T2HJFRJU\\SQLEXPRESS;Initial Catalog=StudentAttendanceManagementSystemDB;Integrated Security=True";
+                        SqlConnection conn = new SqlConnection(DBTools.get_connection_string());
+                        // id_number, last_name, first_name, address, contact_number, email, name_of_guardian,
+                        // college, department, semester, school_year, class_enrolled, total_presents, total_absents
+                        SqlCommand cmd = new SqlCommand("UPDATE class_" + cb_class.Text + " SET last_name = @last_name, first_name = @first_name, " +
+                            "address = @address, contact_number = @contact_number, email = @email, " +
+                            "name_of_guardian = @name_of_guardian, " +
+                            "college = @college, " +
+                            "department = @department, " +
+                            "semester = @semester, " +
+                            "class_enrolled = @class_enrolled " +
+                            "WHERE id_number = @id_number", conn);
 
-                cmd.Parameters.AddWithValue("@id_number", tb_id_number);
-                cmd.Parameters.AddWithValue("@last_name", tb_last_name);
-                cmd.Parameters.AddWithValue("@first_name", tb_name);
-                cmd.Parameters.AddWithValue("@address", tb_address);
-                cmd.Parameters.AddWithValue("@contact_number", tb_contact_number);
-                cmd.Parameters.AddWithValue("@email", tb_email);
-                cmd.Parameters.AddWithValue("@name_of_guardian", tb_name_of_guardian);
-                cmd.Parameters.AddWithValue("@college", cb_college);
-                cmd.Parameters.AddWithValue("@department", cb_department);
-                cmd.Parameters.AddWithValue("@semester", cb_semester);
-                cmd.Parameters.AddWithValue("@class_enrolled", cb_class);
+                        cmd.Parameters.AddWithValue("@id_number", tb_id_number.Text);
+                        cmd.Parameters.AddWithValue("@last_name", tb_last_name.Text);
+                        cmd.Parameters.AddWithValue("@first_name", tb_first_name.Text);
+                        cmd.Parameters.AddWithValue("@address", tb_address.Text);
+                        cmd.Parameters.AddWithValue("@contact_number", tb_contact_number.Text);
+                        cmd.Parameters.AddWithValue("@email", tb_email.Text);
+                        cmd.Parameters.AddWithValue("@name_of_guardian", tb_name_of_guardian.Text);
+                        cmd.Parameters.AddWithValue("@college", cb_college.Text);
+                        cmd.Parameters.AddWithValue("@department", cb_department.Text);
+                        cmd.Parameters.AddWithValue("@semester", cb_semester.Text);
+                        cmd.Parameters.AddWithValue("@class_enrolled", cb_class.Text);
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show(tb_id_number.Text + " information Updated Successfully!");
+                        conn.Open();
+                        Console.WriteLine("Executing query...");
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("Done...");
+
+                        Console.WriteLine("Closing connection...");
+                        conn.Close();
+                        Console.WriteLine("Done...");
+                        MessageBox.Show(tb_id_number.Text + " information Updated Successfully!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There is no such student in database.", "Failed!");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                update_student_error();
             }
+            Console.WriteLine("Done...");
             this.Hide();
         }
+
+
+        private bool is_student_exist_in_class_database()
+        {
+            string table_name = "class_" + cb_class.Text;
+            // Create the MySqlConnection object
+            using (SqlConnection connection = new SqlConnection(DBTools.get_connection_string()))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Prepare the SQL query
+                    string query = "SELECT COUNT(*) FROM " + table_name + " WHERE id_number = @value"; // Replace with your table and column names
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    // Set the parameter value
+                    command.Parameters.AddWithValue("@value", tb_id_number.Text); // Replace with the value you want to search
+
+                    // Execute the query and get the result
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Check if the record exists
+                    if (count > 0)
+                    {
+                        Console.WriteLine("The record already exists in the database.");
+                        return true;
+                    }
+                    else
+                    {
+                        // Add the record to the database
+                        // ...
+                        Console.WriteLine("The record does not exist in the database and can be added.");
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+                return false;
+            }
+        }
+
+
+        private void update_student_error()
+        {
+            string id_number = tb_id_number.Text;
+            string first_name = tb_first_name.Text;
+            string last_name = tb_last_name.Text;
+            string address = tb_address.Text;
+            string email = tb_email.Text;
+            string contact_number = tb_contact_number.Text;
+            string name_of_guardian = tb_name_of_guardian.Text;
+
+            ArrayList names = new ArrayList();
+            names.Clear();
+            string empty_fields = "Empty Fields:\n\n";
+
+
+            if (id_number == "")
+            {
+                names.Add("ID Number");
+            }
+            if (first_name == "")
+            {
+                names.Add("First Name");
+            }
+            if (last_name == "")
+            {
+                names.Add("Last Name");
+            }
+            if (address == "")
+            {
+                names.Add("Address");
+            }
+            if (email == "")
+            {
+                names.Add("Email");
+            }
+            if (contact_number == "")
+            {
+                names.Add("Contact Number");
+            }
+            if (name_of_guardian == "")
+            {
+                names.Add("Name of Guardian");
+            }
+
+            foreach (var items in names)
+            {
+                empty_fields = empty_fields + items.ToString() + "\n";
+            }
+
+            MessageBox.Show(empty_fields, "Updating student failed!");
+        }
+
 
         private void UpdateStudentForm_Load(object sender, EventArgs e)
         {
@@ -105,17 +222,9 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            // autofill all of the fields
-            //string table_name = "class_" + cb_class.Text;
-            //string column_name = "first_name";
-            //string id_number = tb_id_number.Text;
-            //table_name = "class_test123";
-            //column_name = "first_name";
-            //tb_name.Text = DBTools.get_data_from_database(table_name, column_name, id_number);
-
             get_data_in_certain_column_from_database();
 
-            tb_name.Text = first_name[0].ToString();
+            tb_first_name.Text = first_name[0].ToString();
             tb_last_name.Text = last_name[0].ToString();
             tb_address.Text = address[0].ToString();
             tb_email.Text = email[0].ToString();
@@ -174,32 +283,32 @@ namespace StudentAttendanceManagementSystem.StudentModule
                                 case 1:
                                     string column_value1 = reader.GetString(column_index);
                                     first_name.Add(column_value1);
-                                    MessageBox.Show(column_value1);
+                                    Console.WriteLine(column_value1);
                                     break;
                                 case 2:
                                     string column_value2 = reader.GetString(column_index);
                                     last_name.Add(column_value2);
-                                    MessageBox.Show(column_value2);
+                                    Console.WriteLine(column_value2);
                                     break;
                                 case 3:
                                     string column_value3 = reader.GetString(column_index);
                                     address.Add(column_value3);
-                                    MessageBox.Show(column_value3);
+                                    Console.WriteLine(column_value3);
                                     break;
                                 case 4:
                                     string column_value4 = reader.GetString(column_index);
                                     email.Add(column_value4);
-                                    MessageBox.Show(column_value4);
+                                    Console.WriteLine(column_value4);
                                     break;
                                 case 5:
                                     string column_value5 = reader.GetString(column_index);
                                     contact_number.Add(column_value5);
-                                    MessageBox.Show(column_value5);
+                                    Console.WriteLine(column_value5);
                                     break;
                                 case 6:
                                     string column_value6 = reader.GetString(column_index);
                                     name_of_guardian.Add(column_value6);
-                                    MessageBox.Show(column_value6);
+                                    Console.WriteLine(column_value6);
                                     break;
                             }
 
@@ -213,7 +322,7 @@ namespace StudentAttendanceManagementSystem.StudentModule
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
 

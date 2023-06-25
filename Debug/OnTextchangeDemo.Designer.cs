@@ -35,18 +35,19 @@
             // 
             this.tb_text.Location = new System.Drawing.Point(56, 25);
             this.tb_text.Name = "tb_text";
-            this.tb_text.Size = new System.Drawing.Size(294, 27);
+            this.tb_text.Size = new System.Drawing.Size(294, 23);
             this.tb_text.TabIndex = 0;
             this.tb_text.TextChanged += new System.EventHandler(this.tb_text_TextChanged);
             // 
             // OnTextchangeDemo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(227)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(406, 131);
             this.Controls.Add(this.tb_text);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OnTextchangeDemo";
             this.Text = "OnTextchangeDemo";
             this.ResumeLayout(false);

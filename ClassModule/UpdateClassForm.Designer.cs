@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateClassForm));
             this.gb_add_class = new System.Windows.Forms.GroupBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.tb_department = new System.Windows.Forms.TextBox();
@@ -73,6 +74,7 @@
             // 
             // btn_search
             // 
+            this.btn_search.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search.Location = new System.Drawing.Point(313, 89);
             this.btn_search.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search.Name = "btn_search";
@@ -94,11 +96,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 9F);
+            this.label1.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(526, 156);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 17);
+            this.label1.Size = new System.Drawing.Size(131, 22);
             this.label1.TabIndex = 16;
             this.label1.Text = "Department:";
             // 
@@ -114,11 +117,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courier New", 9F);
+            this.label2.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(526, 49);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 17);
+            this.label2.Size = new System.Drawing.Size(98, 22);
             this.label2.TabIndex = 14;
             this.label2.Text = "College:";
             // 
@@ -137,7 +141,9 @@
             // 
             // btn_finish_add
             // 
-            this.btn_finish_add.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.btn_finish_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btn_finish_add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_finish_add.BackgroundImage")));
+            this.btn_finish_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_finish_add.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_finish_add.Location = new System.Drawing.Point(31, 398);
             this.btn_finish_add.Margin = new System.Windows.Forms.Padding(4);
@@ -160,22 +166,24 @@
             // lbl_school_year_add
             // 
             this.lbl_school_year_add.AutoSize = true;
-            this.lbl_school_year_add.Font = new System.Drawing.Font("Courier New", 9F);
+            this.lbl_school_year_add.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_school_year_add.ForeColor = System.Drawing.Color.Black;
             this.lbl_school_year_add.Location = new System.Drawing.Point(528, 266);
             this.lbl_school_year_add.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_school_year_add.Name = "lbl_school_year_add";
-            this.lbl_school_year_add.Size = new System.Drawing.Size(116, 17);
+            this.lbl_school_year_add.Size = new System.Drawing.Size(142, 22);
             this.lbl_school_year_add.TabIndex = 6;
             this.lbl_school_year_add.Text = "School Year:";
             // 
             // lbl_semester_add
             // 
             this.lbl_semester_add.AutoSize = true;
-            this.lbl_semester_add.Font = new System.Drawing.Font("Courier New", 9F);
+            this.lbl_semester_add.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_semester_add.ForeColor = System.Drawing.Color.Black;
             this.lbl_semester_add.Location = new System.Drawing.Point(28, 266);
             this.lbl_semester_add.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_semester_add.Name = "lbl_semester_add";
-            this.lbl_semester_add.Size = new System.Drawing.Size(89, 17);
+            this.lbl_semester_add.Size = new System.Drawing.Size(109, 22);
             this.lbl_semester_add.TabIndex = 4;
             this.lbl_semester_add.Text = "Semester:";
             // 
@@ -191,11 +199,12 @@
             // lbl_subject_name_add
             // 
             this.lbl_subject_name_add.AutoSize = true;
-            this.lbl_subject_name_add.Font = new System.Drawing.Font("Courier New", 9F);
+            this.lbl_subject_name_add.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_subject_name_add.ForeColor = System.Drawing.Color.Black;
             this.lbl_subject_name_add.Location = new System.Drawing.Point(26, 156);
             this.lbl_subject_name_add.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_subject_name_add.Name = "lbl_subject_name_add";
-            this.lbl_subject_name_add.Size = new System.Drawing.Size(125, 17);
+            this.lbl_subject_name_add.Size = new System.Drawing.Size(153, 22);
             this.lbl_subject_name_add.TabIndex = 2;
             this.lbl_subject_name_add.Text = "Subject Name:";
             // 
@@ -211,11 +220,12 @@
             // lbl_subject_code_add
             // 
             this.lbl_subject_code_add.AutoSize = true;
-            this.lbl_subject_code_add.Font = new System.Drawing.Font("Courier New", 9F);
+            this.lbl_subject_code_add.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_subject_code_add.ForeColor = System.Drawing.Color.Black;
             this.lbl_subject_code_add.Location = new System.Drawing.Point(26, 49);
             this.lbl_subject_code_add.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_subject_code_add.Name = "lbl_subject_code_add";
-            this.lbl_subject_code_add.Size = new System.Drawing.Size(125, 17);
+            this.lbl_subject_code_add.Size = new System.Drawing.Size(153, 22);
             this.lbl_subject_code_add.TabIndex = 0;
             this.lbl_subject_code_add.Text = "Subject Code:";
             // 

@@ -71,7 +71,7 @@ namespace StudentAttendanceManagementSystem.Tools
                 content = File.ReadAllText(filePath);
 
                 Console.WriteLine("File content: " + content);
-                MessageBox.Show("File content:\n" + content);
+                // MessageBox.Show("File content:\n" + content);
             }
             catch (Exception ex)
             {
@@ -138,7 +138,8 @@ namespace StudentAttendanceManagementSystem.Tools
 
             if (column_to_be_updated.ToLower().Equals("total_absents"))
             {
-                MessageBox.Show("Updating total absents");
+                //MessageBox.Show("Updating total absents");
+                Console.WriteLine("Updating total absents...");
                 try
                 {
                     connection.Open();
@@ -173,15 +174,19 @@ namespace StudentAttendanceManagementSystem.Tools
                         //updateCommand.ExecuteNonQuery();
                         //updateCommand.Parameters.Clear();
                         #endregion
-                        MessageBox.Show(incremented_value.ToString());
+                        // MessageBox.Show(incremented_value.ToString());
+                        Console.WriteLine(incremented_value.ToString());
 
                     }
-                    MessageBox.Show("Done");
-                    MessageBox.Show("Updating count of absents in db");
+                    Console.WriteLine("Done...");
+                    Console.WriteLine("Updating count of absents in database...");
+                    //MessageBox.Show("Done");
+                    //MessageBox.Show("Updating count of absents in db");
 
                     updating_absents_count_in_db(recordIds_absent, incremented_values_to_be_inserted, table_name, column_name, column_to_be_updated);
 
-                    MessageBox.Show("Absent count updated successfully!");
+                    //MessageBox.Show("Absent count updated successfully!");
+                    Console.WriteLine("Absent count updated successfully!");
                 }
                 catch (Exception ex)
                 {
@@ -502,7 +507,8 @@ namespace StudentAttendanceManagementSystem.Tools
                         {
                             string column_value = reader.GetString(column_index);
                             data = column_value;
-                            MessageBox.Show(column_value);
+                            //MessageBox.Show(column_value);
+                            Console.WriteLine(column_value);
                             return data;
                             //break;
                         }
@@ -512,7 +518,8 @@ namespace StudentAttendanceManagementSystem.Tools
                         MessageBox.Show("No data found!");
                     }
                 }
-                MessageBox.Show("Done");
+                //MessageBox.Show("Done");
+                Console.WriteLine("Done...");
             }
             catch (Exception ex)
             {
@@ -522,5 +529,166 @@ namespace StudentAttendanceManagementSystem.Tools
         }
 
         #endregion
+
+
+        public static bool is_record_exist_in_database(string table_name, string column_name, string value)
+        {
+            // Create the MySqlConnection object
+            using (SqlConnection connection = new SqlConnection(DBTools.get_connection_string()))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Prepare the SQL query
+                    string query = "SELECT COUNT(*) FROM " + table_name + " WHERE " + column_name + " = @value"; // Replace with your table and column names
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    // Set the parameter value
+                    command.Parameters.AddWithValue("@value", value); // Replace with the value you want to search
+
+                    // Execute the query and get the result
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Check if the record exists
+                    if (count > 0)
+                    {
+                        Console.WriteLine("The record already exists in the database.");
+                        return true;
+                    }
+                    else
+                    {
+                        // Add the record to the database
+                        // ...
+                        Console.WriteLine("The record does not exist in the database and can be added.");
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+                return false;
+            }
+        }
+
+
+        public static bool is_column_exists_in_table_database(string table_name, string column_name)
+        {
+            Console.WriteLine("Checking if column exists in database...");
+            Console.WriteLine("Table Name: " + table_name);
+            Console.WriteLine("Column Name: " + column_name);
+            // Create the SqlConnection object
+            using (SqlConnection connection = new SqlConnection(get_connection_string()))
+            {
+                Console.WriteLine("Connection string: " + get_connection_string());
+                try
+                {
+                    //connection.Open();
+
+                    //// Prepare the SQL query
+                    //string query = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = @schemaName AND TABLE_NAME = @tableName AND COLUMN_NAME = @columnName";
+                    //SqlCommand command = new SqlCommand(query, connection);
+
+                    //// Set the parameter values
+                    //command.Parameters.AddWithValue("@schemaName", ".dbo"); // Replace with the schema name (e.g., "dbo")
+                    //command.Parameters.AddWithValue("@tableName", table_name); // Replace with the table name you want to check
+                    //command.Parameters.AddWithValue("@columnName", column_name); // Replace with the column name you want to check
+
+                    //// Execute the query and get the result
+                    //int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    //// Check if the column exists
+                    //if (count > 0)
+                    //{
+                    //    Console.WriteLine("The column exists in the table.");
+                    //    return true;
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("The column does not exist in the table.");
+                    //    return false;
+                    //}
+                    connection.Open();
+
+                    // string tableName = "YourTable"; // Replace with the table name you want to check
+                    //string columnName = "YourColumn"; // Replace with the column name you want to check
+
+                    // Prepare the SQL query
+                    string query = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tableName AND COLUMN_NAME = @columnName";
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    // Set the parameter values
+                    command.Parameters.AddWithValue("@tableName", table_name);
+                    command.Parameters.AddWithValue("@columnName", column_name);
+
+                    // Execute the query and get the result
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Check if the column exists
+                    if (count > 0)
+                    {
+                        Console.WriteLine("The column exists in the table.");
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("The column does not exist in the table.");
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+                Console.WriteLine("Done...");
+                return false;
+            }
+
+        }
+
+        public static void hello()
+        {
+            string connectionString = "Your_Connection_String"; // Replace with your SQL Server connection string
+
+            // Create the SqlConnection object
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string tableName = "YourTable"; // Replace with the table name you want to check
+                    string columnName = "YourColumn"; // Replace with the column name you want to check
+
+                    // Prepare the SQL query
+                    string query = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tableName AND COLUMN_NAME = @columnName";
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    // Set the parameter values
+                    command.Parameters.AddWithValue("@tableName", tableName);
+                    command.Parameters.AddWithValue("@columnName", columnName);
+
+                    // Execute the query and get the result
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Check if the column exists
+                    if (count > 0)
+                    {
+                        Console.WriteLine("The column exists in the table.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("The column does not exist in the table.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+            }
+        }
+
+
     }
 }

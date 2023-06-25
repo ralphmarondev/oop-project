@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddClassForm));
             this.gb_add_class = new System.Windows.Forms.GroupBox();
             this.tb_department = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@
             this.gb_add_class.Controls.Add(this.lbl_subject_code_add);
             this.gb_add_class.Location = new System.Drawing.Point(29, 22);
             this.gb_add_class.Name = "gb_add_class";
-            this.gb_add_class.Size = new System.Drawing.Size(832, 412);
+            this.gb_add_class.Size = new System.Drawing.Size(832, 398);
             this.gb_add_class.TabIndex = 1;
             this.gb_add_class.TabStop = false;
             // 
@@ -117,9 +118,11 @@
             // 
             // btn_finish_add
             // 
-            this.btn_finish_add.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.btn_finish_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btn_finish_add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_finish_add.BackgroundImage")));
+            this.btn_finish_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_finish_add.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_finish_add.Location = new System.Drawing.Point(24, 315);
+            this.btn_finish_add.Location = new System.Drawing.Point(24, 313);
             this.btn_finish_add.Name = "btn_finish_add";
             this.btn_finish_add.Size = new System.Drawing.Size(763, 52);
             this.btn_finish_add.TabIndex = 8;
@@ -195,7 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 446);
+            this.ClientSize = new System.Drawing.Size(889, 431);
             this.Controls.Add(this.gb_add_class);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuestMainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.btn_yes = new System.Windows.Forms.Button();
             this.btn_no = new System.Windows.Forms.Button();
@@ -39,13 +40,14 @@
             this.label1.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(57, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(432, 27);
+            this.label1.Size = new System.Drawing.Size(340, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "DO YOU WANT TO LOGIN AS GUEST?";
             // 
             // btn_yes
             // 
-            this.btn_yes.BackColor = System.Drawing.Color.LawnGreen;
+            this.btn_yes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(237)))));
+            this.btn_yes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_yes.BackgroundImage")));
             this.btn_yes.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_yes.Location = new System.Drawing.Point(62, 146);
             this.btn_yes.Name = "btn_yes";
@@ -57,7 +59,8 @@
             // 
             // btn_no
             // 
-            this.btn_no.BackColor = System.Drawing.Color.Tomato;
+            this.btn_no.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(237)))));
+            this.btn_no.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_no.BackgroundImage")));
             this.btn_no.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_no.Location = new System.Drawing.Point(295, 146);
             this.btn_no.Name = "btn_no";
@@ -69,7 +72,7 @@
             // 
             // GuestMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(557, 271);

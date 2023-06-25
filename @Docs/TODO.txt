@@ -1,4 +1,14 @@
 ﻿
+AS OF JUNE 16, 2023
+	On update attendance, update the error where we can't remove the
+		old absents
+	Upon creating and updating attendance, update the status of each
+		students [ON GOING]
+	Implement search functionalities on other forms with search box
+		that is not yet implemented. [OPTIONAL]
+
+
+
 AS OF JUNE 11, 2023
 	On student form load, display all students having 20% absents 
 		[i.e. eligible for drop out]

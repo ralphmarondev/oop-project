@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
             this.btn_search_student = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cb_date = new System.Windows.Forms.ComboBox();
@@ -63,6 +64,7 @@
             // 
             // btn_search_student
             // 
+            this.btn_search_student.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search_student.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search_student.Location = new System.Drawing.Point(670, 77);
             this.btn_search_student.Margin = new System.Windows.Forms.Padding(4);
@@ -75,7 +77,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Aquamarine;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(237)))));
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.cb_date);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cb_school_year);
@@ -96,6 +99,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(885, 135);
             this.panel1.TabIndex = 25;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cb_date
             // 
@@ -105,16 +109,19 @@
             this.cb_date.Name = "cb_date";
             this.cb_date.Size = new System.Drawing.Size(196, 28);
             this.cb_date.TabIndex = 30;
+            this.cb_date.SelectedIndexChanged += new System.EventHandler(this.cb_date_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(667, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 17);
+            this.label3.Size = new System.Drawing.Size(65, 22);
             this.label3.TabIndex = 29;
             this.label3.Text = "Date:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cb_school_year
             // 
@@ -133,17 +140,20 @@
             this.cb_school_year.Name = "cb_school_year";
             this.cb_school_year.Size = new System.Drawing.Size(196, 28);
             this.cb_school_year.TabIndex = 27;
+            this.cb_school_year.SelectedIndexChanged += new System.EventHandler(this.cb_school_year_SelectedIndexChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(231, 66);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 17);
+            this.label12.Size = new System.Drawing.Size(142, 22);
             this.label12.TabIndex = 28;
             this.label12.Text = "School Year:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // cb_semester
             // 
@@ -156,17 +166,20 @@
             this.cb_semester.Name = "cb_semester";
             this.cb_semester.Size = new System.Drawing.Size(196, 28);
             this.cb_semester.TabIndex = 25;
+            this.cb_semester.SelectedIndexChanged += new System.EventHandler(this.cb_semester_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(10, 66);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 17);
+            this.label11.Size = new System.Drawing.Size(109, 22);
             this.label11.TabIndex = 26;
             this.label11.Text = "Semester:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // cb_department
             // 
@@ -181,17 +194,20 @@
             this.cb_department.Name = "cb_department";
             this.cb_department.Size = new System.Drawing.Size(196, 28);
             this.cb_department.TabIndex = 23;
+            this.cb_department.SelectedIndexChanged += new System.EventHandler(this.cb_department_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(231, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 17);
+            this.label2.Size = new System.Drawing.Size(131, 22);
             this.label2.TabIndex = 24;
             this.label2.Text = "Department:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cb_college
             // 
@@ -206,17 +222,20 @@
             this.cb_college.Name = "cb_college";
             this.cb_college.Size = new System.Drawing.Size(196, 28);
             this.cb_college.TabIndex = 21;
+            this.cb_college.SelectedIndexChanged += new System.EventHandler(this.cb_college_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(7, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 17);
+            this.label5.Size = new System.Drawing.Size(98, 22);
             this.label5.TabIndex = 22;
             this.label5.Text = "College:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // cb_class
             // 
@@ -226,26 +245,31 @@
             this.cb_class.Name = "cb_class";
             this.cb_class.Size = new System.Drawing.Size(196, 28);
             this.cb_class.TabIndex = 20;
+            this.cb_class.SelectedIndexChanged += new System.EventHandler(this.cb_class_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(456, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 17);
+            this.label1.Size = new System.Drawing.Size(131, 22);
             this.label1.TabIndex = 13;
             this.label1.Text = "Class Code:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_student_id_search
             // 
             this.lbl_student_id_search.AutoSize = true;
-            this.lbl_student_id_search.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_student_id_search.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_student_id_search.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_student_id_search.Location = new System.Drawing.Point(456, 66);
             this.lbl_student_id_search.Name = "lbl_student_id_search";
-            this.lbl_student_id_search.Size = new System.Drawing.Size(107, 17);
+            this.lbl_student_id_search.Size = new System.Drawing.Size(131, 22);
             this.lbl_student_id_search.TabIndex = 11;
             this.lbl_student_id_search.Text = "Student ID:";
+            this.lbl_student_id_search.Click += new System.EventHandler(this.lbl_student_id_search_Click);
             // 
             // tb_student_id_search
             // 
@@ -257,7 +281,9 @@
             // 
             // btn_back
             // 
-            this.btn_back.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.btn_back.BackColor = System.Drawing.Color.Transparent;
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
+            this.btn_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_back.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.Location = new System.Drawing.Point(22, 569);
             this.btn_back.Name = "btn_back";
@@ -269,7 +295,9 @@
             // 
             // btn_delete_student
             // 
-            this.btn_delete_student.BackColor = System.Drawing.Color.DeepPink;
+            this.btn_delete_student.BackColor = System.Drawing.Color.Transparent;
+            this.btn_delete_student.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_delete_student.BackgroundImage")));
+            this.btn_delete_student.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delete_student.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_student.Location = new System.Drawing.Point(22, 181);
             this.btn_delete_student.Margin = new System.Windows.Forms.Padding(4);
@@ -282,7 +310,9 @@
             // 
             // btn_add_student
             // 
-            this.btn_add_student.BackColor = System.Drawing.Color.Lime;
+            this.btn_add_student.BackColor = System.Drawing.Color.Transparent;
+            this.btn_add_student.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_add_student.BackgroundImage")));
+            this.btn_add_student.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_add_student.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_student.Location = new System.Drawing.Point(22, 22);
             this.btn_add_student.Margin = new System.Windows.Forms.Padding(4);
@@ -295,7 +325,9 @@
             // 
             // btn_update_student
             // 
-            this.btn_update_student.BackColor = System.Drawing.Color.HotPink;
+            this.btn_update_student.BackColor = System.Drawing.Color.Transparent;
+            this.btn_update_student.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_update_student.BackgroundImage")));
+            this.btn_update_student.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update_student.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update_student.Location = new System.Drawing.Point(22, 77);
             this.btn_update_student.Margin = new System.Windows.Forms.Padding(4);
@@ -308,6 +340,8 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(237)))));
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.Controls.Add(this.btn_report);
             this.panel3.Controls.Add(this.btn_check_attendance);
             this.panel3.Controls.Add(this.btn_better_view);
@@ -320,10 +354,13 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(265, 626);
             this.panel3.TabIndex = 24;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // btn_report
             // 
-            this.btn_report.BackColor = System.Drawing.Color.Aquamarine;
+            this.btn_report.BackColor = System.Drawing.Color.Transparent;
+            this.btn_report.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_report.BackgroundImage")));
+            this.btn_report.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_report.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_report.Location = new System.Drawing.Point(22, 286);
             this.btn_report.Name = "btn_report";
@@ -335,7 +372,9 @@
             // 
             // btn_check_attendance
             // 
-            this.btn_check_attendance.BackColor = System.Drawing.Color.Lime;
+            this.btn_check_attendance.BackColor = System.Drawing.Color.Transparent;
+            this.btn_check_attendance.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_check_attendance.BackgroundImage")));
+            this.btn_check_attendance.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_check_attendance.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_check_attendance.Location = new System.Drawing.Point(22, 234);
             this.btn_check_attendance.Margin = new System.Windows.Forms.Padding(4);
@@ -348,7 +387,9 @@
             // 
             // btn_better_view
             // 
-            this.btn_better_view.BackColor = System.Drawing.Color.Aquamarine;
+            this.btn_better_view.BackColor = System.Drawing.Color.Transparent;
+            this.btn_better_view.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_better_view.BackgroundImage")));
+            this.btn_better_view.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_better_view.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_better_view.Location = new System.Drawing.Point(22, 129);
             this.btn_better_view.Name = "btn_better_view";
@@ -379,6 +420,7 @@
             this.panel2.Size = new System.Drawing.Size(856, 27);
             this.panel2.TabIndex = 26;
             this.panel2.Visible = false;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // flp_students
             // 
@@ -392,6 +434,7 @@
             this.flp_students.Name = "flp_students";
             this.flp_students.Size = new System.Drawing.Size(885, 491);
             this.flp_students.TabIndex = 11;
+            this.flp_students.Paint += new System.Windows.Forms.PaintEventHandler(this.flp_students_Paint);
             // 
             // StudentForm
             // 
@@ -407,6 +450,7 @@
             this.Name = "StudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentForm_FormClosed);
             this.Load += new System.EventHandler(this.StudentForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

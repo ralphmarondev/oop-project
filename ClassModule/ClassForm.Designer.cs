@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClassForm));
             this.btn_search_class = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_class_code_search = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             // 
             // btn_search_class
             // 
+            this.btn_search_class.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search_class.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search_class.Location = new System.Drawing.Point(667, 13);
             this.btn_search_class.Margin = new System.Windows.Forms.Padding(4);
@@ -59,22 +61,24 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Aquamarine;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(237)))));
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.lbl_class_code_search);
             this.panel1.Controls.Add(this.tb_class_code_search);
             this.panel1.Controls.Add(this.btn_search_class);
-            this.panel1.Location = new System.Drawing.Point(268, 0);
+            this.panel1.Location = new System.Drawing.Point(265, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(853, 71);
+            this.panel1.Size = new System.Drawing.Size(856, 82);
             this.panel1.TabIndex = 22;
             // 
             // lbl_class_code_search
             // 
             this.lbl_class_code_search.AutoSize = true;
-            this.lbl_class_code_search.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_class_code_search.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_class_code_search.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_class_code_search.Location = new System.Drawing.Point(476, 13);
             this.lbl_class_code_search.Name = "lbl_class_code_search";
-            this.lbl_class_code_search.Size = new System.Drawing.Size(107, 17);
+            this.lbl_class_code_search.Size = new System.Drawing.Size(131, 22);
             this.lbl_class_code_search.TabIndex = 11;
             this.lbl_class_code_search.Text = "Class Code:";
             // 
@@ -88,7 +92,8 @@
             // 
             // btn_add_class
             // 
-            this.btn_add_class.BackColor = System.Drawing.Color.Lime;
+            this.btn_add_class.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_add_class.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_add_class.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_class.Location = new System.Drawing.Point(22, 22);
             this.btn_add_class.Margin = new System.Windows.Forms.Padding(4);
@@ -101,7 +106,8 @@
             // 
             // btn_update_class
             // 
-            this.btn_update_class.BackColor = System.Drawing.Color.HotPink;
+            this.btn_update_class.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_update_class.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update_class.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update_class.Location = new System.Drawing.Point(22, 77);
             this.btn_update_class.Margin = new System.Windows.Forms.Padding(4);
@@ -114,7 +120,8 @@
             // 
             // btn_delete_class
             // 
-            this.btn_delete_class.BackColor = System.Drawing.Color.DeepPink;
+            this.btn_delete_class.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_delete_class.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delete_class.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_class.Location = new System.Drawing.Point(22, 181);
             this.btn_delete_class.Margin = new System.Windows.Forms.Padding(4);
@@ -127,7 +134,8 @@
             // 
             // btn_back
             // 
-            this.btn_back.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_back.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.Location = new System.Drawing.Point(22, 569);
             this.btn_back.Name = "btn_back";
@@ -139,6 +147,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(227)))), ((int)(((byte)(240)))));
             this.panel3.Controls.Add(this.btn_show_classes);
             this.panel3.Controls.Add(this.btn_back);
             this.panel3.Controls.Add(this.btn_delete_class);
@@ -152,7 +161,8 @@
             // 
             // btn_show_classes
             // 
-            this.btn_show_classes.BackColor = System.Drawing.Color.Aquamarine;
+            this.btn_show_classes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_show_classes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_show_classes.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_show_classes.Location = new System.Drawing.Point(22, 129);
             this.btn_show_classes.Name = "btn_show_classes";
@@ -165,11 +175,14 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(856, 549);
             this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // panel2
             // 

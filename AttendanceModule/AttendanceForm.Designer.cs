@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttendanceForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cb_default_column = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cb_default_row = new System.Windows.Forms.ComboBox();
             this.cb_date = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_refresh = new System.Windows.Forms.Button();
             this.cb_class = new System.Windows.Forms.ComboBox();
             this.lbl_class = new System.Windows.Forms.Label();
             this.cb_school_year = new System.Windows.Forms.ComboBox();
@@ -42,15 +47,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cb_college = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttons_panel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_present = new System.Windows.Forms.Button();
             this.btn_view = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgv_classes_lists = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_classes_lists)).BeginInit();
@@ -58,10 +66,11 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Aquamarine;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(237)))));
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.cb_date);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btn_refresh);
             this.panel2.Controls.Add(this.cb_class);
             this.panel2.Controls.Add(this.lbl_class);
             this.panel2.Controls.Add(this.cb_school_year);
@@ -76,9 +85,61 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1159, 171);
+            this.panel2.Size = new System.Drawing.Size(1261, 179);
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cb_default_column);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cb_default_row);
+            this.groupBox1.Location = new System.Drawing.Point(935, 22);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(305, 133);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "DEFAULTS:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Courier New", 9F);
+            this.label4.Location = new System.Drawing.Point(163, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 17);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "COLUMN:";
+            // 
+            // cb_default_column
+            // 
+            this.cb_default_column.FormattingEnabled = true;
+            this.cb_default_column.Location = new System.Drawing.Point(166, 58);
+            this.cb_default_column.Name = "cb_default_column";
+            this.cb_default_column.Size = new System.Drawing.Size(121, 28);
+            this.cb_default_column.TabIndex = 16;
+            this.cb_default_column.Text = "8";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 9F);
+            this.label3.Location = new System.Drawing.Point(23, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "ROW:";
+            // 
+            // cb_default_row
+            // 
+            this.cb_default_row.FormattingEnabled = true;
+            this.cb_default_row.Location = new System.Drawing.Point(26, 58);
+            this.cb_default_row.Name = "cb_default_row";
+            this.cb_default_row.Size = new System.Drawing.Size(121, 28);
+            this.cb_default_row.TabIndex = 14;
+            this.cb_default_row.Text = "8";
             // 
             // cb_date
             // 
@@ -94,6 +155,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(596, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -101,18 +163,6 @@
             this.label2.Size = new System.Drawing.Size(53, 17);
             this.label2.TabIndex = 25;
             this.label2.Text = "Date:";
-            // 
-            // btn_refresh
-            // 
-            this.btn_refresh.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn_refresh.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(974, 34);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(173, 45);
-            this.btn_refresh.TabIndex = 21;
-            this.btn_refresh.Text = "Refresh";
-            this.btn_refresh.UseVisualStyleBackColor = false;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // cb_class
             // 
@@ -128,6 +178,7 @@
             // lbl_class
             // 
             this.lbl_class.AutoSize = true;
+            this.lbl_class.BackColor = System.Drawing.Color.Transparent;
             this.lbl_class.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_class.Location = new System.Drawing.Point(596, 22);
             this.lbl_class.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -156,6 +207,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(318, 92);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -179,6 +231,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(50, 92);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -204,6 +257,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(315, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -229,6 +283,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(49, 22);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -237,32 +292,76 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "College:";
             // 
+            // btn_refresh
+            // 
+            this.btn_refresh.BackColor = System.Drawing.Color.Transparent;
+            this.btn_refresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refresh.BackgroundImage")));
+            this.btn_refresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.Location = new System.Drawing.Point(648, 15);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(153, 48);
+            this.btn_refresh.TabIndex = 21;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = false;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttons_panel);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.dgv_classes_lists);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 178);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1159, 502);
+            this.panel1.Size = new System.Drawing.Size(1261, 502);
             this.panel1.TabIndex = 4;
+            // 
+            // buttons_panel
+            // 
+            this.buttons_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(249)))));
+            this.buttons_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttons_panel.Location = new System.Drawing.Point(0, 0);
+            this.buttons_panel.Name = "buttons_panel";
+            this.buttons_panel.Size = new System.Drawing.Size(1261, 417);
+            this.buttons_panel.TabIndex = 4;
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(237)))));
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.Controls.Add(this.btn_back);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.btn_refresh);
             this.panel3.Controls.Add(this.btn_present);
             this.panel3.Controls.Add(this.btn_view);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 427);
+            this.panel3.Location = new System.Drawing.Point(0, 417);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1159, 75);
+            this.panel3.Size = new System.Drawing.Size(1261, 85);
             this.panel3.TabIndex = 3;
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackColor = System.Drawing.Color.Transparent;
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
+            this.btn_back.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.Location = new System.Drawing.Point(1087, 15);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(153, 48);
+            this.btn_back.TabIndex = 6;
+            this.btn_back.Text = "BACK";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(330, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 48);
@@ -273,7 +372,10 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(489, 15);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 48);
@@ -284,7 +386,10 @@
             // 
             // btn_present
             // 
-            this.btn_present.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_present.BackColor = System.Drawing.Color.Transparent;
+            this.btn_present.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_present.BackgroundImage")));
+            this.btn_present.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_present.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_present.Location = new System.Drawing.Point(12, 15);
             this.btn_present.Name = "btn_present";
             this.btn_present.Size = new System.Drawing.Size(153, 48);
@@ -295,7 +400,10 @@
             // 
             // btn_view
             // 
-            this.btn_view.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_view.BackColor = System.Drawing.Color.Transparent;
+            this.btn_view.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_view.BackgroundImage")));
+            this.btn_view.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_view.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_view.Location = new System.Drawing.Point(171, 15);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(153, 48);
@@ -303,14 +411,6 @@
             this.btn_view.Text = "VIEW";
             this.btn_view.UseVisualStyleBackColor = false;
             this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1159, 421);
-            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // dgv_classes_lists
             // 
@@ -320,7 +420,7 @@
             this.dgv_classes_lists.Name = "dgv_classes_lists";
             this.dgv_classes_lists.RowHeadersWidth = 51;
             this.dgv_classes_lists.RowTemplate.Height = 24;
-            this.dgv_classes_lists.Size = new System.Drawing.Size(1159, 502);
+            this.dgv_classes_lists.Size = new System.Drawing.Size(1261, 502);
             this.dgv_classes_lists.TabIndex = 1;
             this.dgv_classes_lists.Visible = false;
             // 
@@ -328,7 +428,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1159, 680);
+            this.ClientSize = new System.Drawing.Size(1261, 680);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,6 +440,8 @@
             this.Load += new System.EventHandler(this.AttendanceForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_classes_lists)).EndInit();
@@ -363,7 +465,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.DataGridView dgv_classes_lists;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_view;
         private System.Windows.Forms.Button btn_present;
@@ -371,5 +472,12 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cb_date;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel buttons_panel;
+        private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cb_default_column;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cb_default_row;
     }
 }

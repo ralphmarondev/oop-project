@@ -50,6 +50,24 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_2023_06_04|AnyCPU'">
     <OutputPath>bin\Debug_2023_06_04\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'YEA|AnyCPU'">
+    <OutputPath>bin\YEA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CAZ|AnyCPU'">
+    <OutputPath>bin\CAZ\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CAZ2|AnyCPU'">
+    <OutputPath>bin\CAZ2\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CAZ3|AnyCPU'">
+    <OutputPath>bin\CAZ3\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MY-CAZ3|AnyCPU'">
+    <OutputPath>bin\MY-CAZ3\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MY-CAZ4|AnyCPU'">
+    <OutputPath>bin\MY-CAZ4\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,12 +99,6 @@
     </Compile>
     <Compile Include="AttendanceModule\UpdateAttendanceForm.Designer.cs">
       <DependentUpon>UpdateAttendanceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AttendanceModule\ViewAttendanceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AttendanceModule\ViewAttendanceForm.Designer.cs">
-      <DependentUpon>ViewAttendanceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassModule\AddClassForm.cs">
       <SubType>Form</SubType>
@@ -136,17 +148,29 @@
     <Compile Include="Debug\ExportingDataGridDataToExcel\ExportDataToExcel.Designer.cs">
       <DependentUpon>ExportDataToExcel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Debug\MessageBoxes\MessageBoxDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debug\MessageBoxes\MessageBoxDemo.Designer.cs">
+      <DependentUpon>MessageBoxDemo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Debug\OnTextchangeDemo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Debug\OnTextchangeDemo.Designer.cs">
       <DependentUpon>OnTextchangeDemo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.cs">
+    <Compile Include="Debug\SettingRowAndColumnButton\ButtonRowAndColumn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.Designer.cs">
-      <DependentUpon>GuessDashBoardForm.cs</DependentUpon>
+    <Compile Include="Debug\SettingRowAndColumnButton\ButtonRowAndColumn.Designer.cs">
+      <DependentUpon>ButtonRowAndColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuestUserModules\GuessUserDashBoard\GuestDashBoardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuestUserModules\GuessUserDashBoard\GuestDashBoardForm.Designer.cs">
+      <DependentUpon>GuestDashBoardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GuestUserModules\GuestClassModule\GuestClassForm.cs">
       <SubType>Form</SubType>
@@ -165,6 +189,18 @@
     </Compile>
     <Compile Include="GuestUserModules\GuestReportsModule\GuestReportsForm.Designer.cs">
       <DependentUpon>GuestReportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestReportsModule\GuestViewAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestReportsModule\GuestViewAttendanceForm.Designer.cs">
+      <DependentUpon>GuestViewAttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestReportsModule\GuestViewReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuestUserModules\GuestReportsModule\GuestViewReportsForm.Designer.cs">
+      <DependentUpon>GuestViewReportsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GuestUserModules\GuestStudentModule\GuestStudentsForm.cs">
       <SubType>Form</SubType>
@@ -189,12 +225,6 @@
     </Compile>
     <Compile Include="ReportsModule\StudentEligibleForDropOutForm.Designer.cs">
       <DependentUpon>StudentEligibleForDropOutForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReportsModule\ViewAbsentOrPresentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReportsModule\ViewAbsentOrPresentForm.Designer.cs">
-      <DependentUpon>ViewAbsentOrPresentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportsModule\ViewAttendanceForm.cs">
       <SubType>Form</SubType>
@@ -321,12 +351,6 @@
     <Compile Include="UserModule\EditUserForm.Designer.cs">
       <DependentUpon>EditUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserModule\FinalUserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserModule\FinalUserForm.Designer.cs">
-      <DependentUpon>FinalUserForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserModule\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,11 +393,17 @@
     <EmbeddedResource Include="Debug\ExportingDataGridDataToExcel\ExportDataToExcel.resx">
       <DependentUpon>ExportDataToExcel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Debug\MessageBoxes\MessageBoxDemo.resx">
+      <DependentUpon>MessageBoxDemo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Debug\OnTextchangeDemo.resx">
       <DependentUpon>OnTextchangeDemo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GuestUserModules\GuessUserDashBoard\GuessDashBoardForm.resx">
-      <DependentUpon>GuessDashBoardForm.cs</DependentUpon>
+    <EmbeddedResource Include="Debug\SettingRowAndColumnButton\ButtonRowAndColumn.resx">
+      <DependentUpon>ButtonRowAndColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuestUserModules\GuessUserDashBoard\GuestDashBoardForm.resx">
+      <DependentUpon>GuestDashBoardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuestUserModules\GuestClassModule\GuestClassForm.resx">
       <DependentUpon>GuestClassForm.cs</DependentUpon>
@@ -383,6 +413,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GuestUserModules\GuestReportsModule\GuestReportsForm.resx">
       <DependentUpon>GuestReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuestUserModules\GuestReportsModule\GuestViewAttendanceForm.resx">
+      <DependentUpon>GuestViewAttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuestUserModules\GuestReportsModule\GuestViewReportsForm.resx">
+      <DependentUpon>GuestViewReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuestUserModules\GuestStudentModule\GuestStudentsForm.resx">
       <DependentUpon>GuestStudentsForm.cs</DependentUpon>
@@ -408,9 +444,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportsModule\StudentEligibleForDropOutForm.resx">
       <DependentUpon>StudentEligibleForDropOutForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReportsModule\ViewAbsentOrPresentForm.resx">
-      <DependentUpon>ViewAbsentOrPresentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportsModule\ViewAttendanceForm.resx">
       <DependentUpon>ViewAttendanceForm.cs</DependentUpon>
@@ -466,9 +499,6 @@
     <EmbeddedResource Include="UserModule\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserModule\FinalUserForm.resx">
-      <DependentUpon>FinalUserForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserModule\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -490,6 +520,7 @@
     <Content Include="%40Docs\README.txt" />
     <Content Include="%40Docs\TODO.txt" />
     <None Include="Resources\magnifying-glass.png" />
+    <Content Include="%40Docs\what i did.txt" />
     <Content Include="RUN_ME\Instruction.txt" />
     <None Include="Resources\1669110163661.jpg" />
   </ItemGroup>

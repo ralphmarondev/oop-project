@@ -12,10 +12,10 @@ namespace StudentAttendanceManagementSystem.ClassModule
     public partial class ClassForm : Form
     {
         #region variables
-        ArrayList class_code_list = new ArrayList();
-        ArrayList class_name_list = new ArrayList();
-        ArrayList class_semester_list = new ArrayList();
-        ArrayList class_school_year_list = new ArrayList();
+        private ArrayList class_code_list = new ArrayList();
+        private ArrayList class_name_list = new ArrayList();
+        private ArrayList class_semester_list = new ArrayList();
+        private ArrayList class_school_year_list = new ArrayList();
         private int size_list = 0;
         #endregion
 
@@ -230,14 +230,14 @@ namespace StudentAttendanceManagementSystem.ClassModule
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
 
         }
         #endregion
 
         #region Function to generate dynamic user controls
-        public void generate_dynamic_user_control()
+        private void generate_dynamic_user_control()
         {
 
             generated_from_database();
@@ -267,7 +267,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
 
@@ -279,7 +279,8 @@ namespace StudentAttendanceManagementSystem.ClassModule
         {
             MyClassUserControl obj = (MyClassUserControl)sender;
 
-            MessageBox.Show(obj.ClassName + " " + obj.ClassCode);
+            Console.WriteLine(obj.ClassName + " " + obj.ClassCode);
+            //MessageBox.Show(obj.ClassName + " " + obj.ClassCode);
             // go to students form
             // get all the needed data and pass to student form
             string class_department = get_class_data_from_database(obj.ClassCode, "class_department");
@@ -320,7 +321,8 @@ namespace StudentAttendanceManagementSystem.ClassModule
                         {
                             string column_value = reader.GetString(column_index);
                             value_to_return.Add(column_value);
-                            MessageBox.Show(column_value);
+                            //MessageBox.Show(column_value);
+                            Console.WriteLine(column_value);
                         }
                     }
                     else
@@ -331,7 +333,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
             return value_to_return[0].ToString();
         }
@@ -409,7 +411,7 @@ namespace StudentAttendanceManagementSystem.ClassModule
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
             #endregion
 
@@ -542,6 +544,11 @@ namespace StudentAttendanceManagementSystem.ClassModule
         public void generate_classes()
         {
             generate_dynamic_user_control();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

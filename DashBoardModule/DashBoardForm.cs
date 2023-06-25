@@ -4,12 +4,14 @@ using StudentAttendanceManagementSystem.Tools;
 using System;
 using System.Collections;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StudentAttendanceManagementSystem.DashBoardModule
 {
     public partial class DashBoardForm : Form
     {
+        private string username;
         public DashBoardForm()
         {
             InitializeComponent();
@@ -19,7 +21,8 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
         public DashBoardForm(string user_name)
         {
             InitializeComponent();
-            lbl_username.Text += user_name;
+
+            this.username = user_name;
         }
 
         private void btn_class_form_Click(object sender, EventArgs e)
@@ -111,17 +114,18 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
 
         private void label1_MouseEnter(object sender, EventArgs e)
         {
-            MessageBox.Show("Name of the current user will appear here!");
+            // MessageBox.Show("Name of the current user will appear here!");
         }
 
         private void DashBoardForm_Load(object sender, EventArgs e)
         {
             try
             {
-                MessageBox.Show("Getting first 3 classes");
+                //lbl_username.Text = lbl_username.Text + username;
+                //MessageBox.Show("Getting first 3 classes");
                 // generated_from_database();
                 generate_first_three_classes();
-                MessageBox.Show("Done");
+                //MessageBox.Show("Done");
             }
             catch (Exception ex)
             {
@@ -131,7 +135,8 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("selecting all that have 20 percent absent from database");
+            Console.WriteLine("selecting all that have 20 percent absent from database...");
+            //MessageBox.Show("selecting all that have 20 percent absent from database");
             AttendanceTools.select_all_that_have_20_percent_absent_from_database("test123");
         }
 
@@ -309,7 +314,8 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
                         {
                             string column_value = reader.GetString(column_index);
                             value_to_return.Add(column_value);
-                            MessageBox.Show(column_value);
+                            //MessageBox.Show(column_value);
+                            Console.WriteLine(column_value);
                         }
                     }
                     else
@@ -397,5 +403,73 @@ namespace StudentAttendanceManagementSystem.DashBoardModule
 
         #endregion Experimental [2023-06-11]
 
+        #region Hover effects
+        private void btn_attendance_form_MouseLeave(object sender, EventArgs e)
+        {
+            this.btn_attendance_form.BackColor = Color.FromArgb(224, 224, 224);
+        }
+
+        private void btn_attendance_form_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_attendance_form.BackColor = Color.FromArgb(255, 128, 255);
+        }
+
+
+        private void btn_student_form_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_student_form.BackColor = Color.FromArgb(255, 128, 255);
+        }
+
+        private void btn_student_form_MouseLeave(object sender, EventArgs e)
+        {
+            this.btn_student_form.BackColor = Color.FromArgb(224, 224, 224);
+        }
+
+        private void btn_class_form_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_class_form.BackColor = Color.FromArgb(255, 128, 255);
+        }
+
+        private void btn_class_form_MouseLeave(object sender, EventArgs e)
+        {
+            this.btn_class_form.BackColor = Color.FromArgb(224, 224, 224);
+        }
+
+        private void btn_reports_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_reports.BackColor = Color.FromArgb(255, 128, 255);
+        }
+
+        private void btn_reports_MouseLeave(object sender, EventArgs e)
+        {
+            this.btn_reports.BackColor = Color.FromArgb(224, 224, 224);
+        }
+
+        private void btn_users_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_users.BackColor = Color.FromArgb(255, 128, 255);
+        }
+
+        private void btn_users_MouseLeave(object sender, EventArgs e)
+        {
+            this.btn_users.BackColor = Color.FromArgb(224, 224, 224);
+        }
+
+        // logout
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            this.button1.BackColor = Color.Red;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            this.button1.BackColor = Color.FromArgb(224, 224, 224);
+        }
+        #endregion
+
+        private void lbl_username_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

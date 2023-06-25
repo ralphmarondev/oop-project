@@ -208,6 +208,7 @@ namespace StudentAttendanceManagementSystem.Tools
          */
         public static void select_all_that_have_20_percent_absent_from_database(string table_name)
         {
+            Console.WriteLine("Selecting all that have 20 percent absent from database...");
             try
             {
                 string query = "select last_name from class_test123 where total_absents = " +
@@ -219,20 +220,21 @@ namespace StudentAttendanceManagementSystem.Tools
                 conn.Open();
                 //cmd.ExecuteNonQuery();
                 //conn.Close();
-                MessageBox.Show("Getting data");
+                // MessageBox.Show("Getting data");
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    MessageBox.Show("Reading...");
+                    // MessageBox.Show("Reading...");
                     if (reader.HasRows)
                     {
-                        MessageBox.Show("Pass 1");
+                        //MessageBox.Show("Pass 1");
                         int column_index = reader.GetOrdinal("last_name");
                         while (reader.Read())
                         {
                             string column_value = reader.GetString(column_index);
                             //inital_absents.Add(column_value);
                             //absents.Add(column_value);
-                            MessageBox.Show(column_value);
+                            // MessageBox.Show(column_value);
+                            Console.WriteLine(column_value);
                         }
                     }
                     else
@@ -240,14 +242,15 @@ namespace StudentAttendanceManagementSystem.Tools
                         MessageBox.Show("No data found!");
                     }
                 }
-                MessageBox.Show("Done");
+                //MessageBox.Show("Done");
 
-                MessageBox.Show("All students with 3 absents are selected!");
+                // MessageBox.Show("All students with 3 absents are selected!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+            Console.WriteLine("Done...");
         }
 
         #endregion

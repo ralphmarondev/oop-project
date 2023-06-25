@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteClassForm));
             this.gb_add_class = new System.Windows.Forms.GroupBox();
             this.btn_finish_add = new System.Windows.Forms.Button();
             this.tb_subject_name_add = new System.Windows.Forms.TextBox();
@@ -51,11 +52,15 @@
             this.gb_add_class.Size = new System.Drawing.Size(401, 292);
             this.gb_add_class.TabIndex = 3;
             this.gb_add_class.TabStop = false;
+            this.gb_add_class.Enter += new System.EventHandler(this.gb_add_class_Enter);
             // 
             // btn_finish_add
             // 
-            this.btn_finish_add.BackColor = System.Drawing.Color.Crimson;
+            this.btn_finish_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btn_finish_add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_finish_add.BackgroundImage")));
+            this.btn_finish_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_finish_add.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_finish_add.ForeColor = System.Drawing.Color.Black;
             this.btn_finish_add.Location = new System.Drawing.Point(24, 217);
             this.btn_finish_add.Name = "btn_finish_add";
             this.btn_finish_add.Size = new System.Drawing.Size(357, 52);

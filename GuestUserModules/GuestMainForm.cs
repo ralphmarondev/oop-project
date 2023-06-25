@@ -13,7 +13,7 @@ namespace StudentAttendanceManagementSystem.GuestUserModules
 
         private void btn_yes_Click(object sender, EventArgs e)
         {
-            GuessDashBoardForm guess_dash_board = new GuessDashBoardForm();
+            GuestDashBoardForm guess_dash_board = new GuestDashBoardForm();
 
             guess_dash_board.Show();
             Hide();

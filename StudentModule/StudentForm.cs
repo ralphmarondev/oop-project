@@ -81,7 +81,8 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_delete_student_Click(object sender, EventArgs e)
         {
-            DeleteStudentForm delete_student_form = new DeleteStudentForm();
+            string table_name = "class_" + cb_class.Text;
+            DeleteStudentForm delete_student_form = new DeleteStudentForm(table_name);
 
             delete_student_form.Show();
         }
@@ -258,7 +259,7 @@ namespace StudentAttendanceManagementSystem.StudentModule
             // done
 
             // 2023-06-11 show students with 20 % absents
-            show_students_with_20_percent_absents();
+            //show_students_with_20_percent_absents();
             // done
 
             // btn_refresh_Click(sender, e);
@@ -319,7 +320,7 @@ namespace StudentAttendanceManagementSystem.StudentModule
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
         #endregion
@@ -445,7 +446,7 @@ namespace StudentAttendanceManagementSystem.StudentModule
 
         private void btn_report_Click(object sender, EventArgs e)
         {
-            ReportsForm rf = new ReportsForm();
+            ReportsForm rf = new ReportsForm(cb_college.Text, cb_department.Text, cb_semester.Text, cb_school_year.Text, cb_class.Text);
 
             rf.Show();
             Hide();
@@ -477,7 +478,7 @@ namespace StudentAttendanceManagementSystem.StudentModule
             foreach (var items in class_code_items)
             {
                 class_code_list.Add(items.ToString());
-                MessageBox.Show(items.ToString());
+                // MessageBox.Show(items.ToString());
             }
             cb_class.Items.Add(class_code_list.ToArray());
         }
@@ -510,7 +511,8 @@ namespace StudentAttendanceManagementSystem.StudentModule
                             string column_value = reader.GetString(column_index);
                             class_code_items.Add(column_value);
                             class_code_items_count++;
-                            MessageBox.Show(column_value);
+                            // MessageBox.Show(column_value);
+                            Console.WriteLine(column_value);
                         }
                     }
                     else
@@ -650,5 +652,98 @@ namespace StudentAttendanceManagementSystem.StudentModule
             AttendanceTools.select_all_that_have_20_percent_absent_from_database(cb_class.Text);
         }
         #endregion
+
+        private void flp_students_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cb_date_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_school_year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_semester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_department_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_college_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_class_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_student_id_search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DashBoardForm df = new DashBoardForm();
+
+            df.Show();
+            Hide();
+        }
     }
 }
